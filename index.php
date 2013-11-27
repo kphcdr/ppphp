@@ -32,4 +32,4 @@
 			error_reporting(0);
 	}
 	//let go
-	//require CORE.'/pppHp.php';
+	require CORE.'/pppHp.php';
