@@ -21,6 +21,12 @@
  * @author duwei<duv123@gmail.com>
  *
  */
+ $option=array('dirs'=>APP.'/lib,'.APP.'/c,'.CORE.'/base',
+             'cache'=>APP.'/tmp/tmp',//class path 缓存文件
+             'suffix'=>'.class.php',//需要类自动装载的php类文件的后缀
+              "hand"=>false//是否自动更新缓存文件
+             );
+rareAutoLoad::register($option);
 class rareAutoLoad
 {
     private static $instance=null;
@@ -150,7 +156,7 @@ class rareAutoLoad
     
     private function saveCache(){
         if($this->hand)return;
-        $phpData="<?php\n/**\n*autoLoadCache\n*@since ".date('Y-m-d H:i:s')."\n*/\n";
+        $phpData="<?php\n/**\n*此文件为文件自动加载的缓存文件\n* ".date('Y-m-d H:i:s')."\n*/\n";
         if(!is_array($this->classes))$this->classes=array();
         ksort($this->classes);
         $phpData.="return ".var_export($this->classes,true).";";

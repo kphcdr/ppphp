@@ -8,24 +8,20 @@
 	define('PPPHP',realpath('./'));	//F:\www\git\ppphp  根目录
 
 	//常用配置
-	$Core = 'App/Core';
-	$App = 'App';
-	$View = 'App/view/';
+	$Web = 'http://www.ppphp.com/'; //网站域名
+	$Core = PPPHP.'/App/Core';//PPPHP框架目录
+	$App = PPPHP.'/App';//程序目录
+	$View = PPPHP.'/App/view/';//模板目录
 
 	//系统路径
 	define('CORE',$Core);
 	define('APP', $App);
 	define('VIEW', $View);
-
+	define('WEB', $Web);
 	//是否开启错误提示
 	if (ENVIRONMENT)
 	{
-			if(PHP_VERSION > '5.3.0')
-			{
-			include (CORE.'/Php_error.php');
-			\php_error\reportErrors();
-			}
-			error_reporting(E_ALL);
+
 	}
 	else
 	{
