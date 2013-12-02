@@ -9,10 +9,11 @@ class home extends ppphp
 	}
 	public function index()
 	{
-		$t = $this->lib('T');
+		$t = $this->b('t');
+		$m = $this->m('goods');
 		$a = 'ss';
 
 		$t->assign('a',$a);
-		$t->display('test.tpl');
+		$t->display('index.tpl');
 	}
 }

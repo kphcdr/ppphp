@@ -20,7 +20,7 @@ class ppphp
 		}
 		else
 		{
-			include APP.'/c/c_'.$this->__c.'.php';
+			include_once APP.'/c/c_'.$this->__c.'.php';
 		}
 		$c = new $this->__c;
 		if(!method_exists($c,$this->__a))
@@ -34,34 +34,54 @@ class ppphp
 	private function __route()
 	{
 		//URL  http://xxx.com/index.php/c/a/
-		$path = trim($_SERVER['PATH_INFO'], '/');
-		$path = explode('/', $path);
-		$c= array_shift($path);
-		$a= array_shift($path);
-		if($c)
+		if(isset($_SERVER['PATH_INFO']))
 		{
-		$this->__c = $c;
-		}
-		if($a)
-		{
-		$this->__a = $a;
+			$path = trim($_SERVER['PATH_INFO'], '/');
+			$path = explode('/', $path);
+			$c= array_shift($path);
+			$a= array_shift($path);
+			if($c)
+			{
+			$this->__c = $c;
+			}
+			if($a)
+			{
+			$this->__a = $a;
+			}
 		}
 	}
 	 //调用lib
-	 //$lib 模型名称
+	 //$lib 类名称
 	 //return obj
-	protected function lib($lib)
+	protected function b($lib)
 	{
 		//引入lib
 		if(!file_exists(APP.'/lib/'.$lib.'.class.php')) 
 		{
-			exit('lib'.$lib.'不存在');
+			exit('库'.$lib.'不存在');
 		}
 		else
 		{
-			include APP.'/lib/'.$lib.'.class.php';
+			include_once APP.'/lib/'.$lib.'.class.php';
 		}
 		$lib = new $lib();
-		return $lib;//返回实例
+		return $lib;//返回OBJ
+	}
+	//调用model
+	//$model 模型名称
+	//return obj
+	protected function m($model)
+	{
+		//include 模型
+		if(!file_exists(APP.'/m/m_'.$model.'.php')) 
+		{
+			exit('m'.$model.'不存在');
+		}
+		else
+		{
+			include_once APP.'/m/m_'.$model.'.php';
+		}
+		$model = new $model();
+		return $model;//返回OBJ
 	}
 }

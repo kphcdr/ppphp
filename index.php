@@ -17,6 +17,17 @@
 	define('APP', $App);
 	define('VIEW', $View);
 	define('WEB', $Web);
+	//数据库配置
+	$db = array(
+	'dbhost' => 'localhost',
+	'dbuser' => 'root',
+	'dbpassword' => 'damei',
+	'dbname' => 'ppphp',
+	'tablepre' => 'ppphp_',
+	'encoding' => 'utf8',
+	'type' => 'mysqli'// or mysql 
+	);
+
 	//是否开启错误提示
 	if (ENVIRONMENT)
 	{
