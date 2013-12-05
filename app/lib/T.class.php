@@ -17,10 +17,5 @@ class t extends Smarty
 			$this->right_delimiter = '}'; //右定界符
 			$this->debugging = false;  //开启调试模式
 
-		}
-		public function loadddefine()
-		{
-			
-		}
-		
+		}		
 }

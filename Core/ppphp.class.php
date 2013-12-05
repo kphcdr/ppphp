@@ -2,12 +2,12 @@
 if ( ! defined('PPPHP')) exit('非法入口');
 class ppphp
 {
-	private $__c='home' ;//控制器的名称
-	private $__a='index' ;//方法的名称
-	
-	public function ppphp()
+    private $__c='home' ;//控制器的名称
+    private $__a='index' ;//方法的名称
+    protected $t; //模板obj
+    public function ppphp()
 	{
-
+        
 	}
 	//go!go!go!
 	public function go()
@@ -20,7 +20,7 @@ class ppphp
 		}
 		else
 		{
-			include_once APP.'/c/c_'.$this->__c.'.php';
+			include APP.'/c/c_'.$this->__c.'.php';
 		}
 		$c = new $this->__c;
 		if(!method_exists($c,$this->__a))

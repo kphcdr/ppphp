@@ -7,9 +7,9 @@
 	header("Content-type:text/html;charset=utf-8");
 	define('ENVIRONMENT', 1);//调试模式
 	define('PPPHP',realpath('./'));	//F:\www\git\ppphp  根目录
-	//常用配置设置
-	$Web = 'http://www.ppphp.com/'; //网站域名
-	$Core = PPPHP.'/app/Core';//PPPHP框架目录
+	//常用配置
+	$Web = 'http://ppphp.com/'; //网站域名
+	$Core = PPPHP.'/Core';//PPPHP框架目录
 	$App = PPPHP.'/app';//程序目录
 	$View = PPPHP.'/app/view/';//模板目录
 	//系统路径

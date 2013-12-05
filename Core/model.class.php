@@ -11,6 +11,6 @@ class model extends ppphpm
 	//$db array 
 	public function model()
 	{
-		echo 1;
+		
 	}
 }
