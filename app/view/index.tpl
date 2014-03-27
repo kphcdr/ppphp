@@ -1,3 +1,2 @@
 {$a}
 
-{'home/index'|url}

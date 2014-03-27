@@ -1,9 +1,10 @@
 <?php
-if ( ! defined('PPPHP')) exit('非法入口');
+if ( ! defined('PPPHP')) exit('闈炴硶鍏ュ彛');
 class goods extends model
 {
-	public function goods()
+	public function get_goods()
 	{
 		//$this->db->where();
+		
 	}	
 }
