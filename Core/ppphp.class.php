@@ -20,7 +20,7 @@ class ppphp
 		}
 		else
 		{
-			include APP.'/c/c_'.$this->__c.'.php';
+			include APP.'/c/'.$this->__c.'.php';
 		}
 		$c = new $this->__c;
 		if(!method_exists($c,$this->__a))
