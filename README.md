@@ -3,5 +3,8 @@ PPPHP
 
 1.使用SMARTY模板引擎
 
-2.抛弃了类的自动加载
+2.使用EZSQL作为DB库
 
+在线说明网址
+
+http://ppphp.kphcdr.com
