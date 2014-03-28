@@ -43,7 +43,7 @@
 		*  same time as initialising the ezSQL_mysql class
 		*/
 
-		function ezSQL_mysql($dbuser='', $dbpassword='', $dbname='', $dbhost='localhost', $encoding='')
+		function ezSQL_mysql($dbuser='', $dbpassword='', $dbname='', $dbhost='localhost', $encoding='utf-8')
 		{
 			$this->dbuser = $dbuser;
 			$this->dbpassword = $dbpassword;

@@ -1,6 +1,6 @@
 <?php
 return array(	//数据库配置
-	'dbhost' => 'localhost',
+	'dbhost' => '127.0.0.1',
 	'dbuser' => 'root',
 	'dbpassword' => 'root',
 	'dbname' => 'ppphp',

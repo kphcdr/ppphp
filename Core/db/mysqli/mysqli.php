@@ -1,7 +1,7 @@
 <?php
 
 	/**********************************************************************
-	*  Author: Juergen Bouché (jbouche@nurfuerspam.de)
+	*  Author: Juergen Bouchï¿½ (jbouche@nurfuerspam.de)
 	*  Web...: http://www.juergenbouche.de
 	*  Name..: ezSQL_mysqli
 	*  Desc..: mySQLi component (part of ezSQL database abstraction library)
@@ -44,13 +44,13 @@
 		*  same time as initialising the ezSQL_mysqli class
 		*/
 
-		function ppphpm($dbuser='', $dbpassword='', $dbname='', $dbhost='localhost', $encoding='')
+		function ppphpm($dbuser='', $dbpassword='', $dbname='', $dbhost='localhost', $encoding='utf-8')
 		{
 			$this->dbuser = $dbuser;
 			$this->dbpassword = $dbpassword;
 			$this->dbname = $dbname;
 			list( $this->dbhost, $this->dbport ) = $this->get_host_port( $dbhost, 3306 );
-			$this->encoding = $encoding;
+			$this->encoding = $encoding;	
 		}
 
 		/**********************************************************************

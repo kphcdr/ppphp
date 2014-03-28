@@ -11,3 +11,6 @@ $RECYCLE.BIN/
 /backup
 /nbproject/private/
 /nbproject
+/.project
+/.settings
+/.buildpath
