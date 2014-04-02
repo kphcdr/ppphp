@@ -5,9 +5,9 @@ class ppphp
     private $__c='home' ;//控制器的名称
     private $__a='index' ;//方法的名称
     protected $t; //模板obj
-    public function ppphp()
+    public function __construct()
 	{
-        
+        $this->t = $this->b('T');
 	}
 	//go!go!go!
 	public function go()
@@ -16,7 +16,8 @@ class ppphp
 		//判断是否存在类和方法
 		if(!file_exists(APP.'/c/c_'.$this->__c.'.php')) 
 		{
-			exit('控制器'.$this->__c.'不存在');
+			show_error('控制器'.$this->__c.'不存在');
+			
 		}
 		else
 		{
@@ -25,7 +26,7 @@ class ppphp
 		$c = new $this->__c;
 		if(!method_exists($c,$this->__a))
 		{
-			exit('方法'.$this->__a.'不存在');
+			show_error('方法'.$this->__a.'不存在');
 		}
 		$a = $this->__a;
 		$c->$a();
@@ -58,7 +59,7 @@ class ppphp
 		//引入lib
 		if(!file_exists(APP.'/lib/'.$lib.'.class.php')) 
 		{
-			exit('库'.$lib.'不存在');
+			show_error('库'.$lib.'不存在');
 		}
 		else
 		{
@@ -75,7 +76,7 @@ class ppphp
 		//include 模型
 		if(!file_exists(APP.'/m/m_'.$model.'.php')) 
 		{
-			exit('m'.$model.'不存在');
+			show_error('m'.$model.'不存在');
 		}
 		else
 		{
@@ -83,5 +84,25 @@ class ppphp
 		}
 		$model = new $model();
 		return $model;//返回OBJ
+	}
+	//渲染视图
+	protected function display($tpl,$data = '')
+	{
+		if(!empty($data))
+		{
+			if(is_array($data))
+			{
+				foreach($data as $key=>$a)
+				{
+					$this->t->assign($key,$a);
+				}
+			}
+			else
+			{
+				$this->t->assign('data',$data);
+			}
+		}
+		
+		$this->t->display($tpl.'.tpl');
 	}
 }

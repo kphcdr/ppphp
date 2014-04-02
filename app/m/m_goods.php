@@ -9,7 +9,5 @@ class goods extends model
 	public function get_goods()
 	{
 		//$this->db->where();
-$this->query("INSERT INTO test (id, name, value) VALUES (NULL,'test','jv@ttt')");	
-$this->debug();	
 	}	
 }

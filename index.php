@@ -7,16 +7,11 @@
 	header("Content-type:text/html;charset=utf-8");
 	define('ENVIRONMENT', 1);//调试模式
 	define('PPPHP',realpath('./'));	//F:\www\git\ppphp  根目录
-	//常用配置
-	$Web = 'http://ppphp.com/'; //网站域名
-	$Core = PPPHP.'/Core';//PPPHP框架目录
-	$App = PPPHP.'/app';//程序目录
-	$View = PPPHP.'/app/view/';//模板目录
 	//系统路径
-	define('CORE',$Core);
-	define('APP', $App);
-	define('VIEW', $View);
-	define('WEB', $Web);
+	define('CORE',PPPHP.'/Core');
+	define('APP', PPPHP.'/app');
+	define('VIEW', PPPHP.'/app/view/');
+	define('WEB', 'http://ppphp.com/');
 	//是否开启错误提示
 	if (ENVIRONMENT)
 	{
