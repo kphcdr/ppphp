@@ -17,4 +17,5 @@ class home extends ppphp
         $t->assign('a',$a);
         $t->display('index.tpl');
     }
+
 }

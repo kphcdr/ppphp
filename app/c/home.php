@@ -12,4 +12,8 @@ class home extends ppphp
 		$data['a'] = '12s';
 		$this->display('index',$data);
 	}
+    public function test()
+    {
+    	debug::includes();
+    }	
 }

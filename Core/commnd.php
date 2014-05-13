@@ -12,11 +12,6 @@ function conf($conf)
 	}
 	return $return;
 }
-
-function debug()
-{
-	xdebug_print_function_stack('debug');
-}
 //中断语句，输出错误信息
 function show_error($message)
 {

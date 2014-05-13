@@ -12,14 +12,16 @@
 	define('APP', PPPHP.'/app');
 	define('VIEW', PPPHP.'/app/view/');
 	define('WEB', 'http://ppphp.com/');
-	//是否开启错误提示
+	//是否开启错误提示以及BUG调试
 	if (ENVIRONMENT)
 	{
 			error_reporting(E_ALL);
+			require  APP.'/lib/krumo/class.krumo.php';
 	}
 	else
 	{
 			error_reporting(0);
 	}
+	
 	//let go
 	require CORE.'/ppphp.php';
