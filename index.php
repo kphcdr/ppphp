@@ -15,13 +15,12 @@
 	//是否开启错误提示以及BUG调试
 	if (ENVIRONMENT)
 	{
-			error_reporting(E_ALL);
-			require  APP.'/lib/krumo/class.krumo.php';
+		error_reporting(E_ALL);
+		require  CORE.'/lib/krumo/class.krumo.php';
 	}
 	else
 	{
-			error_reporting(0);
+		error_reporting(0);
 	}
-	
 	//let go
 	require CORE.'/ppphp.php';
