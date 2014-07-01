@@ -1,0 +1,14 @@
+body, input, textarea, button, select,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    font-family: Arial,'Microsoft YaHei',微软雅黑,SimSun,宋体,serif;
+}
+
+.copyright {
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #777777;
+    font-size: 11px;
+    text-align: center;
+}

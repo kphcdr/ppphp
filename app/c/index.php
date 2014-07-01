@@ -9,15 +9,16 @@ class index extends ppphp
 	}
 	public function index()
 	{
-		$data['title'] = 'PPPHP框架';
+		$g = $this->m('goods');
+		$data['d'] = array(1,2,3);
 		$this->display('index',$data);
 	}
     public function about()
     {
-		//$this->display('about');
+		$this->display('about');
     }
     public function content()
     {
-		//$this->display('content');
+		$this->display('content');
     }
 }

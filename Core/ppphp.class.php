@@ -1,18 +1,18 @@
 <?php
 if ( ! defined('PPPHP')) exit('非法入口');
-class ppphp
+class ppphp  
 {
-    private $__c;//默认控制器的名称
-    private $__a;//默认方法的名称
+    protected $__c;//默认控制器的名称
+    protected $__a;//默认方法的名称
     protected $t; //模板obj
+    public $pathinfo;
     public function __construct()
 	{
+		$this->__route();
 	}
 	//go!go!go!
 	public function go()
 	{
-		$this->__route();
-		
 		//判断是否存在类和方法
 		if(!file_exists(APP.'/c/'.$this->__c.'.php')) 
 		{
@@ -33,7 +33,6 @@ class ppphp
 	//路由分发
 	private function __route()
 	{
-		//URL  http://xxx.com/index.php/c/a/
 		if(isset($_SERVER['PATH_INFO']))
 		{
 			$path = trim($_SERVER['PATH_INFO'], '/');
@@ -111,8 +110,14 @@ class ppphp
 		$model = new $model();
 		return $model;//返回OBJ
 	}
-	//渲染视图
-	protected function display($tpl,$data = '')
+	/**
+	 * 渲染视图
+	 * 按照控制器/模板文件名称
+	 * @param str $tpl 模板名称
+	 * @param arr&str $data 数据 
+	 * @return obj
+	 */
+	protected function display($tpl,$data = '',$output=true)
 	{
 		if(empty($this->t))
 		{
@@ -132,7 +137,17 @@ class ppphp
 				$this->t->assign('data',$data);
 			}
 		}
-		
+		$tpl = VIEW.'/'.$this->__c.'/'.$tpl;
 		$this->t->display($tpl.'.tpl');
+	}
+	//
+	public function cookie()
+	{
+		$return = $this->b('cookie');
+		return $return;
+	}
+	public function session()
+	{
+		return $this->b('session');
 	}
 }

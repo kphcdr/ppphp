@@ -58,7 +58,6 @@ if (!defined('KRUMO_TRUNCATE_LENGTH')) {
 *
 * @package Krumo
 */
-class debug extends krumo{}
 Class krumo {
 
 	/**
@@ -965,7 +964,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		// render it
 		//
 		?>
-<div class="krumo-nest" style="display:none;">
+<div class="krumo-nest" style="display:block;">
 	<ul class="krumo-node">
 	<?php
 
@@ -1010,7 +1009,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	*/
 	Private Static Function _recursion() {
 ?>
-<div class="krumo-nest" style="display:none;">
+<div class="krumo-nest" style="display:block;">
 	<ul class="krumo-node">
 		<li class="krumo-child">
 			<div class="krumo-element"
@@ -1040,7 +1039,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 ?>
 <li class="krumo-child">
 	
-	<div class="krumo-element<?php echo count($data) > 0 ? ' krumo-expand' : '';?>"
+	<div class="krumo-opened krumo-element<?php echo count($data) > 0 ? ' krumo-expand' : '';?>"
 		<?php if (count($data) > 0) {?> onClick="krumo.toggle(this);"<?php } ?>
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
@@ -1265,7 +1264,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	</div>
 	
 	<?php if ($_extra) { ?>
-	<div class="krumo-nest" style="display:none;">
+	<div class="krumo-nest" style="display:block;">
 		<ul class="krumo-node">
 			
 			<li class="krumo-child">
