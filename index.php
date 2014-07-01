@@ -11,7 +11,7 @@
 	define('CORE',PPPHP.'/Core');
 	define('APP', PPPHP.'/app');
 	define('VIEW', PPPHP.'/app/view/');
-	define('WEB', 'http://ppphp.com/');
+	define('WEB', 'http://p.com/');
 	//是否开启错误提示以及BUG调试
 	if (ENVIRONMENT)
 	{

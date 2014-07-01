@@ -3,11 +3,11 @@
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
-  <title>天瓜 - 每日一美文,胜过十本书</title> 
+  <title>PPPHP框架</title> 
   <meta name="keywords" content="天瓜网,天瓜,天瓜美文,智慧,青春,励志,正能量,美文,经典语录,人生感悟,唯美文章,励志文章,瓜,tiangua,daygua,daygua.com" /> 
   <meta name="description" content="天瓜网是每日精选出一篇美文的最受欢迎的传播正能量的清新网站，文章句句经典感动，是每日必读必上的网站，每日一美文，胜过十本书。" /> 
   <meta name="author" content="天瓜网|天瓜|每日一美文,胜过十本书" /> 
-  <link rel="stylesheet" type="text/css" href="/static/index/css/base.min.css" /> 
+  <link rel="stylesheet" type="text/css" href="{$smarty.const.WEB}/static/index/css/base.min.css" /> 
   <link rel="stylesheet" type="text/css" href="/static/index/css/com.min.css" /> 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
  </head>
@@ -66,46 +66,14 @@
         <div class="art-desc"> 
          <h3 class="page-oldday"> 往日回顾 </h3> 
         </div> </li> 
+        {foreach from=$list item=a}
        <li class="entry"> 
         <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-05-05</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3277" class="a art-title">中国的飞机可以上月球，但是做不出这个视频</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-05-04</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3276" class="a art-title">一份没人敢看的中国地图</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-05-03</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3275" class="a art-title">天瓜独家首发《2048恋爱脱光版》，不玩你就OUT了</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-05-02</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3274" class="a art-title">你看了必会有接吻的冲动</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-05-01</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3273" class="a art-title">价值5千万的1堂课（不看白不看）</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-04-30</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3272" class="a art-title">做人的心计（你一定要看）</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-04-29</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3271" class="a art-title">幸福额度</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-04-28</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3270" class="a art-title">多年积攒的正能量，吐血力荐</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-04-27</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3269" class="a art-title">今天，你必须告诉自己</a> </h3> 
-        </div> </li> 
-       <li class="entry"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <b style="font-size:16px;">2014-04-26</b>&nbsp;&nbsp; <a target="_blank" href="http://www.daygua.com/3268" class="a art-title">你肯定不知道的生活定律</a> </h3> 
-        </div> </li> 
+         <h3 class="art-t"> <b style="font-size:16px;">{$a.time|date_format:"%Y-%m-%d"}</b>&nbsp;&nbsp; 
+         <a target="_blank" href="http://www.daygua.com/3277" class="a art-title">{$a.title}</a> 
+         </h3> 
+        </div> </li>
+        {/foreach}
       </ul> 
      </div> 
      <!--分页开始--> 

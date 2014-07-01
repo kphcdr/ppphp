@@ -14,7 +14,7 @@ class ppphp
 	public function go()
 	{
 		//判断是否存在类和方法
-		if(!file_exists(APP.'/c/'.$this->__c.'.php')) 
+		if(!file_exists(APP.'/c/'.$this->__c.'.php'))
 		{
 			show_error('控制器'.$this->__c.'不存在');
 		}

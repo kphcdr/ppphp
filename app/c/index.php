@@ -9,8 +9,15 @@ class index extends ppphp
 	}
 	public function index()
 	{
-		$g = $this->m('goods');
-		$data['d'] = array(1,2,3);
+		$result = scandir('db');
+		array_shift($result);array_shift($result);
+		$list = array();
+		foreach($result as $key=>$a)
+		{
+			$list[$key]['time'] = substr($a,0,10);
+			$list[$key]['title'] = file_get_contents('db/'.$a);
+		}
+		$data['list'] = $list;
 		$this->display('index',$data);
 	}
     public function about()
