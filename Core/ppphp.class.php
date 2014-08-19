@@ -101,7 +101,7 @@ class ppphp
 		//include 模型
 		if(!file_exists($path)) 
 		{
-			show_error('m'.$model.'不存在');
+			show_error(''.$model.'不存在');
 		}
 		else
 		{
@@ -139,15 +139,5 @@ class ppphp
 		}
 		$tpl = VIEW.'/'.$this->__c.'/'.$tpl;
 		$this->t->display($tpl.'.tpl');
-	}
-	//
-	public function cookie()
-	{
-		$return = $this->b('cookie');
-		return $return;
-	}
-	public function session()
-	{
-		return $this->b('session');
 	}
 }
