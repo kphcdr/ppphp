@@ -25,10 +25,21 @@ class ppphp
 		$c = new $this->__c;
 		if(!method_exists($c,$this->__a))
 		{
+			if(!isset($this->__a))
+			{
+				$c->index();
+			}
+			else
+			{
 			show_error('方法'.$this->__a.'不存在');
+			}
 		}
-		$a = $this->__a;
-		$c->$a();
+		else 
+		{
+			$a = $this->__a;
+			$c->$a();
+		}
+		
 	}
 	//路由分发
 	private function __route()
@@ -67,7 +78,7 @@ class ppphp
 	 * @param str $dir like /Core/lib/
 	 * @return obj
 	 */
-	protected function b($lib)
+	protected function b($lib,$array=NULL)
 	{
 		$systempath = CORE.'/lib/'.$lib.'.class.php';
 		$apppath = APP.'/lib/'.$lib.'.class.php';
@@ -87,7 +98,14 @@ class ppphp
 				show_error('库'.$lib.'不存在');
 			}
 		}
-		$lib = new $lib();
+		if($array === NULL)
+		{
+			$lib = new $lib();
+		}
+		else
+		{
+			$lib = new $lib($array);
+		}
 		return $lib;//返回OBJ
 	}
 	/**
@@ -101,7 +119,7 @@ class ppphp
 		//include 模型
 		if(!file_exists($path)) 
 		{
-			show_error(''.$model.'不存在');
+			show_error('模型'.$model.'不存在');
 		}
 		else
 		{
@@ -123,6 +141,8 @@ class ppphp
 		{
 			$this->t = $this->b('T','/Core/lib/');
 		}
+		$data['__c'] = $this->__c;
+		$data['__a'] = $this->__a;
 		if(!empty($data))
 		{
 			if(is_array($data))
@@ -137,7 +157,79 @@ class ppphp
 				$this->t->assign('data',$data);
 			}
 		}
+
 		$tpl = VIEW.'/'.$this->__c.'/'.$tpl;
 		$this->t->display($tpl.'.tpl');
 	}
+	/**
+	 * 获取GET的参数
+	 */
+	protected function get($str,$filter = '')
+	{
+		if(isset($_GET[$str]))
+		{
+			$return =  $_GET[$str];
+		}
+		else if(isset($this->pathinfo[$str]))
+		{
+			$return =  $this->pathinfo[$str];
+		}
+		if(isset($return))
+		{
+			switch ($filter)
+			{
+				case 'int':
+					if (!is_numeric($return))
+					{
+						return FALSE;
+					}
+					break;
+			}
+			return $return;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	/**
+	 * 获取POST参数
+	 * @param str $name post名称 
+	 * @param str $filter 过滤方式 int 
+	 * @todo 更多的过滤方法
+	 */
+	public function post($name, $filter = '')
+	{
+		if (isset($_POST[$name]))
+		{
+			$param = $_POST[$name];
+			switch ($filter)
+			{
+				case 'int':
+					if (is_numeric($param))
+					{
+						$return = $param;
+					}
+					else
+					{
+						return FALSE;
+					}
+					break;
+				
+				default:
+					$return = $param;
+					break;
+			}
+			//是否开启魔术方法
+			if (!get_magic_quotes_gpc())
+			{
+				$return = addslashes($return);
+			}
+			return $return;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}	
 }
