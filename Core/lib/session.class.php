@@ -44,6 +44,8 @@ class session{
 	function dropall()
 	{
 		if(isset($_SESSION))
-		unset($_SESSION);
+		{
+			session_unset();
+		}
 	}
 }
