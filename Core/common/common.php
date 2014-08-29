@@ -1,4 +1,5 @@
 <?php
+if ( ! defined('PPPHP')) exit('非法入口');
 	function conf($conf)
 	{
 		$systemfile = CORE . '/conf/' . $conf . '.php';
@@ -37,7 +38,11 @@
 	 */
 	function jump($url)
 	{
-		$url = url($url);
+		//判断是否需要为$url拼接
+		if(strpos($url,'http://'))
+		{
+			$url = url($url);
+		}
 		//@FIXME
 		header("Location: " . $url);
 		exit();
@@ -58,47 +63,7 @@
 		{
 			return FALSE;
 		}
-	}
-	/**
-	 * 获取POST参数
-	 * @param str $name post名称 
-	 * @param str $filter 过滤方式 int 
-	 * @todo 更多的过滤方法
-	 */
-	function post($name, $filter = '')
-	{
-		if (isset($_POST[$name]))
-		{
-			$param = $_POST[$name];
-			switch ($filter)
-			{
-				case 'int':
-					if (is_numeric($param))
-					{
-						$return = $param;
-					}
-					else
-					{
-						return FALSE;
-					}
-					break;
-				
-				default:
-					$return = $param;
-					break;
-			}
-			//是否开启魔术方法
-			if (!get_magic_quotes_gpc())
-			{
-				$return = addslashes($return);
-			}
-			return $return;
-		}
-		else
-		{
-			return FALSE;
-		}
-	}
+	}	
 	function is_post()
 	{
 		if (isset($_POST) && !empty($_POST))
@@ -115,7 +80,7 @@
 	 * @param str $msg 信息
 	 * @param str $gourl -1为回到上一页|0为刷新|否则为跳转的URL
 	 */
-	function show_message($msg = '', $gourl = '-1')
+	function msg($msg = '', $gourl = '-1')
 	{
 		
 		if ($gourl == '-1')
@@ -131,4 +96,54 @@
 		else
 			echo '<script>alert("' . $msg . '");location.href="' . $gourl . '";</script>';
 		
+	}
+	/**
+	 * 去除代码中的空白和注释
+	 * from THINKPHP
+	 * @param string $content 代码内容
+	 * @return string
+	 */
+	function strip_whitespace($content) {
+	    $stripStr   = '';
+	    //分析php源码
+	    $tokens     = token_get_all($content);
+	    $last_space = false;
+	    for ($i = 0, $j = count($tokens); $i < $j; $i++) {
+	        if (is_string($tokens[$i])) {
+	            $last_space = false;
+	            $stripStr  .= $tokens[$i];
+	        } else {
+	            switch ($tokens[$i][0]) {
+	                //过滤各种PHP注释
+	                case T_COMMENT:
+	                case T_DOC_COMMENT:
+	                    break;
+	                //过滤空格
+	                case T_WHITESPACE:
+	                    if (!$last_space) {
+	                        $stripStr  .= ' ';
+	                        $last_space = true;
+	                    }
+	                    break;
+	                case T_START_HEREDOC:
+	                    $stripStr .= "<<<THINK\n";
+	                    break;
+	                case T_END_HEREDOC:
+	                    $stripStr .= "THINK;\n";
+	                    for($k = $i+1; $k < $j; $k++) {
+	                        if(is_string($tokens[$k]) && $tokens[$k] == ';') {
+	                            $i = $k;
+	                            break;
+	                        } else if($tokens[$k][0] == T_CLOSE_TAG) {
+	                            break;
+	                        }
+	                    }
+	                    break;
+	                default:
+	                    $last_space = false;
+	                    $stripStr  .= $tokens[$i][1];
+	            }
+	        }
+	    }
+	    return $stripStr;
 	}
