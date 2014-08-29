@@ -7,6 +7,6 @@
 function smarty_modifier_url($url)
 {
     //拼接URL
-    $url = 'index.php/'.$url;
+    $url = url($url);
     return $url;
 }
