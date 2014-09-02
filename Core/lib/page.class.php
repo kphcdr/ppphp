@@ -19,7 +19,7 @@ class Page
 	public $page_num = 12; //每页条数
 	public $total_num = ''; //总页数
 	public $page_now ;//当前页
-	public $page_now_class = 'active';
+	public $page_now_class = 'uk-active';
 	public $page ;	
 	public $url_page = 'page'; //url 参数
 	public $first = '第一页';	//为false时 不显示
@@ -131,7 +131,7 @@ class Page
 			{
 				if($index == $this->page_now)
 				{
-					$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+					$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 				}
 				else
 				{
@@ -148,7 +148,7 @@ class Page
 				{
 					if($index == $this->page_now)
 					{
-						$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+						$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 					}
 					else
 					{
@@ -165,7 +165,7 @@ class Page
 				{
 					if($index == $this->page_now)
 					{
-						$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+						$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 					}
 					else
 					{
@@ -182,7 +182,7 @@ class Page
 				{
 					if($index == $this->page_now)
 					{
-						$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+						$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 					}
 					else
 					{
@@ -198,7 +198,7 @@ class Page
 				{
 					if($index == $this->page_now)
 					{
-						$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+						$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 					}
 					else
 					{
@@ -213,7 +213,7 @@ class Page
 				{
 					if($index == $this->page_now)
 					{
-						$this->page .= '<li><a href="###" '.$class.' >'.$index.'</span>';
+						$this->page .= '<li '.$class.'><span>'.$index.'</span></li>';
 					}
 					else
 					{
