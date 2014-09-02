@@ -9,7 +9,7 @@
  */
 class medoo
 {
-	protected $database_type = 'mysql';
+	protected $database_type = 'mysqli';
 
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
 	protected $server = 'localhost';
