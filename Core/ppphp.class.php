@@ -221,9 +221,12 @@ class ppphp
 					break;
 			}
 			//是否开启魔术方法
-			if (!get_magic_quotes_gpc())
+			if($filter)
 			{
-				$return = addslashes($return);
+				if (!get_magic_quotes_gpc())
+				{
+					$return = addslashes($return);
+				}
 			}
 			return $return;
 		}
