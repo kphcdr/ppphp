@@ -52,17 +52,6 @@ if ( ! defined('PPPHP')) exit('非法入口');
 		//拼接URL
 		$url = WEB.$url;
 		return $url;
-	}
-	function debug($str)
-	{
-		if (method_exists('krumo', $str))
-		{
-			krumo::$str();
-		}
-		else
-		{
-			return FALSE;
-		}
 	}	
 	function is_post()
 	{

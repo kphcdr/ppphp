@@ -17,7 +17,6 @@
 	if (ENVIRONMENT)
 	{
 		error_reporting(E_ALL);
-		require  CORE.'/lib/krumo/class.krumo.php';
 	}
 	else
 	{

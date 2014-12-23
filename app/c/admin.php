@@ -27,7 +27,6 @@ class admin extends ppphp
 			$this->session()->set('id',$id);
 			$this->cookie();
 			debug('');
-			krumo::classes($data);
 		}
 		else
 		{
