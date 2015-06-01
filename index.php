@@ -6,13 +6,12 @@
 */
 	header("Content-type:text/html;charset=utf-8");
 	define('ENVIRONMENT', true);//调试模式
-	define('PPPHP',realpath('./'));	//F:\www\git\ppphp  根目录
+	define('PPPHP',realpath('./'));	// 根目录
 	//系统路径
 	define('CORE',PPPHP.'/Core');
 	define('APP', PPPHP.'/app');
 	define('VIEW', PPPHP.'/app/view/');
 	define('WEB', $_SERVER['PHP_SELF']);
-	echo WEB;exit();
 	//是否开启错误提示以及BUG调试
 	if (ENVIRONMENT)
 	{
