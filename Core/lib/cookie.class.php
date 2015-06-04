@@ -6,10 +6,6 @@
  */
 class cookie{
 	private	$time;
-	public function test()
-	{
-		echo '12';
-	}
 	/**
 	 * cookie类自加载，默认30分钟失效
 	 * 

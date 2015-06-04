@@ -8,20 +8,4 @@ class index extends ppphp
 	{
 		$this->display('index');
 	}
-	public function test()
-	{
-
-	}
-    public function about()
-    {
-		$this->display('about');
-    }
-    public function content()
-    {
-		$this->display('content');
-    }
-    public function home()
-    {
-    	echo 'home';
-    }
 }
