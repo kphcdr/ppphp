@@ -146,7 +146,6 @@ class ppphp
 		if(is_numeric($str))
 		{
 			$return = $this->path[$str];
-			print_r($this->path);
 		}
 		else 
 		{
