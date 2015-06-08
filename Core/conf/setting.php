@@ -1,5 +1,6 @@
 <?php
 return array(
-	'c' => 'index',#默认控制器
-	'a' => 'index',#默认方法
+	'C' => 'home',#默认控制器
+	'A' => 'index',#默认方法
+	'TPL_NAME'	=>	'tpl',
 );

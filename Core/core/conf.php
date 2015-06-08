@@ -10,7 +10,8 @@ $PPPHP_CONF = conf('setting');
 
 foreach($PPPHP_CONF as $key=>$conf)
 {
-	define($key,$conf);
+	if(!defined($key))
+	{
+		define($key,$conf);
+	}
 }
-
-echo TPL_NAME;
