@@ -14,13 +14,13 @@ class ppphp
     public $path;
     public function __construct()
 	{
-		$this->__route();
-		#$this->__autoclass();
 	}
 	//go!go!go!
 	public function go()
 	{
 		//判断是否存在类和方法
+		$this->__route();
+		
 		if(!file_exists(APP.'/c/'.$this->__c.'.php'))
 		{
 			show_error('控制器'.$this->__c.'不存在');
@@ -34,8 +34,8 @@ class ppphp
 		{
 			if(!isset($this->__a))
 			{
-				$setting = conf('setting');
-				$c->$setting['a']();
+				
+				$c->A();
 			}
 			else
 			{
@@ -134,9 +134,12 @@ class ppphp
 				$this->t->assign('data',$data);
 			}
 		}
-
-		$tpl = VIEW.'/'.$this->__c.'/'.$tpl;
-		$this->t->display($tpl.'.tpl');
+		//获得当前调用的controller
+		$path = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,2);
+		$controller = $path[1]['class'];
+		
+		$tpl = VIEW.'/'.$controller.'/'.$tpl.'.tpl';
+		$this->t->display($tpl);
 	}
 	/**
 	 * 获取GET的参数
@@ -257,9 +260,8 @@ class ppphp
 		}
 		else
 		{
-			$setting = conf('setting');
-			$this->__c = $setting['c'];
-			$this->__a = $setting['a'];
+			$this->__c = C;
+			$this->__a = A;
 		}
 	}
 }
