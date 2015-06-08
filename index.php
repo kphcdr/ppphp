@@ -1,4 +1,6 @@
 <?php
+use CutePHP\Route\Route;
+use CutePHP\Route\Router;
 /*
 *	PPPHP入口文件 
 *
@@ -12,4 +14,7 @@ define('APP', PPPHP.'/app');
 define('VIEW', PPPHP.'/app/view');
 define('WEB', $_SERVER['PHP_SELF']);
 //let go
+require 'vendor/autoload.php';
+
+
 require CORE.'/core/ppphp.php';
