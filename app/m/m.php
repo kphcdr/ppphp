@@ -6,6 +6,10 @@ class m extends model
 	{
 		parent::__construct();
 	}
+	public function test()
+	{
+		return $this->select('help_category','*');
+	}
 	public function lists()
 	{
 		return $this->select('test','*',array('id[>=]'=>'1','LIKE'=>array('name'=>'1234'),'LIMIT'=>array(0, 100)));
