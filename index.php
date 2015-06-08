@@ -13,6 +13,7 @@ define('CORE',PPPHP.'/Core');
 define('APP', PPPHP.'/app');
 define('VIEW', PPPHP.'/app/view');
 define('WEB', $_SERVER['PHP_SELF']);
+define('CACHE',APP.'/tmp/');
 //let go
 require 'vendor/autoload.php';
 
