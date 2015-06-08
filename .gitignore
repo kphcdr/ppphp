@@ -9,10 +9,6 @@ Desktop.ini
 $RECYCLE.BIN/
 /assets
 /backup
-/nbproject/private/
-/nbproject
 /.project
 /.settings
-/.buildpath
-
 /composer.lock
