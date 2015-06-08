@@ -8,4 +8,12 @@ class home extends ppphp
 	{
 		$this->display('index');
 	}
+	
+	public function ss()
+	{
+		$m = $this->m('m');
+		$result = $m->test();
+		
+		print_r(xdebug_print_function_stack());
+	}
 }
