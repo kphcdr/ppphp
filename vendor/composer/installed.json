@@ -1,0 +1,56 @@
+[
+    {
+        "name": "catfan/medoo",
+        "version": "v0.9.5.3",
+        "version_normalized": "0.9.5.3",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/catfan/Medoo.git",
+            "reference": "7393c670528bea14d2f3b6a269ee07e00682504e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/catfan/Medoo/zipball/7393c670528bea14d2f3b6a269ee07e00682504e",
+            "reference": "7393c670528bea14d2f3b6a269ee07e00682504e",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.1"
+        },
+        "suggest": {
+            "ext-pdo-mysql": "For MySQL or MariaDB databases",
+            "ext-pdo-pqsql": "For PostgreSQL databases",
+            "ext-pdo-sqlite": "For SQLite databases",
+            "ext-pdo_dblib": "For MSSQL databases on Liunx/UNIX platform",
+            "ext-pdo_sqlsrv": "For MSSQL databases on Windows platform"
+        },
+        "time": "2014-04-28 02:15:14",
+        "type": "framework",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "medoo.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Angel Lai",
+                "email": "angel.lai.cat@gmail.com"
+            }
+        ],
+        "description": "The Lightest PHP database framework to accelerate development",
+        "homepage": "http://medoo.in",
+        "keywords": [
+            "database",
+            "mssql",
+            "mysql",
+            "sql",
+            "sqlite"
+        ]
+    }
+]
