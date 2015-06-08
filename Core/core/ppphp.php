@@ -27,6 +27,7 @@ $CONFIG = require CORE.'/conf/setting.php';
 require CORE.'/common/common.php';
 
 //载入ppphp
+require CORE.'/core/conf.php';#配置文件处理
 require CORE.'/core/ppphp.class.php';
 require CORE.'/core/model.class.php';
 
