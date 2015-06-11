@@ -118,7 +118,7 @@ class ppphp
 	{
 		if(empty($this->t))
 		{
-			$this->t = $this->b('T','/Core/lib/');
+			$this->t = $this->b('T');
 		}
 		if(!empty($data))
 		{
@@ -146,9 +146,13 @@ class ppphp
 	 */
 	protected function get($str,$filter = '')
 	{
+		if($this->path == '')
+		{
+			$this->__route();
+		}
 		if(is_numeric($str))
 		{
-			$return = $this->path[$str];
+			$return = isset($this->path[$str])?$this->path[$str]:NULL;
 		}
 		else 
 		{
@@ -225,11 +229,10 @@ class ppphp
 	//路由分发
 	private function __route()
 	{
-		$url_path = $_SERVER['PATH_INFO'];#针对于apache
+		$url_path = trim($_SERVER['PATH_INFO'],'/');#针对于apache
 		if(isset($url_path)&&$url_path != NULL)
 		{
-			$path = trim($url_path, '/');
-			$this->path = explode('/', $path);
+			$this->path = explode('/', $url_path);
 			$route = conf('route');
 			$c= array_shift($this->path);
 			if(isset($route[$c]))
