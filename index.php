@@ -1,21 +1,15 @@
-<?php
-use CutePHP\Route\Route;
-use CutePHP\Route\Router;
-/*
-*	PPPHPå…¥å£æ–‡ä»¶ 
-*
-*	@author kphcdr <kphcdr.163.com>
-*/
-define('DEBUG', true);//è°ƒè¯•æ¨¡å¼
-define('PPPHP',realpath('./'));	// æ ¹ç›®å½•
-//ç³»ç»Ÿè·¯å¾„
-define('CORE',PPPHP.'/Core');
-define('APP', PPPHP.'/app');
-define('VIEW', PPPHP.'/app/view');
-define('WEB', $_SERVER['PHP_SELF']);
-define('CACHE',APP.'/tmp/');
-//let go
-require 'vendor/autoload.php';
+<?php 
+/* ========================================================================
+ * PPPHPÈë¿ÚÎÄ¼ş£¬ÓÃÓÚ¶¨Òå³£Á¿
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/kphcdr/ppphp/master/LICENSE)
+ * ======================================================================== */
+define('DEBUG', true);//µ÷ÊÔÄ£Ê½
 
+define('PPPHP',realpath('./'));	// ¸ùÄ¿Â¼
+//ÏµÍ³Â·¾¶
+define('CORE',PPPHP.'/core/');
+define('APP', PPPHP.'/app/');
 
-require CORE.'/core/ppphp.php';
+include CORE.'init.php';
