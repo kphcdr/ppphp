@@ -7,7 +7,8 @@
   "license": "MIT",
   "require": {
     "php": ">=5.3.0",
-	"catfan/medoo": "~0.9.5.3"
+	"filp/whoops": "*",
+	"monolog/monolog":"*"
 	},
   "authors": [
       {

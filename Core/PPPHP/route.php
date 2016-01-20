@@ -1,10 +1,10 @@
 <?php
 namespace PPPHP;
 
-class ctrl
+class route
 {
     function __construct()
     {
-        echo 'ctrl';
+        p(__CLASS__);
     }
 }
