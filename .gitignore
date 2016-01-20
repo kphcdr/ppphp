@@ -12,3 +12,5 @@ $RECYCLE.BIN/
 /.project
 /.settings
 /composer.lock
+/.buildpath
+/.project
