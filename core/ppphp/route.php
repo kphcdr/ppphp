@@ -1,5 +1,5 @@
 <?php
-namespace PPPHP;
+namespace ppphp;
 
 class route
 {
