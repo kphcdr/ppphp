@@ -6,7 +6,7 @@ use PPPHP\log;
 class ppphp {
     
     public static $classMap = array();
-    
+    public $requert;
     public static function load($class) 
     {
         if(isset($classMap[$class])) {
@@ -21,11 +21,8 @@ class ppphp {
     
     public static function run()
     {
-        $route = new \PPPHP\route();
-        \PPPHP\log::log('INFO','ok'.time());
-        \PPPHP\log::debug('it is debug'.time());
-        \PPPHP\conf::conf('name','config');
-        \PPPHP\conf::conf('name','config');
-        #\Psr\Log\LoggerInterface::error('test');
+        $requert = new \ppphp\route();
+        p($requert);
+        $ctrl = new $requert->ctrl;
     }
 }
