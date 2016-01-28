@@ -1,17 +1,16 @@
 <?php
 namespace app\ctrl;
 
+
 class index extends \ppphp
 {
 	public function index()
 	{
-		$demo = $this->m('demoModel');
-		$demo = $this->m('demoModel');
-		$demo = $this->m('demoModel');
-		$demo = $this->m('demoModel');
-		$demo = $this->m('demoModel');
-		
-		
-		$demo->insert('test',['title'=>'sdfa']);
+		$cookie = new \ppphp\cookie();
+        $session = new \ppphp\session();
+        
+        $session->set('sd','sa');
+        
+        p($session->get('sd'));
 	}
 }
