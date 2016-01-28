@@ -11,6 +11,7 @@ define('PPPHP',realpath('./'));	// 根目录
 //系统路径
 define('CORE',PPPHP.'/core/');
 define('APP', PPPHP.'/app/');
+define('MODULE', 'app');
 include 'vendor/autoload.php';
 if(DEBUG) {
     $whoops = new \Whoops\Run;

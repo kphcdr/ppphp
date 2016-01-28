@@ -1,19 +1,31 @@
 {
-  "name": "kphcdr/PPPHP",
-  "type": "framework",
-  "description": "PPPHP Framework",
-  "keywords": ["PHP framework"],
-  "homepage": "http://ppphp.kphcdr.com",
-  "license": "MIT",
-  "require": {
-    "php": ">=5.3.0",
-	"filp/whoops": "*",
-	"monolog/monolog":"*"
-	},
-  "authors": [
-      {
-          "name": "Kphcdr",
-          "email": "kphcdr@163.com"
-      }
-  ]
+    "name": "kphcdr/PPPHP",
+    "type": "framework",
+    "description": "PPPHP Framework",
+    "keywords": [
+        "PHP framework"
+    ],
+    "homepage": "http://ppphp.kphcdr.com",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0",
+        "filp/whoops": "*",
+        "monolog/monolog": "*",
+        "catfan/medoo": "*"
+    },
+    "authors": [
+        {
+            "name": "Kphcdr",
+            "email": "kphcdr@163.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packagist.phpcomposer.com"
+        },
+        {
+            "packagist": false
+        }
+    ]
 }

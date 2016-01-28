@@ -1,11 +1,12 @@
 <?php
-use PPPHP\log;
+use ppphp\log;
 /* ========================================================================
  * 类自动加载,所有类都通过这一个类进行加载
  * ======================================================================== */
 class ppphp {
     
     public static $classMap = array();
+    public $model;
     public $requert;
     public static function load($class) 
     {
@@ -15,14 +16,38 @@ class ppphp {
             if(is_file(CORE.$class.'.php')) {
                 include_once CORE.$class.'.php';
                 self::$classMap[] = $class;
-            }            
+            } else {
+                if(is_file(PPPHP.'/'.$class.'.php')) {
+                    include_once PPPHP.'/'.$class.'.php';
+                    self::$classMap[] = $class;
+                }
+            }           
         }
     }
-    
+      
     public static function run()
     {
         $requert = new \ppphp\route();
-        p($requert);
-        $ctrl = new $requert->ctrl;
+        $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl;
+        $action = $requert->action;
+        \ppphp\log::debug('message');
+        $ctrl = new $ctrlClass();
+        $ctrl->$action();
+    }
+    
+    public function m($model)
+    {
+        $ModelFile = APP.'/model/'.$model.'.php';
+        if(file_exists($ModelFile)) {
+            if(isset($this->model[$model])) {
+                return $this->model[$model];
+            } else {
+                include $ModelFile;
+                $this->model[$model] = new $model();
+                return $this->model[$model];//返回OBJ
+            }
+        } else {
+            throw new ErrorException('找不到模型');
+        }
     }
 }
