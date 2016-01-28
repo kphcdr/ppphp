@@ -6,11 +6,8 @@ class index extends \ppphp
 {
 	public function index()
 	{
-		$cookie = new \ppphp\cookie();
-        $session = new \ppphp\session();
-        
-        $session->set('sd','sa');
-        
-        p($session->get('sd'));
+	    $data = ['test'=>'asdf'];
+	    $this->t = 't';
+		$this->display('index.html',$data);
 	}
 }

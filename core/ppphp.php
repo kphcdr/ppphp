@@ -50,4 +50,14 @@ class ppphp {
             throw new ErrorException('找不到模型');
         }
     }
+    
+    public function display($file,$data=array())
+    {
+        $file = APP.'views/'.$file;
+        if(file_exists($file)) {
+            include $file;
+        } else {
+            throw new Exception('模板文件不存在');
+        }
+    }
 }
