@@ -57,7 +57,7 @@ class ppphp {
         if(file_exists($file)) {
             include $file;
         } else {
-            throw new Exception('模板文件不存在');
+            throw new Exception($file.'模板文件不存在');
         }
     }
 }
