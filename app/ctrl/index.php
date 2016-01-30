@@ -6,6 +6,8 @@ class index extends \ppphp
 {
 	public function index()
 	{
-	    p($_SERVER['PATH_INFO']);
+	    $ret = parse_url('http://ppapi.m.com/index/index');
+	    p($ret);
+	    p($_SERVER);
 	}
 }

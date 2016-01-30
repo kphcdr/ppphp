@@ -7,8 +7,9 @@ class route
     public $action;
     public function __construct()
     {
-        if(isset($_SERVER['PATH_INFO'])) {
-            $path = explode('/',trim($_SERVER['PATH_INFO'],'/'));
+        if(isset($_SERVER['REQUEST_URI'])) {
+            $pathstr = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
+            $path = explode('/',trim($pathstr,'/'));
             if(isset($path[0])) {
                 $this->ctrl = $path[0];
             } else {
