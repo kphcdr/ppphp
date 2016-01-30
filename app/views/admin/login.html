@@ -15,7 +15,7 @@
 		<link href="/assign/admin/fonts/font-awesome.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<form action="index.html" id="wrapper">
+		<form action="<?= url('/admin/login'); ?>" id="wrapper" method="POST">
 			<div id="box" class="animated bounceIn">
 				<div id="top_header">
 					<a href="#">
@@ -26,24 +26,16 @@
 						Cloud Account.
 					</h5>
 				</div>
-				<di id="inputs">
+				<div id="inputs">
 					<div class="form-control">
-						<input type="text" placeholder="Email">
+						<input type="text" placeholder="Username" name="name">
 						<i class="fa fa-envelope-o"></i>
 					</div>
 					<div class="form-control">
-						<input type="password" placeholder="Password">
+						<input type="password" placeholder="Password" name="password">
 						<i class="fa fa-key"></i>
 					</div>
 					<input type="submit" value="Sign In">
-				</di>
-				<div id="bottom">
-					<div class="squared-check">
-						<input type="checkbox" value="None" id="remember" name="check" checked="">
-						<label for="remember"></label>
-						<div class="cb-label">Remember</div>
-					</div>
-					<a class="right_a" href="#">Forgot password?</a>
 				</div>
 			</div>
 		</form>

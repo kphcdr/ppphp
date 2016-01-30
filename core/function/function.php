@@ -56,3 +56,9 @@ function post($str,$filter = '',$default = false)
         return $default;
     }
 }
+
+function url($str)
+{
+    
+    return $str;
+}

@@ -17,10 +17,16 @@ class route
             }
             
             if(isset($path[1]) && $path[1]) {
-                $this->action = $path[1];
+                $have = strstr($path[1],'?',true);
+                if($have) {
+                    $this->action = $have;
+                } else {
+                    $this->action = $path[1];
+                }
+                
             } else {
                 $this->action = conf::conf('DEFAULT_ACTION','route');
-            }            
+            }   
         } else {
             
             $this->ctrl = conf::conf('DEFAULT_CTRL','route');

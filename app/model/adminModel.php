@@ -1,8 +1,8 @@
 <?php
 //demo类，用于展示各种方法的使用方法
-class demoModel extends \ppphp\model
+class adminModel extends \ppphp\model
 {
-	public $table = 'test';
+	public $table = 'admin';
 	
 	public function getOne($id,$field = '*')
 	{
@@ -11,15 +11,7 @@ class demoModel extends \ppphp\model
 		));
 		return $data;
 	}
-	
-	public function lists($field = '*')
-	{
-		$data = $this->select($this->table,$field,array(
-				
-		));
-		return $data;
-	}
-	
+
 	public function addOne($data)
 	{
 		return $this->insert($this->table, $data);

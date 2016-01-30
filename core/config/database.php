@@ -5,5 +5,7 @@ return array(
 	'server' => '127.0.0.1',
 	'username' => 'root',
 	'password' => 'root',
-	'charset' => 'utf8'
+	'charset' => 'utf8',
+    'database_type' => 'sqlite',
+    'database_file' => 'database/ppphp.db'
 );
