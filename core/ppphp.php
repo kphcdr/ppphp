@@ -13,7 +13,8 @@ class ppphp {
         if(isset($classMap[$class])) {
             return true;
         } else {
-            if(is_file(CORE.$class.'.php')) {
+            $class = str_replace('\\','/',trim($class,'\\'));
+            if(is_file(CORE.$class.'.php')){
                 include_once CORE.$class.'.php';
                 self::$classMap[] = $class;
             } else {

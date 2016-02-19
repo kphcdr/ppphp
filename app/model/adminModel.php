@@ -3,31 +3,18 @@
 class adminModel extends \ppphp\model
 {
 	public $table = 'admin';
-	
-	public function getOne($id,$field = '*')
-	{
-		$data = $this->get($this->table,$field,array(
-				"id" => $id
-		));
-		return $data;
-	}
 
-	public function addOne($data)
-	{
-		return $this->insert($this->table, $data);
-	}
-	
-	public function setOne($id,$data)
-	{
-		return $this->update($this->table,$data,array(
-				'id'=>$id
-			));
-	}
-	
-	public function delOne($id)
-	{
-		return $this->delete($this->table,array(
-			'id'=>$id
-			));
+	public function login($name,$password)
+    {
+        $ret = $this->get($this->table,'*',[
+            'AND'=>['name'=>$name,
+            'password'=>$password,
+            ]
+        ]);
+        if($ret) {
+            return $ret;
+        } else {
+            return false;
+        }
 	}
 }
