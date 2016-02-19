@@ -15,3 +15,5 @@ $RECYCLE.BIN/
 /.buildpath
 /.project
 /vendor
+.idea/
+log/
