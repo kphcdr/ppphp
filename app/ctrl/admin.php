@@ -1,8 +1,7 @@
 <?php
 namespace app\ctrl;
 
-use app\ctrl\baseadmin;
-use ppphp\conf;
+use ppphp\model;
 use ppphp\session;
 
 class admin extends \app\ctrl\baseadmin
@@ -16,19 +15,12 @@ class admin extends \app\ctrl\baseadmin
 	{
 	    $name = post('name');
 	    $password = post('password');
-        $password = md5(conf::conf('passwordkey','key').$password);
-        $adminModel = $this->m('adminModel');
-        $ret = $adminModel->login($name,$password);
+        $auth = new \helper\auth\auth();
+        $ret = $auth->login($name,$password);
         if($ret) {
-            //登录成功
-            $session = new session();
-            $session->set('id',$ret['id']);
-            $session->set('name',$ret['name']);
-
-        } else {
-            //登录失败
 
         }
+        p($auth->message);
 	}
 	
 	public function test()
@@ -37,4 +29,13 @@ class admin extends \app\ctrl\baseadmin
         p($session->get('id'));
         p($session->get('name'));
 	}
+
+    public function sdf()
+    {
+        $help = new \helper\ctrl\index();
+        $help->name = 'sdf';
+
+        $h = new \helper\ctrl\index();
+        echo $help->name;
+    }
 }

@@ -7374,7 +7374,7 @@
 		 * detection using sType). With this specific type given to the column, DataTables will 
 		 * apply the required sort from the functions in the object. Each sort type must provide
 		 * two mandatory methods, one each for ascending and descending sorting, and can optionally
-		 * provide a pre-formatting method that will help speed up sorting by allowing DataTables
+		 * provide a pre-formatting method that will helper speed up sorting by allowing DataTables
 		 * to pre-format the sort data only once (rather than every time the actual sort functions
 		 * are run). The two sorting functions are typical Javascript sort methods:
 		 *   <ul>
@@ -8518,7 +8518,7 @@
 		 * When rendering large numbers in the information element for the table
 		 * (i.e. "Showing 1 to 10 of 57 entries") DataTables will render large numbers
 		 * to have a comma separator for the 'thousands' units (e.g. 1 million is
-		 * rendered as "1,000,000") to help readability for the end user. This
+		 * rendered as "1,000,000") to helper readability for the end user. This
 		 * function will override the default method DataTables uses.
 		 *  @type function
 		 *  @member

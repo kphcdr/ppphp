@@ -736,7 +736,7 @@
       //   ['height', ['height']],
       //   ['table', ['table']],
       //   ['insert', ['link', 'picture', 'video']],
-      //   ['help', ['help']]
+      //   ['helper', ['helper']]
       // ],
       airPopover: [
         ['color', ['color']],
@@ -2385,13 +2385,13 @@
     };
 
     /**
-     * show help dialog
+     * show helper dialog
      *
      * @param {jQuery} $dialog
      */
     this.showHelpDialog = function ($editable, $dialog) {
       return $.Deferred(function (deferred) {
-        var $helpDialog = $dialog.find('.note-help-dialog');
+        var $helpDialog = $dialog.find('.note-helper-dialog');
 
         $helpDialog.one('hidden.bs.modal', function () {
           deferred.resolve();
@@ -3633,7 +3633,7 @@
                      '<a href="//github.com/HackerWins/summernote" target="_blank">Project</a> · ' +
                      '<a href="//github.com/HackerWins/summernote/issues" target="_blank">Issues</a>' +
                    '</p>';
-        return tplDialog('note-help-dialog', '', body, '');
+        return tplDialog('note-helper-dialog', '', body, '');
       };
 
       return '<div class="note-dialog">' +
