@@ -3,6 +3,7 @@ namespace app\ctrl;
 
 use ppphp\model;
 use ppphp\session;
+use ppphp\url;
 
 class admin extends \app\ctrl\baseadmin
 {
@@ -25,17 +26,8 @@ class admin extends \app\ctrl\baseadmin
 	
 	public function test()
 	{
-        $session = new session();
-        p($session->get('id'));
-        p($session->get('name'));
+        $route = new \ppphp\route();
+        p($route->urlVar(0));
 	}
 
-    public function sdf()
-    {
-        $help = new \helper\ctrl\index();
-        $help->name = 'sdf';
-
-        $h = new \helper\ctrl\index();
-        echo $help->name;
-    }
 }

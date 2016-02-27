@@ -59,6 +59,7 @@ function post($str,$filter = '',$default = false)
 
 function url($str)
 {
-    
+    p($_SERVER);
+    echo $str;
     return $str;
 }

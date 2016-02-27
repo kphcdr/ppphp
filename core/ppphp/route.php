@@ -5,6 +5,7 @@ class route
 {
     public $ctrl;
     public $action;
+    public $path;
     public function __construct()
     {
         if(isset($_SERVER['REQUEST_URI'])) {
@@ -26,11 +27,26 @@ class route
                 
             } else {
                 $this->action = conf::conf('DEFAULT_ACTION','route');
-            }   
+            }
+            unset($path[0],$path[1]);
+            $this->path = array_merge($path);
+            $pathlenth = count($path);
+            $i = 0;
+            while($i < $pathlenth) {
+                if(isset($this->path[$i+1])) {
+                    $_GET[$this->path[$i]] = $this->path[$i + 1];
+                }
+                $i = $i + 2;
+            }
         } else {
             
             $this->ctrl = conf::conf('DEFAULT_CTRL','route');
             $this->action = conf::conf('DEFAULT_ACTION','route');
         }
+    }
+
+    public function urlVar($num)
+    {
+        return $this->path[$num];
     }
 }
