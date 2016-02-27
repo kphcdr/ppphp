@@ -6,8 +6,6 @@ class index extends \ppphp
 {
 	public function index()
 	{
-	    $ret = parse_url('http://ppapi.m.com/index/index');
-	    p($ret);
-	    p($_SERVER);
+	    $this->display('index.html');
 	}
 }
