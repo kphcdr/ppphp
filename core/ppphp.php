@@ -4,11 +4,22 @@ use ppphp\log;
  * 类自动加载,所有类都通过这一个类进行加载
  * ======================================================================== */
 class ppphp {
-    
+    /**
+     * classMap用于存放已经加载过的类文件,下次加载的时候直接返回
+     */
     public static $classMap = array();
+    /**
+     * model用于存放已经加载的model模型,下次加载时直接返回
+     */
     public $model;
-    public $requert;
-    public static function load($class) 
+
+    /**
+     * 自动加载类
+     * 先判断类是否已经加载,如果加载过直接从classMap中返回,如果没有加载的话,先到CORE中查找,再在整个框架中进行查找
+     * @param $class 需要加载的类,需要带上命名空间
+     * @return object
+     */
+    public static function load($class)
     {
         if(isset($classMap[$class])) {
             return true;
@@ -22,7 +33,7 @@ class ppphp {
                     include_once PPPHP.'/'.$class.'.php';
                     self::$classMap[] = $class;
                 }
-            }           
+            }
         }
     }
       
