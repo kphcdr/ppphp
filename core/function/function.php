@@ -2,6 +2,9 @@
 /* ========================================================================
  * 全局函数
  * ======================================================================== */
+/**
+ * 更漂亮的数组或变量的展现方式
+ */
 function p($var)
 {
     if (is_bool($var)) {
@@ -13,6 +16,13 @@ function p($var)
     }
 }
 
+/**
+ * 获取get数据
+ * @param $str 变量名
+ * @param $filter 过滤方式 int为只支持int类型
+ * @param $default 默认值 当获取不到值时,所返回的默认值
+ * @return mix
+ */
 function get($str,$filter = '',$default = false)
 {
     if(isset($_GET[$str]))
@@ -35,6 +45,13 @@ function get($str,$filter = '',$default = false)
     }
 }
 
+/**
+ * 获取post数据
+ * @param $str 变量名
+ * @param $filter 过滤方式 int为只支持int类型
+ * @param $default 默认值 当获取不到值时,所返回的默认值
+ * @return mix
+ */
 function post($str,$filter = '',$default = false)
 {
     if(isset($_POST[$str]))
@@ -55,11 +72,4 @@ function post($str,$filter = '',$default = false)
     } else {
         return $default;
     }
-}
-
-function url($str)
-{
-    p($_SERVER);
-    echo $str;
-    return $str;
 }

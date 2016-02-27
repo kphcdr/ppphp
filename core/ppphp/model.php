@@ -1,5 +1,10 @@
 <?php
+/* ========================================================================
+ * 模型基类,当前继承于medoo
+ * 主要用于连接数据库,并封装了四个常用操作
+ * ======================================================================== */
 namespace ppphp;
+
 class model extends \medoo
 {
 	protected $m;
@@ -16,6 +21,9 @@ class model extends \medoo
 		parent::__construct(conf::all('database'));
 	}
 
+	/**
+	 * 根据ID查找一条数据
+	 */
 	public function getOne($id,$field = '*')
 	{
 		$data = $this->get($this->table,$field,array(
@@ -24,11 +32,17 @@ class model extends \medoo
 		return $data;
 	}
 
+	/**
+	 * 新增一条数据
+	 */
 	public function addOne($data)
 	{
 		return $this->insert($this->table, $data);
 	}
 
+	/**
+	 * 根据ID修改一条数据
+	 */
 	public function setOne($id,$data)
 	{
 		return $this->update($this->table,$data,array(
@@ -36,6 +50,9 @@ class model extends \medoo
 		));
 	}
 
+	/**
+	 * 根据ID删除一条数据
+	 */
 	public function delOne($id)
 	{
 		return $this->delete($this->table,array(

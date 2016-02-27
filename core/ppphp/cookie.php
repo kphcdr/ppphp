@@ -1,4 +1,7 @@
 <?php
+/**
+ * cookie 操作类
+ */
 namespace ppphp;
 /**
  * cookie类

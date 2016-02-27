@@ -1,7 +1,11 @@
 <?php
-use ppphp\log;
 /* ========================================================================
- * 类自动加载,所有类都通过这一个类进行加载
+ * ppphp核心类
+ * 实现以下几个功能
+ * 类自动加载
+ * 启动框架
+ * 引入模型
+ * 引入视图
  * ======================================================================== */
 class ppphp {
     /**
@@ -36,17 +40,24 @@ class ppphp {
             }
         }
     }
-      
+
+    /**
+     * 框架启动方法,完成了两件事情
+     * 1.加载route解析当前URL
+     * 2.找到对应的控制以及方法,并运行
+     */
     public static function run()
     {
         $requert = new \ppphp\route();
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl;
         $action = $requert->action;
-        \ppphp\log::debug('message');
         $ctrl = new $ctrlClass();
         $ctrl->$action();
     }
-    
+
+    /**
+     * 用于在控制器中加载模型
+     */
     public function m($model)
     {
         $ModelFile = APP.'/model/'.$model.'.php';
@@ -59,11 +70,14 @@ class ppphp {
                 return $this->model[$model];//返回OBJ
             }
         } else {
-            throw new ErrorException('找不到模型');
+            throw new Exception('找不到模型');
         }
     }
-    
-    public function display($file,$data=array())
+
+    /**
+     * 用于在控制器中加载一个模板文件,并为
+     */
+    public function display($file)
     {
         $file = APP.'views/'.$file;
         if(file_exists($file)) {
