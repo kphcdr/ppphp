@@ -13,7 +13,6 @@ $RECYCLE.BIN/
 /.settings
 /composer.lock
 /.buildpath
-/.project
 /vendor
 .idea/
 log/
