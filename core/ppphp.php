@@ -16,6 +16,10 @@ class ppphp {
      * model用于存放已经加载的model模型,下次加载时直接返回
      */
     public $model;
+    /**
+     * 视图赋值
+     */
+    public $assign;
 
     /**
      * 自动加载类
@@ -75,12 +79,22 @@ class ppphp {
     }
 
     /**
-     * 用于在控制器中加载一个模板文件,并为
+     * 为模板对象赋值
+     */
+    public function assign($name,$data)
+    {
+        $this->assign[$name] = $data;
+    }
+    /**
+     * 用于在控制器中加载一个模板文件
      */
     public function display($file)
     {
         $file = APP.'views/'.$file;
         if(file_exists($file)) {
+            if($this->assign) {
+                $data = extract($this->assign);
+            }
             include $file;
         } else {
             throw new Exception($file.'模板文件不存在');
