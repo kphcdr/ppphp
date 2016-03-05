@@ -3,7 +3,11 @@
  * PPPHP入口文件，用于定义常量
  * ======================================================================== */
 //如果是多模块,可以通过动态设置module的形式,动态条用不同模块
-$MODULE_NAME = 'app';
+if($_SERVER['HTTP_HOST'] == 'ppphpadmin.m.com') {
+    $MODULE_NAME = 'admin';
+} else {
+    $MODULE_NAME = 'app';
+}
 define('DEBUG', true);//调试模式
 
 define('PPPHP',realpath('./'));	// 根目录
