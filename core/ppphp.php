@@ -53,6 +53,7 @@ class ppphp {
     public static function run()
     {
         $requert = new \ppphp\route();
+        \ppphp\log::init();
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl;
         $action = $requert->action;
         $ctrl = new $ctrlClass();
@@ -64,12 +65,13 @@ class ppphp {
      */
     public function m($model)
     {
-        $ModelFile = APP.'/model/'.$model.'.php';
+        $ModelFile = APP.'model/'.$model.'.php';
         if(file_exists($ModelFile)) {
             if(isset($this->model[$model])) {
                 return $this->model[$model];
             } else {
                 include $ModelFile;
+                $model = '\\'.MODULE.'\\model\\'.$model;
                 $this->model[$model] = new $model();
                 return $this->model[$model];//返回OBJ
             }

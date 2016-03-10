@@ -4,6 +4,7 @@
  */
 namespace admin\ctrl;
 
+use admin\model\adminModel;
 
 class login extends \ppphp
 {
@@ -14,7 +15,13 @@ class login extends \ppphp
 
 	public function login()
 	{
-		$data = post();
-		p($data);
+
+		$adminModel = new adminModel();
+		$ret = $adminModel->login();
+		if($ret['status'] != 0) {
+			echo $ret['message'];
+		} else {
+			echo $ret['message'];
+		}
 	}
 }
