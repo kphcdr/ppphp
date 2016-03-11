@@ -13,11 +13,17 @@ class base extends \ppphp
 {
     public function __construct()
     {
-        $sessinClass = new \ppphp\session();
-        $this->id = $sessinClass->get('id');
-        if(!$this->id) {
-            redirect('/login');
-        }
+//        $sessinClass = new \ppphp\session();
+//        $this->id = $sessinClass->get('id');
+//        if(!$this->id) {
+//            redirect('/login');
+//        }
+    }
+
+    public function json($array)
+    {
+        header('Content-Type:application/json; charset=utf-8');
+        exit(json_encode($array));
     }
 
 }

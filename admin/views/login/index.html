@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>ppcms管理后台</title>
+		<title>PPPHP管理后台</title>
 		
 		<!-- Error CSS -->
 		<link href="/assign/admin/css/login.css" rel="stylesheet" media="screen">
@@ -15,28 +15,31 @@
 		<link href="/assign/admin/fonts/font-awesome.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<form id="wrapper" action="/login/login" method="POST" >
+		<form method="POST">
 			<div id="box" class="animated bounceIn">
 				<div id="top_header">
-					<a href="#">
-						<img class="logo" src="/assign/admin/img/logo.png" alt="logo">
-					</a>
-					<h5>
-						测试账号admin密码123123
-					</h5>
+					<h5>PPPHP管理后台</h5>
 				</div>
 				<div id="inputs">
 					<div class="form-control">
-						<input type="text" placeholder="用户名" name="name">
+						<input type="text" placeholder="用户名" id="name">
 						<i class="fa fa-user"></i>
 					</div>
 					<div class="form-control">
-						<input type="password" placeholder="密码" name="password">
+						<input type="password" placeholder="密码" id="password">
 						<i class="fa fa-key"></i>
 					</div>
-					<input type="submit" value="登录">
+					<input type="submit" value="登录" class="btn-login">
+				</div>
+				<div id="bottom">
+					<div class="center">
+						正在骄傲的使用PPPHP
+					</div>
 				</div>
 			</div>
 		</form>
 	</body>
+	<script src="/assign/admin/js/jquery.js"></script>
+	<script src="/assign/admin/js/layer/layer.js"></script>
+	<script src="/assign/admin/js/page/login.js"></script>
 </html>

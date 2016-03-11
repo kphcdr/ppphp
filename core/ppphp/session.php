@@ -5,16 +5,9 @@
  */
 namespace ppphp;
 
-class session{
+class session
+{
 
-	/**
-	 * session初始化
-	 * @author kphcdr 2014-5-19
-	 */
-	function __construct()
-	{
-		session_start();
-	}
 	function set($sessionName,$value)
 	{
 		return $_SESSION[$sessionName] = $value;
@@ -43,6 +36,7 @@ class session{
 		}
 		return False;
 	}
+
 	function dropall()
 	{
 		if(isset($_SESSION))

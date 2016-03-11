@@ -29,7 +29,7 @@ body {
 }
 #box {
 	width: 320px;
-	height: 420px;
+	height: 320px;
 	background-color: white;
 	margin: 0 auto;
 	position: absolute;
@@ -54,13 +54,13 @@ body {
 
 #top_header > h5 {
 	text-align: center;
-	font-size: 15px;
-	color: #424242;
+	font-size: 24px;
+	color: #fff;
 	line-height: 1.6;
 	margin: 0;
-	font-weight: 400;
 	padding: 15px 0;
-	color: #aaa;
+	text-transform: uppercase;
+	text-shadow: 0px 2px 3px #47759e;
 }
 
 #inputs {
@@ -128,56 +128,12 @@ input[type=submit]:focus {
 	padding: 10px 0;
 	height: 28px;
 }
-
-.squared-check {
-  position: relative;
-  margin: 0 auto;
-  float: left; }
-  .squared-check label {
-    width: 19px;
-    height: 19px;
-    cursor: pointer;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    background: white;
-    border: 1px solid #999;
-    display: inline-block; }
-
-.cb-label {
-	color: #666;
-  display: inline-block;
-  margin: 3px 30px 0px 10px;
-  font-size: 13px;
+.center {
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	text-shadow: 20px 10px 30px #000
 }
-
-.squared-check label:after {
-  content: '';
-  width: 9px;
-  height: 5px;
-  position: absolute;
-  top: 5px;
-  left: 4px;
-  border: 2px solid #666;
-  border-top: none;
-  border-right: none;
-  background: transparent;
-  opacity: 0;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
-
-.squared-check label:hover::after {
-  opacity: 0.3; }
-
-.squared-check input[type=checkbox] {
-  visibility: hidden; }
-
-.squared-check input[type=checkbox]:checked + label:after {
-  opacity: 1; }
-
 a {
 	text-decoration: none;
 	color: #999;
@@ -189,10 +145,6 @@ a:hover{
 	color: #333;
 }
 
-.right_a {
-	float: right;
-	margin: 5px 0 0 0;
-}
 
 .form-control {
   display: block;

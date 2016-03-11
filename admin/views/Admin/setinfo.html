@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑设置</title>
+    <meta name="description" content="Cloud Admin Panel"/>
+    <meta name="keywords"
+          content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Bootstrap, Light weight Admin Dashboard,Light weight, Light weight Admin, Light weight Dashboard"/>
+    <meta name="author" content="Bootstrap Gallery"/>
+    <link rel="shortcut icon" href="/assign/admin/img/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assign/admin/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- Animate CSS -->
+    <link href="/assign/admin/css/animate.css" rel="stylesheet" media="screen">
+
+    <!-- date range -->
+    <link rel="stylesheet" type="text/css" href="/assign/admin/css/daterange.css">
+
+    <!-- Main CSS -->
+    <link href="/assign/admin/css/main.css" rel="stylesheet" media="screen">
+
+    <!-- Slidebar CSS -->
+    <link rel="stylesheet" type="text/css" href="/assign/admin/css/slidebars.css">
+
+    <!-- Font Awesome -->
+    <link href="/assign/admin/fonts/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Metrize Fonts -->
+    <link href="/assign/admin/fonts/metrize.css" rel="stylesheet">
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/assign/admin/js/html5shiv.js"></script>
+    <script src="/assign/admin/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Left sidebar start -->
+<include file="Lib::left" />
+<!-- Left sidebar end -->
+
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper">
+
+    <!-- Header start -->
+<include file="Lib::header" />
+    <!-- Header ends -->
+    <!-- Main Container Start -->
+    <div class="main-container">
+
+        <!-- Top Bar Starts -->
+        <div class="top-bar clearfix">
+            <div class="page-title">
+                <h4>
+                    <div class="fs1" aria-hidden="true" data-icon="&#xe007;"></div>
+                    编辑设置</h4>
+            </div>
+        </div>
+        <!-- Top Bar Ends -->
+
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+
+            <!-- Spacer starts -->
+            <div class="spacer-xs">
+<div class="row no-gutter">
+			        <div class="col-md-12 col-sm-6 col-xs-12">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+										<h4>编辑设置</h4>
+									</div>
+			            <div class="panel-body">
+			              <form class="form-horizontal row-border" method="post" action="{:U('Admin/setsave')}">
+						  <input type="hidden" name="id" value="{$data.data.id}" />
+			                <div class="form-group">
+			                  <label class="col-md-2 control-label">名称</label>
+			                  <div class="col-md-10">
+			                    <input type="text" name="name" class="form-control" value="{$data.data.name}">
+								<span class="help-block">尽量使用大写</span>
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-md-2 control-label">值</label>
+			                  <div class="col-md-10">
+			                    <input class="form-control" type="text" name="value" value="{$data.data.value}"  >
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-md-2 control-label">说明</label>
+			                  <div class="col-md-10">
+			                    <input class="form-control" type="text" name="desc" value="{$data.data.value}" >
+			                  </div>
+			                </div>
+							<div class="form-group">
+								<div class="col-md-10">
+								<button type="submit" class="btn btn-info pull-right" >提交</button>
+								</div>
+							</div>
+			              </form>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+				  <!-- row end -->
+</div>
+            <!-- Spacer ends -->
+
+        </div>
+        <!-- Container fluid ends -->
+
+    </div>
+    <!-- Main Container Start -->
+
+    <!-- Footer Start -->
+    <footer>
+        Copyright Cloud Admin <span>2015</span>. All Rights Reserved.
+    </footer>
+    <!-- Footer end -->
+
+</div>
+<!-- Dashboard Wrapper End -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/assign/admin/js/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/assign/admin/js/bootstrap.min.js"></script>
+
+<!-- Flot Charts -->
+<script src="/assign/admin/js/flot/jquery.flot.js"></script>
+<script src="/assign/admin/js/flot/jquery.flot.time.js"></script>
+<script src="/assign/admin/js/flot/jquery.flot.selection.js"></script>
+<script src="/assign/admin/js/flot/jquery.flot.resize.js"></script>
+<script src="/assign/admin/js/flot/jquery.flot.tooltip.js"></script>
+<script src="/assign/admin/js/flot/flot.excanvas.min.js"></script>
+
+<!-- Custom flot JS -->
+<script src="/assign/admin/js/flot/custom/combine-chart.js"></script>
+
+<!-- Animated Right Sidebar -->
+<script src="/assign/admin/js/slidebars.js"></script>
+
+<!-- Tyny Scrollbar -->
+<script src="/assign/admin/js/tiny-scrollbar.js"></script>
+
+<!-- Date Range -->
+<script src="/assign/admin/js/daterange/moment.js"></script>
+<script src="/assign/admin/js/daterange/daterangepicker.js"></script>
+
+<!-- Custom JS -->
+<script src="/assign/admin/js/custom.js"></script>
+<script src="/assign/admin/js/custom-index.js"></script>
+</body>
+</html>

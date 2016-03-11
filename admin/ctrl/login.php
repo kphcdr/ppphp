@@ -6,7 +6,7 @@ namespace admin\ctrl;
 
 use admin\model\adminModel;
 
-class login extends \ppphp
+class login extends base
 {
 	public function index()
 	{
@@ -15,13 +15,12 @@ class login extends \ppphp
 
 	public function login()
 	{
-
 		$adminModel = new adminModel();
 		$ret = $adminModel->login();
 		if($ret['status'] != 0) {
-			echo $ret['message'];
+			$this->json($ret);
 		} else {
-			echo $ret['message'];
+			$this->json($ret);
 		}
 	}
 }

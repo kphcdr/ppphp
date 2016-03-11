@@ -38,13 +38,9 @@ class adminModel extends \ppphp\model
             //登录成功
             $session = new \ppphp\session();
             $session->set('id',$ret['id']);
-            $session->set('name',$ret['name']);
+            $session->set('username',$ret['username']);
             return ['status'=>0,'message'=>'登录成功'];
         }
-
-
-
-
     }
 
     private function loginSuccess()
