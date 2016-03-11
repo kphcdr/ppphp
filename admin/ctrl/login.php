@@ -23,4 +23,13 @@ class login extends base
 			$this->json($ret);
 		}
 	}
+
+	public function logout()
+	{
+		$adminModel = new adminModel();
+		$adminModel->loginout();
+
+		redirect('/');
+
+	}
 }

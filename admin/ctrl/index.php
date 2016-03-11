@@ -7,12 +7,11 @@ namespace admin\ctrl;
 
 use ppphp\session;
 
-class index extends \admin\ctrl\base
+class index extends \admin\ctrl\common
 {
 	public function index()
 	{
-		$session = new session();
-		p($session->get('id'));
-		p($session->get('username'));
+		
+		$this->display('Index/index.html');
 	}
 }

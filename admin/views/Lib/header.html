@@ -12,11 +12,11 @@
         <ul id="mini-nav" class="clearfix">
             <li class="list-box hidden-xs dropdown">
                 <a id="drop1" href="#" role="button" class="dropdown-toggle current-user" data-toggle="dropdown">
-                    {$adminMsg['name']} <b class="caret"></b>
+                    <?= $this->username; ?> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu sm fadeInUp animated messages">
                     <li class="dropdown-content">
-                        <a href="{:U('login/logout')}">Logout</a>
+                        <a href="/login/logout">Logout</a>
                     </li>
                 </ul>
             </li>

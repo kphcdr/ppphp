@@ -57,4 +57,12 @@ class adminModel extends \ppphp\model
         \ppphp\log::info($password);
         return $password;
     }
+
+    public function loginout()
+    {
+        $session = new \ppphp\session();
+        $session->dropall();
+        $cookie = new \ppphp\cookie();
+        $cookie->dropall();
+    }
 }

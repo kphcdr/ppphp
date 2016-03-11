@@ -9,7 +9,6 @@ class index extends \ppphp
 {
 	public function index()
 	{
-		p(session_status());
 		$this->assign('name','Hello ppphp');
 	    $this->display('index.html');
 	}
