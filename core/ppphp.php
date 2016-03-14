@@ -54,8 +54,9 @@ class ppphp {
     {
         $requert = new \ppphp\route();
         \ppphp\log::init();
-        $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl;
+        $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl.'Ctrl';
         $action = $requert->action;
+        include APP.'ctrl/'.$requert->ctrl.'Ctrl.php';
         $ctrl = new $ctrlClass();
         $ctrl->$action();
     }
@@ -95,7 +96,7 @@ class ppphp {
         $file = APP.'views/'.$file;
         if(file_exists($file)) {
             if($this->assign) {
-                $data = extract($this->assign);
+                extract($this->assign);
             }
             include $file;
         } else {

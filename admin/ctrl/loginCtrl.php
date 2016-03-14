@@ -6,7 +6,7 @@ namespace admin\ctrl;
 
 use admin\model\adminModel;
 
-class login extends base
+class loginCtrl extends baseCtrl
 {
 	public function index()
 	{

@@ -9,7 +9,7 @@
 namespace admin\ctrl;
 
 
-class base extends \ppphp
+class baseCtrl extends \ppphp
 {
     public function __construct()
     {

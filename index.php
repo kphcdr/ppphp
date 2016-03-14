@@ -22,7 +22,10 @@ if(DEBUG) {
     ini_set('display_error','On');
     //载入友好的错误显示类
     $whoops = new \Whoops\Run;
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $errorPage = new \Whoops\Handler\PrettyPageHandler;
+    $errorPage->setPageTitle("PPPHP出大事啦!!!"); // Set the page's title
+    $whoops->pushHandler($errorPage);
+         // Set the editor used for the "Open" link
     $whoops->register();
 } else {
     ini_set('display_error','Off');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关联车站</title>
+    <title>管理员列表</title>
     <meta name="description" content="Cloud Admin Panel"/>
     <meta name="keywords"
           content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Bootstrap, Light weight Admin Dashboard,Light weight, Light weight Admin, Light weight Dashboard"/>
@@ -42,14 +42,14 @@
 <body>
 
 <!-- Left sidebar start -->
-<include file="Lib::left" />
+<?php $this->display('lib/left.html'); ?>
 <!-- Left sidebar end -->
 
 <!-- Dashboard Wrapper Start -->
 <div class="dashboard-wrapper">
 
     <!-- Header start -->
-<include file="Lib::header" />
+	<?php $this->display('lib/header.html'); ?>
     <!-- Header ends -->
     <!-- Main Container Start -->
     <div class="main-container">
@@ -59,7 +59,7 @@
             <div class="page-title">
                 <h4>
                     <div class="fs1" aria-hidden="true" data-icon="&#xe007;"></div>
-                    关联车站</h4>
+					管理员列表</h4>
             </div>
         </div>
         <!-- Top Bar Ends -->
@@ -74,10 +74,10 @@
 			        <div class="col-md-12 col-sm-12 col-sx-12">
 			          <div class="panel panel-default">
 			            <div class="panel-heading">
-										<h4>关联车站</h4>
+										<h4>管理员列表</h4>
 										<ul class="links">
 											<li>
-												<a href="###" class="addstation">
+												<a href="{:U('admin/setinfo')}">
 													<i class="fa fa-plus"></i>
 												</a>
 											</li>
@@ -88,24 +88,25 @@
 			                <table class="table table-condensed table-striped table-bordered table-hover no-margin">
 			                  <thead>
 			                    <tr>
-								<th>编号</th>
-			                      <th>车站</th>
-			                      <th>到站时间</th>
-			                      <th>删除</th>
+			                      <th>ID</th>
+			                      <th>用户名</th>
+			                      <th>是否可用</th>
+			                      <th>操作</th>
 			                    </tr>
 			                  </thead>
 			                  <tbody>
-							  <volist name="data.data" id="v">
+							  <?php if($data): ?>
+							  <?php foreach($data as $a): ?>
 			                    <tr>
-								<td>{$i}</td>								
-								
+									<td><?= $a['id'] ?></td>
+									<td><?= $a['username'] ?></td>
+									<td><?= $a['is_use']==0?'可用':'不可用'; ?></td>
 			                      <td>
-			                        <span class="name">{$v.name}</span>
-			                      </td>							  
-								<td>{$v.time}</td>
-								<td><a href="{:U('train/deltrainstation?id='.$v['id'])}" class="label label-info" data-original-title="">删除</a></td>
+			                              <a href="{:U('admin/setinfo?id='.$v['id'])}" class="label label-info" data-original-title="">编辑</a>
+			                      </td>
 			                    </tr>
-								</volist>
+							  <?php endforeach; ?>
+                              <?php endif; ?>
 			                  </tbody>
 			                </table>
 			              </div>
@@ -119,13 +120,13 @@
 
         </div>
         <!-- Container fluid ends -->
+
     </div>
     <!-- Main Container Start -->
 
     <!-- Footer Start -->
-    <footer>
-        Copyright Cloud Admin <span>2015</span>. All Rights Reserved.
-    </footer>
+	<?php $this->display('lib/footer.html'); ?>
+
     <!-- Footer end -->
 
 </div>
@@ -161,17 +162,5 @@
 <!-- Custom JS -->
 <script src="/assign/admin/js/custom.js"></script>
 <script src="/assign/admin/js/custom-index.js"></script>
-<script src="/assign/admin/js/layer/layer.js"></script>
-<script>
-    $(".addstation").click(function(){
-      layer.open({
-          type: 2,
-          area: ['50%', '80%'],
-          fix: false, //不固定
-          maxmin: true,
-          content: '{:U('train/allstation/?id='.$_GET['id'])}'
-      });
-	  })
-</script>
 </body>
 </html>

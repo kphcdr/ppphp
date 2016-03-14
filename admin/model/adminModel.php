@@ -65,4 +65,11 @@ class adminModel extends \ppphp\model
         $cookie = new \ppphp\cookie();
         $cookie->dropall();
     }
+
+    public function adminList()
+    {
+        $data = $this->select($this->table,'*');
+
+        return $data;
+    }
 }

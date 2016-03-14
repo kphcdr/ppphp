@@ -10,7 +10,7 @@ namespace admin\ctrl;
 
 
 
-class common extends \admin\ctrl\base
+class commonCtrl extends \admin\ctrl\baseCtrl
 {
     public function __construct()
     {
