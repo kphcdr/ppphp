@@ -23,7 +23,7 @@ function p($var)
  * @param $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
-function get($str,$filter = '',$default = false)
+function get($str='false',$filter = '',$default = false)
 {
     if(isset($_GET[$str]))
     {
@@ -41,7 +41,7 @@ function get($str,$filter = '',$default = false)
         }
         return $return;
     } else {
-        return $default;
+        return $_GET;
     }
 }
 
@@ -52,7 +52,7 @@ function get($str,$filter = '',$default = false)
  * @param $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
-function post($str,$filter = '',$default = false)
+function post($str=false,$filter = '',$default = false)
 {
     if(isset($_POST[$str]))
     {
@@ -70,6 +70,25 @@ function post($str,$filter = '',$default = false)
         }
         return $return;
     } else {
-        return $default;
+        return $_POST;
     }
+}
+
+function redirect($str)
+{
+    header('Location:'.$str);
+}
+
+function http_method()
+{
+    if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+        return 'POST';
+    } else {
+        return 'GET';
+    }
+}
+
+function error($str)
+{
+    echo $str;
 }

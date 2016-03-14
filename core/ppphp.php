@@ -16,6 +16,10 @@ class ppphp {
      * model用于存放已经加载的model模型,下次加载时直接返回
      */
     public $model;
+    /**
+     * 视图赋值
+     */
+    public $assign;
 
     /**
      * 自动加载类
@@ -49,8 +53,10 @@ class ppphp {
     public static function run()
     {
         $requert = new \ppphp\route();
-        $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl;
+        \ppphp\log::init();
+        $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl.'Ctrl';
         $action = $requert->action;
+        include APP.'ctrl/'.$requert->ctrl.'Ctrl.php';
         $ctrl = new $ctrlClass();
         $ctrl->$action();
     }
@@ -60,12 +66,13 @@ class ppphp {
      */
     public function m($model)
     {
-        $ModelFile = APP.'/model/'.$model.'.php';
+        $ModelFile = APP.'model/'.$model.'.php';
         if(file_exists($ModelFile)) {
             if(isset($this->model[$model])) {
                 return $this->model[$model];
             } else {
                 include $ModelFile;
+                $model = '\\'.MODULE.'\\model\\'.$model;
                 $this->model[$model] = new $model();
                 return $this->model[$model];//返回OBJ
             }
@@ -75,12 +82,22 @@ class ppphp {
     }
 
     /**
-     * 用于在控制器中加载一个模板文件,并为
+     * 为模板对象赋值
+     */
+    public function assign($name,$data)
+    {
+        $this->assign[$name] = $data;
+    }
+    /**
+     * 用于在控制器中加载一个模板文件
      */
     public function display($file)
     {
         $file = APP.'views/'.$file;
         if(file_exists($file)) {
+            if($this->assign) {
+                extract($this->assign);
+            }
             include $file;
         } else {
             throw new Exception($file.'模板文件不存在');

@@ -9,7 +9,7 @@ class index extends \ppphp
 {
 	public function index()
 	{
-		$this->name = 'hello ppphp';
+		$this->assign('name','Hello ppphp');
 	    $this->display('index.html');
 	}
 }
