@@ -43,12 +43,6 @@ class adminModel extends \ppphp\model
         }
     }
 
-    private function loginSuccess()
-    {
-
-    }
-
-
     private function  _encodePassword($password)
     {
         $password = md5($password);

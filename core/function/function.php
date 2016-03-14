@@ -87,3 +87,8 @@ function http_method()
         return 'GET';
     }
 }
+
+function error($str)
+{
+    echo $str;
+}
