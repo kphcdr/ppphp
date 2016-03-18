@@ -46,8 +46,8 @@ class route
             }
         } else {
             
-            $this->ctrl = conf::conf('DEFAULT_CTRL','route');
-            $this->action = conf::conf('DEFAULT_ACTION','route');
+            $this->ctrl = conf::get('DEFAULT_CTRL','route');
+            $this->action = conf::get('DEFAULT_ACTION','route');
         }
     }
 

@@ -23,7 +23,7 @@ class baseCtrl extends \ppphp
     public function json($array)
     {
         header('Content-Type:application/json; charset=utf-8');
-        exit(json_encode($array));
+        echo json_encode($array);
     }
 
 }

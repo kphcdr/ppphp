@@ -23,10 +23,5 @@ class commonCtrl extends \admin\ctrl\baseCtrl
         $this->assign('username',$this->username);
     }
 
-    public function json($array)
-    {
-        header('Content-Type:application/json; charset=utf-8');
-        exit(json_encode($array));
-    }
 
 }

@@ -23,9 +23,8 @@ if(DEBUG) {
     //载入友好的错误显示类
     $whoops = new \Whoops\Run;
     $errorPage = new \Whoops\Handler\PrettyPageHandler;
-    $errorPage->setPageTitle("PPPHP出大事啦!!!"); // Set the page's title
+    $errorPage->setPageTitle("PPPHP出大事啦!!!");
     $whoops->pushHandler($errorPage);
-         // Set the editor used for the "Open" link
     $whoops->register();
 } else {
     ini_set('display_error','Off');

@@ -48,7 +48,6 @@ class adminModel extends \ppphp\model
         $password = md5($password);
         $password .= \ppphp\conf::conf('PASSWORDKEY','config');
         $password = md5($password);
-        \ppphp\log::info($password);
         return $password;
     }
 

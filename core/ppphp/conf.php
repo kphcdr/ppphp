@@ -19,7 +19,7 @@ class conf
      * @param string $file 文件名
      * @return mix
      */
-    static public function conf($name,$file='conf')
+    static public function get($name,$file='conf')
     {
         if(isset(self::$conf[$file][$name])) {
             return self::$conf[$file][$name];

@@ -8,7 +8,7 @@ class monolog
     public function __construct()
     {
         $this->class = new \Monolog\Logger(MODULE);
-        $log_path = conf::conf('LOG_PATH','log').date('Ymd').'.log';
+        $log_path = conf::get('LOG_PATH','log').date('Ymd').'.log';
         $this->class->pushHandler(new \Monolog\Handler\StreamHandler($log_path));
     }
     
@@ -17,7 +17,7 @@ class monolog
         $this->class->$name($args[1]);
     }
     
-    public function log($level,$message)
+    public function addlog($level,$message)
     {
         $this->class->log($level,json_encode($message));
     }

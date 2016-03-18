@@ -17,7 +17,7 @@ abstract class log
     {
         if(!self::$class) {
 
-            $type = conf::conf('LOG_TYPE','log');
+            $type = conf::get('LOG_TYPE','log');
 
             $class = '\\ppphp\\lib\\log\\'.$type;
             self::$class = new $class();
@@ -58,7 +58,7 @@ abstract class log
         self::$class->alert('ALETR',$message);
     }
     
-    static public function log($level,$message)
+    static public function addlog($level,$message)
     {
         self::$class->log('INFO',$message);
     }
