@@ -5,7 +5,7 @@
 namespace app\ctrl;
 
 
-class index extends \ppphp
+class indexCtrl extends \ppphp
 {
 	public function index()
 	{

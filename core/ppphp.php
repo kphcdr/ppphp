@@ -99,6 +99,7 @@ class ppphp {
             $loader = new Twig_Loader_Filesystem(APP . 'views/');
             $twig = new Twig_Environment($loader,[
                 'cache' => PPPHP.'/log/twig_cache',
+                'debug' => DEBUG,
             ]);
 
             $template = $twig->loadTemplate($file);
