@@ -60,27 +60,7 @@ class ppphp {
         $ctrl = new $ctrlClass();
         $ctrl->$action();
     }
-
-    /**
-     * 用于在控制器中加载模型
-     */
-    public function m($model)
-    {
-        $ModelFile = APP.'model/'.$model.'.php';
-        if(file_exists($ModelFile)) {
-            if(isset($this->model[$model])) {
-                return $this->model[$model];
-            } else {
-                include $ModelFile;
-                $model = '\\'.MODULE.'\\model\\'.$model;
-                $this->model[$model] = new $model();
-                return $this->model[$model];//返回OBJ
-            }
-        } else {
-            throw new Exception('找不到模型');
-        }
-    }
-
+    
     /**
      * 为模板对象赋值
      */
