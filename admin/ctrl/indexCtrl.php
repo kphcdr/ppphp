@@ -11,7 +11,6 @@ class indexCtrl extends \admin\ctrl\commonCtrl
 {
 	public function index()
 	{
-
-		$this->display('index/index.html');
+		redirect('admin');
 	}
 }

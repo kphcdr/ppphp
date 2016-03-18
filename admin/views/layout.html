@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block web_title %}PPPHP管理后台{% endblock%}</title>
+    <meta name="description" content="Cloud Admin Panel"/>
+    <meta name="keywords"
+          content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Bootstrap, Light weight Admin Dashboard,Light weight, Light weight Admin, Light weight Dashboard"/>
+    <meta name="author" content="Bootstrap Gallery"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="/assign/admin/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- Animate CSS -->
+    <link href="/assign/admin/css/animate.css" rel="stylesheet" media="screen">
+
+    <!-- date range -->
+    <link rel="stylesheet" type="text/css" href="/assign/admin/css/daterange.css">
+
+    <!-- Main CSS -->
+    <link href="/assign/admin/css/main.css" rel="stylesheet" media="screen">
+
+    <!-- Slidebar CSS -->
+    <link rel="stylesheet" type="text/css" href="/assign/admin/css/slidebars.css">
+
+    <!-- Font Awesome -->
+    <link href="/assign/admin/fonts/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Metrize Fonts -->
+    <link href="/assign/admin/fonts/metrize.css" rel="stylesheet">
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/assign/admin/js/html5shiv.js"></script>
+    <script src="/assign/admin/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<aside id="sidebar">
+    <!-- Logo starts -->
+    <a href="#" class="logo">
+        <img src="/assign/admin/img/logo.png" alt="logo">
+    </a>
+    <!-- Logo ends -->
+    <!-- Menu start -->
+    <div id='menu'>
+        <ul>
+            <li class="active">
+                <a href='###'>
+                    <div class="fs1" aria-hidden="true" data-icon="&#xe007;">
+                    </div>
+                    <span>
+                        文章管理
+                    </span>
+                </a>
+                <ul style="display: block;">
+                    <li>
+                        <a href="/article/index">
+                            <span>
+                                文章列表
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/article/category">
+                            <span>
+                                文章分类
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href='###'>
+                    <div class="fs1" aria-hidden="true" data-icon="&#xe007;">
+                    </div>
+                    <span>
+                        管理员设置
+                    </span>
+                </a>
+                <ul style="display:block">
+                    <li>
+                        <a href='/admin'>
+                            <span>
+                                管理员列表
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- Menu End -->
+</aside>
+
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper">
+
+    <!-- Header start -->
+    <header>
+        <ul class="pull-left" id="left-nav">
+            <li class="hidden-lg hidden-md hidden-sm">
+                <div class="logo-mob clearfix">
+                    <h2>
+                        <div class="fs1" aria-hidden="true" data-icon="&#xe0db;"></div>
+                        <span>Admin</span></h2>
+                </div>
+            </li>
+        </ul>
+        <div class="pull-right">
+            <ul id="mini-nav" class="clearfix">
+                <li class="list-box hidden-xs dropdown">
+                    <a id="drop1" href="#" role="button" class="dropdown-toggle current-user" data-toggle="dropdown">
+                        {{ username }} <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu sm fadeInUp animated messages">
+                        <li class="dropdown-content">
+                            <a href="/login/logout">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list-box hidden-lg hidden-md hidden-sm" id="mob-nav">
+                    <a href="#">
+                        <i class="fa fa-reorder"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- Header end -->
+    {% block content %}
+    <!-- content here -->
+    {% endblock %}
+
+    <!-- Footer Start -->
+    <footer>
+        正在骄傲的使用PPPHP
+    </footer>
+    <!-- Footer end -->
+
+</div>
+<!-- Dashboard Wrapper End -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/assign/admin/js/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/assign/admin/js/bootstrap.min.js"></script>
+
+
+<!-- Animated Right Sidebar -->
+<script src="/assign/admin/js/slidebars.js"></script>
+
+<!-- Tyny Scrollbar -->
+<script src="/assign/admin/js/tiny-scrollbar.js"></script>
+
+<!-- Date Range -->
+<script src="/assign/admin/js/daterange/moment.js"></script>
+<script src="/assign/admin/js/daterange/daterangepicker.js"></script>
+
+<!-- Custom JS -->
+<script src="/assign/admin/js/custom.js"></script>
+<script src="/assign/admin/js/custom-index.js"></script>
+<script src="/assign/admin/js/layer/layer.js"></script>
+{% block script%}
+<!-- script here-->
+{% endblock %}
+</body>
+</html>

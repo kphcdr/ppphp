@@ -97,7 +97,9 @@ class ppphp {
         if(is_file(APP.'views/'.$file)) {
             Twig_Autoloader::register();
             $loader = new Twig_Loader_Filesystem(APP . 'views/');
-            $twig = new Twig_Environment($loader);
+            $twig = new Twig_Environment($loader,[
+                'cache' => PPPHP.'/log/twig_cache',
+            ]);
 
             $template = $twig->loadTemplate($file);
             $template->display($this->assign?$this->assign:[]);

@@ -20,6 +20,7 @@ class commonCtrl extends \admin\ctrl\baseCtrl
         if(!$this->id) {
             redirect('/login');
         }
+        $this->assign('username',$this->username);
     }
 
     public function json($array)
