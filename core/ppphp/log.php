@@ -60,6 +60,6 @@ abstract class log
     
     static public function addlog($level,$message)
     {
-        self::$class->log('INFO',$message);
+        self::$class->log($level,$message);
     }
 }
