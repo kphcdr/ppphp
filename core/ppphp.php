@@ -88,19 +88,22 @@ class ppphp {
     {
         $this->assign[$name] = $data;
     }
+
     /**
      * 用于在控制器中加载一个模板文件
      */
     public function display($file)
     {
-        $file = APP.'views/'.$file;
-        if(file_exists($file)) {
-            if($this->assign) {
-                extract($this->assign);
-            }
-            include $file;
+        if(is_file(APP.'views/'.$file)) {
+            Twig_Autoloader::register();
+            $loader = new Twig_Loader_Filesystem(APP . 'views/');
+            $twig = new Twig_Environment($loader);
+
+            $template = $twig->loadTemplate($file);
+            $template->display($this->assign?$this->assign:[]);
         } else {
-            throw new Exception($file.'模板文件不存在');
+            throw new Exception($file.'是一个不存在的模板文件');
         }
+
     }
 }
