@@ -56,7 +56,12 @@ class ppphp {
         \ppphp\log::init();
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl.'Ctrl';
         $action = $requert->action;
-        include APP.'ctrl/'.$requert->ctrl.'Ctrl.php';
+        $ctrlFile = APP.'ctrl/'.$requert->ctrl.'Ctrl.php';
+        if(is_file($ctrlFile)) {
+            include $ctrlFile;
+        } else {
+            throw new Exception($ctrlClass.'是一个不存在的控制器');
+        }
         $ctrl = new $ctrlClass();
         $ctrl->$action();
     }

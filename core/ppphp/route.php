@@ -22,19 +22,28 @@ class route
             } else {
                 $this->ctrl = $route['DEFAULT_CTRL'];
             }
-            
-            if(isset($path[1]) && $path[1]) {
-                $have = strstr($path[1],'?',true);
-                if($have) {
-                    $this->action = $have;
-                } else {
-                    $this->action = $path[1];
+            unset($path[0]);
+            //检测是否包含路由缩写
+            if($route['ROUTE']) {
+                if(isset($route['ROUTE'][$this->ctrl])) {
+                    $this->action = $route['ROUTE'][$this->ctrl][1];
+                    $this->ctrl = $route['ROUTE'][$this->ctrl][0];
                 }
-                
             } else {
-                $this->action = $route['DEFAULT_ACTION'];
+                if (isset($path[1]) && $path[1]) {
+                    $have = strstr($path[1], '?', true);
+                    if ($have) {
+                        $this->action = $have;
+                    } else {
+                        $this->action = $path[1];
+                    }
+
+                } else {
+                    $this->action = $route['DEFAULT_ACTION'];
+                }
+                unset($path[0]);
             }
-            unset($path[0],$path[1]);
+
             $this->path = array_merge($path);
             $pathlenth = count($path);
             $i = 0;
