@@ -63,4 +63,55 @@ class adminCtrl extends \admin\ctrl\commonCtrl
 		}
 		redirect('/admin');
 	}
+
+	public function conf()
+	{
+		$confModel = new \admin\model\confModel();
+		$data = $confModel->getAll();
+
+		$this->assign('data',$data);
+		$this->display('admin/conf.html');
+	}
+
+	public function infoconf()
+	{
+		$id = get('id','int');
+		if($id) {
+			$confmodel = new \admin\model\confModel();
+			$data['data'] = $confmodel->getOne($id);
+			$this->assign('data',$data);
+		}
+		$this->display('admin/infoconf.html');
+	}
+
+	public function saveconf()
+	{
+		if(http_method() == 'POST') {
+			$data = post();
+			$confmodel = new \admin\model\confModel();
+			if(isset($data['id']) && $data['id'] != '') {
+				$id = $data['id'];
+				unset($data['id']);
+				$ret = $confmodel->setOne($id,$data);
+			} else {
+				$ret = $confmodel->addOne($data);
+			}
+
+			if($ret !== false) {
+				redirect('/admin/conf');
+			} else {
+				error('操作失败,请稍后重试');
+			}
+		}
+	}
+
+	public function delconf()
+	{
+		$id = get('id','int');
+		if($id) {
+			$confmodel = new \admin\model\confModel();
+			$confmodel->delOne($id);
+		}
+		redirect('/admin/conf');
+	}
 }

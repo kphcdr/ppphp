@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set now_title = '系统设置'%}
+
+{% block web_title %}{{ now_title }}-{{ parent()}} {% endblock%}
+{% block content%}
+<!-- Main Container Start -->
+<div class="main-container">
+    <!-- Top Bar Starts -->
+    <div class="top-bar clearfix">
+        <div class="page-title">
+            <h4>
+                <div class="fs1" aria-hidden="true" data-icon="&#xe007;"></div>
+                {{ now_title }}</h4>
+        </div>
+    </div>
+    <!-- Top Bar Ends -->
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+
+        <!-- Spacer starts -->
+        <div class="spacer-xs">
+            <!-- Row start -->
+            <div class="row no-gutter">
+                <div class="col-md-12 col-sm-12 col-sx-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>{{ now_title }}</h4>
+                            <ul class="links">
+                                <li>
+                                    <a href="/admin/infoconf">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>名称</th>
+                                        <th>值</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for a in data %}
+                                    <tr>
+                                        <td>{{ a.id }}</td>
+                                        <td>{{ a.name }}</td>
+                                        <td>{{ a.value}}</td>
+                                        <td>
+                                            <a href="/admin/infoconf/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
+                                            <a data-url="/admin/delconf/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+        <!-- Spacer ends -->
+
+    </div>
+    <!-- Container fluid ends -->
+
+</div>
+<!-- Main Container Start -->
+
+{% endblock%}
+
+{% block script%}
+<script>
+    $('.btn-del').click(function(){
+        var url = $(this).attr('data-url');
+        //询问框
+        layer.confirm('是否真的要删除？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            location.href = url;
+        }, function(){
+            layer.msg('下次别乱点', {
+                time: 20000, //20s后自动关闭
+                btn: ['知道了']
+            });
+        });
+    })
+
+
+
+</script>
+{% endblock%}
+
