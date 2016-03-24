@@ -21,6 +21,7 @@ class commonCtrl extends \admin\ctrl\baseCtrl
             redirect('/login');
         }
         $this->assign('username',$this->username);
+        parent::__construct();
     }
 
 
