@@ -112,6 +112,8 @@ class adminCtrl extends \admin\ctrl\commonCtrl
 			$confmodel = new \admin\model\confModel();
 			$confmodel->delOne($id);
 		}
+		$data = new \ppphp\route();
+
 		redirect('/admin/conf');
 	}
 }

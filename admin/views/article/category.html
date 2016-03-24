@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
-{% set now_title = '系统设置'%}
+{% set now_title = '分类管理'%}
 
-{% block web_title %}{{ now_title }}-{{ parent()}} {% endblock%}
+{% block web_title %}{{ now_title }}-{{ parent()}}{% endblock%}
 {% block content%}
 <!-- Main Container Start -->
 <div class="main-container">
@@ -28,7 +28,7 @@
                             <h4>{{ now_title }}</h4>
                             <ul class="links">
                                 <li>
-                                    <a href="/admin/infoconf">
+                                    <a href="/article/infocategory">
                                         <i class="fa iconfont icon-plus"></i>
                                     </a>
                                 </li>
@@ -40,8 +40,8 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>名称</th>
-                                        <th>值</th>
+                                        <th>分类名称</th>
+                                        <th>排序</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -50,10 +50,10 @@
                                     <tr>
                                         <td>{{ a.id }}</td>
                                         <td>{{ a.name }}</td>
-                                        <td>{{ a.value}}</td>
+                                        <td>{{ a.sort }}</td>
                                         <td>
-                                            <a href="/admin/infoconf/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
-                                            <a data-url="/admin/delconf/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
+                                            <a href="/article/infocategory/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
+                                            <a data-url="/article/delcategory/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -81,7 +81,7 @@
     $('.btn-del').click(function(){
         var url = $(this).attr('data-url');
         //询问框
-        layer.confirm('是否真的要删除？', {
+        layer.confirm('是否要删除这个分类？', {
             btn: ['确定','取消'] //按钮
         }, function(){
             location.href = url;
