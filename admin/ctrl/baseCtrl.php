@@ -13,17 +13,22 @@ class baseCtrl extends \ppphp
 {
     public function __construct()
     {
-//        $sessinClass = new \ppphp\session();
-//        $this->id = $sessinClass->get('id');
-//        if(!$this->id) {
-//            redirect('/login');
-//        }
+        //加载网站基本配置
+        $this->webconf();
     }
 
-    public function json($array)
+
+    protected function webconf()
     {
-        header('Content-Type:application/json; charset=utf-8');
-        echo json_encode($array);
+        $confModel = new \admin\model\confModel();
+        $data = $confModel->getall();
+        $webconf = [];
+        foreach($data as $a) {
+            $webconf[$a['name']] = $a['value'];
+        }
+        $this->assign('CONF',$webconf);
     }
+
+
 
 }

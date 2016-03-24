@@ -18,9 +18,10 @@ class loginCtrl extends baseCtrl
 		$adminModel = new adminModel();
 		$ret = $adminModel->login();
 		if($ret['status'] != 0) {
-			$this->json($ret);
+			json($ret);
+
 		} else {
-			$this->json($ret);
+			json($ret);
 		}
 	}
 

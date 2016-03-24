@@ -24,11 +24,9 @@ class route
             }
             unset($path[0]);
             //检测是否包含路由缩写
-            if($route['ROUTE']) {
-                if(isset($route['ROUTE'][$this->ctrl])) {
+            if(isset($route['ROUTE'][$this->ctrl])) {
                     $this->action = $route['ROUTE'][$this->ctrl][1];
                     $this->ctrl = $route['ROUTE'][$this->ctrl][0];
-                }
             } else {
                 if (isset($path[1]) && $path[1]) {
                     $have = strstr($path[1], '?', true);

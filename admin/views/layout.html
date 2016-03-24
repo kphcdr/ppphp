@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block web_title %}PPPHP管理后台{% endblock%}</title>
+    <title>{% block web_title %}{{ CONF.WEBTITLE}}{% endblock%}</title>
     <meta name="description" content="Cloud Admin Panel"/>
     <meta name="keywords"
           content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Bootstrap, Light weight Admin Dashboard,Light weight, Light weight Admin, Light weight Dashboard"/>
@@ -128,21 +128,15 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/assign/admin/js/jquery.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/assign/admin/js/bootstrap.min.js"></script>
-
-
 <!-- Animated Right Sidebar -->
 <script src="/assign/admin/js/slidebars.js"></script>
-
 <!-- Tyny Scrollbar -->
 <script src="/assign/admin/js/tiny-scrollbar.js"></script>
-
 <!-- Date Range -->
 <script src="/assign/admin/js/daterange/moment.js"></script>
 <script src="/assign/admin/js/daterange/daterangepicker.js"></script>
-
 <!-- Custom JS -->
 <script src="/assign/admin/js/custom.js"></script>
 <script src="/assign/admin/js/custom-index.js"></script>
