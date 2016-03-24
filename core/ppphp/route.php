@@ -39,7 +39,7 @@ class route
                 } else {
                     $this->action = $route['DEFAULT_ACTION'];
                 }
-                unset($path[0]);
+                unset($path[1]);
             }
 
             $this->path = array_merge($path);
