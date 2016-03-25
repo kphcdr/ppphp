@@ -8,7 +8,8 @@ return array(
 	'username' => 'root',
 	'password' => 'root',
 	'charset' => 'utf8',
-	'prefix' => 'ppphp_',
+	//medoo 对表前缀的支持有BUG,所以暂时不推荐设置表前缀
+	'prefix' => '',
 	//sqlite示例配置
 //    'database_type' => 'sqlite',
 //    'database_file' => 'db/ppphp.rdb'
