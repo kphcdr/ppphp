@@ -12,7 +12,7 @@ class articleCtrl extends commonCtrl
 	public function index()
 	{
 		$articleModel = new articleModel();
-		$data = $articleModel->articleList();
+		$data = $articleModel->articleListPage();
 		$this->assign('data',$data);
 		$this->display('article/article.html');
 	}

@@ -9,20 +9,28 @@
 namespace admin\model;
 
 
+use ppphp\conf;
+
 class articleModel extends \ppphp\model
 {
     public $table = 'article';
 
 
-    public function articleList()
+    public function articleListPage()
     {
-        $return =  $this->select($this->table,[
-            '[>]'.$this->prefix.'category(c)'=>['c_id'=>'id']
+        $page = get('p','int',1);
+        $page = $page - 1;
+        $pagenum = conf::get('ADMIN_PAGE','config');
+        $limit = [$page*$pagenum,$pagenum];
+        $limit = ['0'=>$page*$pagenum,'1'=>$pagenum];
+        $return =  $this->select('article',[
+            '[>]category(c)'=>['category'=>'id']
         ],[
-            'c.name(cname)','ppphp_article.id','ppphp_article.name'
+            'c.name(cname)','article.id','article.name','article.is_use'
+        ],[
+            'LIMIT'=>$limit
         ]);
-        p($return);
         p($this->last_query());
-        p($this->error());
+        return $return;
     }
 }

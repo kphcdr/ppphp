@@ -42,6 +42,7 @@
                                         <th>ID</th>
                                         <th>文章标题</th>
                                         <th>所属分类</th>
+                                        <th>是否显示</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -51,6 +52,7 @@
                                         <td>{{ a.id }}</td>
                                         <td>{{ a.name }}</td>
                                         <td>{{ a.cname }}</td>
+                                        <td>{{ a.is_use==0 ? '可用' : '不可用' }}</td>
                                         <td>
                                             <a href="/article/infocategory/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
                                             <a data-url="/article/delcategory/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
