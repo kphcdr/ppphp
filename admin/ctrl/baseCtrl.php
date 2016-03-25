@@ -15,6 +15,7 @@ class baseCtrl extends \ppphp
     {
         //加载网站基本配置
         $this->webconf();
+        $this->route();
     }
 
 
@@ -27,6 +28,13 @@ class baseCtrl extends \ppphp
             $webconf[$a['name']] = $a['value'];
         }
         $this->assign('CONF',$webconf);
+    }
+
+    protected function route()
+    {
+        $route = new \ppphp\route();
+        $this->assign('CTRL',$route->ctrl);
+        $this->assign('ACTION',$route->action);
     }
 
 

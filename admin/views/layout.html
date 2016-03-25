@@ -43,7 +43,7 @@
     <!-- Menu start -->
     <div id='menu'>
         <ul>
-            <li class="active">
+            <li {% if CTRL == 'article' %}class="active"{% endif%}>
                 <a href='###'>
                     <div class="fs1 iconfont icon-chuanboneirong" aria-hidden="true">
                     </div>
@@ -51,7 +51,7 @@
                         文章管理
                     </span>
                 </a>
-                <ul style="display:block">
+                <ul {% if CTRL == 'article' %}style="display:block"{% endif%}>
                     <li>
                         <a href='/article/index'>
                             <span>
@@ -67,7 +67,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>            <li class="active">
+            </li>
+        <li {% if CTRL == 'admin' %}class="active"{% endif%}>
                 <a href='###'>
                     <div class="fs1 iconfont icon-setting" aria-hidden="true">
                     </div>
@@ -75,7 +76,7 @@
                         系统设置
                     </span>
                 </a>
-                <ul style="display:block">
+                <ul {% if CTRL == 'admin' %}style="display:block"{% endif%}>
                     <li>
                         <a href='/admin'>
                             <span>
