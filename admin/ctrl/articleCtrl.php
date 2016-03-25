@@ -5,6 +5,7 @@
 namespace admin\ctrl;
 
 use admin\model\articleModel;
+use admin\model\categoryModel;
 
 class articleCtrl extends commonCtrl
 {
@@ -27,6 +28,11 @@ class articleCtrl extends commonCtrl
 			$data['data'] = $articleModel->getOne($id);
 			$this->assign('data',$data);
 		}
+		//获取全部分类
+		$categoryModel = new categoryModel();
+		$categoryList = $categoryModel->categoryList();
+		$this->assign('category',$categoryList);
+		
 		$this->display('article/infoarticle.html');
 	}
 
@@ -34,20 +40,20 @@ class articleCtrl extends commonCtrl
 	{
 		if(http_method() == 'POST') {
 			$data = post();
-			if(!$data['password']) {
-				unset($data['password']);
-			}
 			$articleModel = new articleModel();
 			if(isset($data['id']) && $data['id'] != '') {
 				$id = $data['id'];
 				unset($data['id']);
+				$data['updatetime'] = TIME;
 				$ret = $articleModel->setOne($id,$data);
 			} else {
+				$data['createtime'] = TIME;
+				$data['updatetime'] = TIME;
 				$ret = $articleModel->addOne($data);
 			}
 
 			if($ret !== false) {
-				redirect('/article');
+				redirect('/article/index');
 			} else {
 				error('操作失败,请稍后重试');
 			}
@@ -67,7 +73,7 @@ class articleCtrl extends commonCtrl
 
 	public function category()
 	{
-		$categoryModel = new \admin\model\categoryModel();
+		$categoryModel = new categoryModel();
 		$data = $categoryModel->categoryList();
 
 		$this->assign('data',$data);
@@ -78,7 +84,7 @@ class articleCtrl extends commonCtrl
 	{
 		$id = get('id','int');
 		if($id) {
-			$categorymodel = new \admin\model\categoryModel();
+			$categorymodel = new categoryModel();
 			$data['data'] = $categorymodel->getOne($id);
 			$this->assign('data',$data);
 		}
@@ -89,7 +95,7 @@ class articleCtrl extends commonCtrl
 	{
 		if(http_method() == 'POST') {
 			$data = post();
-			$categorymodel = new \admin\model\categoryModel();
+			$categorymodel = new categoryModel();
 			if(isset($data['id']) && $data['id'] != '') {
 				$id = $data['id'];
 				unset($data['id']);
@@ -110,7 +116,7 @@ class articleCtrl extends commonCtrl
 	{
 		$id = get('id','int');
 		if($id) {
-			$categorymodel = new \admin\model\categoryModel();
+			$categorymodel = new categoryModel();
 			$categorymodel->delOne($id);
 		}
 		redirect('/article/category');

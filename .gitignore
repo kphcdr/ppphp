@@ -11,6 +11,7 @@ $RECYCLE.BIN/
 /backup
 /.project
 /.settings
+/ueditor
 /composer.lock
 /.buildpath
 /vendor

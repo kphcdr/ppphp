@@ -28,7 +28,7 @@
                             <h4>{{ now_title }}</h4>
                             <ul class="links">
                                 <li>
-                                    <a href="/article/infocategory">
+                                    <a href="/article/infoarticle">
                                         <i class="fa iconfont icon-plus"></i>
                                     </a>
                                 </li>
@@ -54,7 +54,7 @@
                                         <td>{{ a.cname }}</td>
                                         <td>{{ a.is_use==0 ? '可用' : '不可用' }}</td>
                                         <td>
-                                            <a href="/article/infocategory/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
+                                            <a href="/article/infoarticle/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
                                             <a data-url="/article/delcategory/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
                                         </td>
                                     </tr>

@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% set now_title = '编辑文章'%}
+
+{% block web_title %}{{ now_title }}-{{ parent()}} {% endblock%}
+{% block content%}
+<div class="main-container">
+	<!-- Top Bar Starts -->
+	<div class="top-bar clearfix">
+		<div class="page-title">
+			<h4>
+				<div class="fs1 iconfont icon-file2" aria-hidden="true"></div>
+				{{ now_title }}
+			</h4>
+		</div>
+	</div>
+	<!-- Top Bar Ends -->
+	<!-- Container fluid Starts -->
+	<div class="container-fluid">
+		<!-- Spacer starts -->
+		<div class="spacer-xs">
+			<div class="row no-gutter">
+				<div class="col-md-12 col-sm-6 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>
+								{{ now_title }}
+							</h4>
+						</div>
+						<div class="panel-body">
+							<form class="form-horizontal row-border" method="post" action="/article/savearticle">
+								<input type="hidden" name="id" value="{{ data.data.id }}"
+								/>
+								<div class="form-group">
+									<label class="col-md-2 control-label">
+										标题
+									</label>
+									<div class="col-md-10">
+										<input type="text" name="name" class="form-control" value="{{ data.data.name }}" required="required" />
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">
+										所属分类
+									</label>
+									<div class="col-md-10">
+										<select name="category" class="form-control">
+											{% for a in category %}
+											<option value="{{ a.id }}" {%  if data.data.category == a.id %} selected="selected" {% endif  %}>{{ a.name}}</option>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">
+										关键词
+									</label>
+									<div class="col-md-10">
+										<input type="text" name="keyword" class="form-control" value="{{ data.data.keyword }}" required="required" />
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">
+										描述
+									</label>
+									<div class="col-md-10">
+										<input type="text" name="desc" class="form-control" value="{{ data.data.desc }}" required="required" />
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">
+										是否可用
+									</label>
+									<div class="col-md-10">
+										<select name="is_use" class="form-control">
+											<option value="0" {%  if data.data.is_use == 0 %} selected = "selected" {% endif %} >可用</option>
+											<option value="1" {%  if data.data.is_use == 1 %}  selected = "selected" {% endif %} >不可用</option>
+										</select>
+									</div>
+								</div>
+								<script name="content" id="content">{{ data.data.content|raw }}</script>
+
+
+								<div class="form-group">
+									<div class="col-md-10">
+										<button type="submit" class="btn btn-info pull-right">
+											提交
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- row end -->
+		</div>
+		<!-- Spacer ends -->
+	</div>
+	<!-- Container fluid ends -->
+</div>
+<!-- Main Container Start -->
+{% endblock%}
+
+{% block script %}
+<script src="/assign/admin/js/ueditor/ueditor.config.js"></script>
+<script src="/assign/admin/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+	var ue = UE.getEditor('content');
+</script>
+{% endblock%}
