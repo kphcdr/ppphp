@@ -55,7 +55,7 @@
                                         <td>{{ a.is_use==0 ? '可用' : '不可用' }}</td>
                                         <td>
                                             <a href="/article/infoarticle/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>
-                                            <a data-url="/article/delcategory/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
+                                            <a data-url="/article/delarticle/id/{{ a.id}}" href="javascript:;" class="label label-danger btn-del" data-original-title="">删除</a>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -83,15 +83,12 @@
     $('.btn-del').click(function(){
         var url = $(this).attr('data-url');
         //询问框
-        layer.confirm('是否要删除这个分类？', {
+        layer.confirm('是否要删除这个文章？', {
             btn: ['确定','取消'] //按钮
         }, function(){
             location.href = url;
         }, function(){
-            layer.msg('下次别乱点', {
-                time: 20000, //20s后自动关闭
-                btn: ['知道了']
-            });
+
         });
     })
 
