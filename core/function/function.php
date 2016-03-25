@@ -25,21 +25,24 @@ function p($var)
  */
 function get($str='false',$filter = '',$default = false)
 {
-    if(isset($_GET[$str]))
+    if($str !== false)
     {
-        $return = $_GET[$str];
-        switch ($filter)
-        {
-            case 'int':
-                if (!is_numeric($return))
-                {
-                    return $default;
-                }
-                break;
-            default:$return = htmlspecialchars($return);
+        $return = isset($_GET[$str])?$_GET[$str]:false;
+        if($return) {
+            switch ($filter) {
+                case 'int':
+                    if (!is_numeric($return)) {
+                        return $default;
+                    }
+                    break;
+                default:
+                    $return = htmlspecialchars($return);
 
+            }
+            return $return;
+        } else {
+            return $default;
         }
-        return $return;
     } else {
         return $_GET;
     }
@@ -54,21 +57,24 @@ function get($str='false',$filter = '',$default = false)
  */
 function post($str=false,$filter = '',$default = false)
 {
-    if(isset($_POST[$str]))
+    if($str !== false)
     {
-        $return = $_POST[$str];
-        switch ($filter)
-        {
-            case 'int':
-                if (!is_numeric($return))
-                {
-                    return $default;
-                }
-                break;
-            default:$return = htmlspecialchars($return);
+        $return = isset($_POST[$str])?$_POST[$str]:false;
+        if($return) {
+            switch ($filter) {
+                case 'int':
+                    if (!is_numeric($return)) {
+                        return $default;
+                    }
+                    break;
+                default:
+                    $return = htmlspecialchars($return);
 
+            }
+            return $return;
+        } else {
+            return $default;
         }
-        return $return;
     } else {
         return $_POST;
     }
