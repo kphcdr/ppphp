@@ -13,7 +13,9 @@ class articleCtrl extends commonCtrl
 	{
 		$articleModel = new articleModel();
 		$data = $articleModel->articleListPage();
-		$this->assign('data',$data);
+		$this->assign('data',$data['list']);
+		$this->assign('page',$data['page']);
+
 		$this->display('article/article.html');
 	}
 

@@ -22,15 +22,18 @@ class articleModel extends \ppphp\model
         $page = $page - 1;
         $pagenum = conf::get('ADMIN_PAGE','config');
         $limit = [$page*$pagenum,$pagenum];
-        $limit = ['0'=>$page*$pagenum,'1'=>$pagenum];
-        $return =  $this->select('article',[
+        $return['list'] =  $this->select('article',[
             '[>]category(c)'=>['category'=>'id']
         ],[
             'c.name(cname)','article.id','article.name','article.is_use'
         ],[
             'LIMIT'=>$limit
         ]);
-        p($this->last_query());
+        $return['count'] = $this->count($this->table);
+
+        $pageObj = new \ppphp\page ($return['count'],$pagenum);
+        $return['page'] = $pageObj->show();
+
         return $return;
     }
 }
