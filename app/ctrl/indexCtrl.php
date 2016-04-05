@@ -9,7 +9,10 @@ class indexCtrl extends \ppphp
 {
 	public function index()
 	{
-		$this->assign('name','Hello ppphp');
-	    $this->display('index.html');
+		$data['title'] = 'title';
+		$data['content'] = 'content';
+
+		$this->assign('data',$data);
+		$this->display('index.html');
 	}
 }
