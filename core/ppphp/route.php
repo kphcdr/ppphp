@@ -58,8 +58,12 @@ class route
         }
     }
 
-    public function urlVar($num)
+    public function urlVar($num,$default = false)
     {
-        return $this->path[$num];
+        if(isset($this->path[$num])) {
+            return $this->path[$num];
+        } else {
+            return $default;
+        }
     }
 }

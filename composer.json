@@ -12,7 +12,8 @@
         "filp/whoops": "*",
         "monolog/monolog": "*",
         "catfan/medoo": "*",
-        "twig/twig":"~1.0"
+        "twig/twig":"~1.0",
+        "tedivm/stash": "^0.14.1"
     },
     "authors": [
         {

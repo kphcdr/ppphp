@@ -5,6 +5,6 @@ return array(
     'DEFAULT_ACTION'=>'index',
     'ROUTE'=>[
 
-        'test'=>['index','index']
+        'doc'=>['index','doc']
     ]
 );
