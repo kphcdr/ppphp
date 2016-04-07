@@ -32,7 +32,6 @@ class indexCtrl extends \ppphp
 
 	public function test()
 	{
-		$pool = new \Stash\Pool();
-		$item = $pool->getItem('./log');
+
 	}
 }
