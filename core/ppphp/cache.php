@@ -12,7 +12,6 @@ abstract class cache
         if(!self::$class) {
 
             $type = conf::get('CACHE_TYPE','cache');
-
             $class = '\\ppphp\\lib\\cache\\'.$type;
             self::$class = new $class();
         }
@@ -20,12 +19,20 @@ abstract class cache
 
     static public function get($name)
     {
-        self::$class->get($name);
+        if(self::$class) {
+            return self::$class->get($name);
+        } else {
+            self::init();
+            self::get($name);
+        }
     }
 
-    static public function set($name,$value,$time)
+    static public function set($name,$value,$time = false)
     {
-
+        if(!sefl::class) {
+            self::init();
+        }
+        return self::$class->set($name,$value,$time);
     }
 
     static public function delete($name)

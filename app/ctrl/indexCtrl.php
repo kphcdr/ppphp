@@ -32,6 +32,7 @@ class indexCtrl extends \ppphp
 
 	public function test()
 	{
-
+		$data = \ppphp\cache::set('s',$_SERVER);
+		p($data);
 	}
 }
