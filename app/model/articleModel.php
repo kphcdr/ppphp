@@ -13,7 +13,9 @@ class articleModel extends \ppphp\model
     public $table = 'article';
     public function lists()
     {
-        $data = $this->select($this->table,['id','name']);
+        $data = $this->select($this->table,['id','name'],[
+            'is_use' => 0
+        ]);
         return $data;
     }
 }
