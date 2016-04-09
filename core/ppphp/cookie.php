@@ -84,7 +84,7 @@ class cookie{
 	 * 
 	 * @Author 张森   2013-05-13
 	 */
-	function drop($cookieName)
+	function delete($cookieName)
 	{
 		if($cookieName != '')
 		{
@@ -103,7 +103,7 @@ class cookie{
 	 * 
 	 * @Author kphcdr   2014-2-14
 	 */	
-	public function dropall()
+	public function clear()
 	{
 		if(isset($_COOKIE))
 		{

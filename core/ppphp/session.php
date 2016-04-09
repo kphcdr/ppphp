@@ -27,7 +27,7 @@ class session
 	 * 删除一个session
 	 * @param string $sessionName
 	 */
-	function drop($sessionName)
+	function del($sessionName)
 	{
 		if(isset($sessionName))
 		{
@@ -37,7 +37,7 @@ class session
 		return False;
 	}
 
-	function dropall()
+	function clear()
 	{
 		if(isset($_SESSION))
 		{
