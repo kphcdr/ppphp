@@ -6,7 +6,7 @@ return array(
      */
     'CACHE_TYPE'=>'file',
     'OPTION'=> [
-        'path'=>PPPHP.'/log/cahce',//储存位置
-        'time'=>0,//超时时间
+        'path'=>PPPHP.'/log/cache',//储存位置
+        'time'=>3600,//超时时间
     ]
 );

@@ -8,14 +8,21 @@
 
 namespace app\model;
 
+use ppphp\cache;
+
 class articleModel extends \ppphp\model
 {
     public $table = 'article';
     public function lists()
     {
-        $data = $this->select($this->table,['id','name'],[
-            'is_use' => 0
-        ]);
+        $cache = new cache();
+        $data = $cache->get('articleList');
+        if(!$data) {
+            $data = $this->select($this->table, ['id', 'name'], [
+                'is_use' => 0
+            ]);
+            $cache->set('articleList',$data);
+        }
         return $data;
     }
 }

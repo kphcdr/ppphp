@@ -16,12 +16,17 @@ class file
 
     public function get($name)
     {
-        $ret = json_decode(file_get_contents($this->path.'/'.$name.'.ppcache'),true);
-        if($ret['time'] == 0 || $ret['time'] >= TIME) {
-            return $ret['data'];
+        if(is_file($this->path.'/'.$name.'.ppcache')) {
+            $ret = json_decode(file_get_contents($this->path . '/' . $name . '.ppcache'), true);
+            if($ret['time'] == 0 || $ret['time'] >= TIME) {
+                return $ret['data'];
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
+
     }
 
     public function set($name,$value,$time = false)

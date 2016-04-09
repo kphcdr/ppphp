@@ -21,7 +21,7 @@ class cache
         return $this->class->get($name);
     }
 
-    public function set($name, $value, $time)
+    public function set($name, $value, $time = false)
     {
         return $this->class->set($name,$value,$time);
     }

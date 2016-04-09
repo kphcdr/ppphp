@@ -5,6 +5,8 @@
 namespace app\ctrl;
 
 
+use ppphp\cache;
+
 class indexCtrl extends \ppphp
 {
 	public function __construct()
@@ -32,7 +34,9 @@ class indexCtrl extends \ppphp
 
 	public function test()
 	{
-		$data = \ppphp\cache::set('s',$_SERVER);
-		p($data);
+		$cache = new cache();
+		$cache->clear();
+
+
 	}
 }
