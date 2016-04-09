@@ -9,7 +9,7 @@ namespace ppphp;
 
 use ppphp\conf;
 
-abstract class log
+class log
 {
     static public $class;
     static public $logMessage;
