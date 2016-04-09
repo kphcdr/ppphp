@@ -1,6 +1,12 @@
 <?php
 //日志相关配置
 return array(
-    'CACHE_TYPE'=>'file',#日志驱动
-    'CACHE_PATH'=>PPPHP.'/log'#存储位置
+    /**
+     * file 存储
+     */
+    'CACHE_TYPE'=>'file',
+    'OPTION'=> [
+        'path'=>PPPHP.'/log/cahce',//储存位置
+        'time'=>0,//超时时间
+    ]
 );

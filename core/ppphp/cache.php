@@ -1,42 +1,39 @@
 <?php
 /* ========================================================================
- * 加载系统配置类,可以防止重复引入文件
+ * 缓存类
  * ======================================================================== */
 namespace ppphp;
 
-abstract class cache
+
+class cache
 {
-    static public $class;
-    static public function init()
+    private $class;
+    public function __construct()
     {
-        if(!self::$class) {
-
-            $type = conf::get('CACHE_TYPE','cache');
+            $type = \ppphp\conf::get('CACHE_TYPE','cache');
+            $option = \ppphp\conf::get('OPTION','cache');
             $class = '\\ppphp\\lib\\cache\\'.$type;
-            self::$class = new $class();
-        }
+            $this->class = new $class($option);
     }
 
-    static public function get($name)
+    public function get($name)
     {
-        if(self::$class) {
-            return self::$class->get($name);
-        } else {
-            self::init();
-            self::get($name);
-        }
+        return $this->class->get($name);
     }
 
-    static public function set($name,$value,$time = false)
+    public function set($name, $value, $time)
     {
-        if(!sefl::class) {
-            self::init();
-        }
-        return self::$class->set($name,$value,$time);
+        return $this->class->set($name,$value,$time);
     }
 
-    static public function delete($name)
+    public function del($name)
     {
-
+        return $this->class->del($name);
     }
+
+    public function clear()
+    {
+        return $this->class->clear();
+    }
+
 }
