@@ -33,10 +33,13 @@ class adminCtrl extends \admin\ctrl\commonCtrl
 	{
 		if(http_method() == 'POST') {
 			$data = post();
+			$adminModel = new adminModel();
 			if(!$data['password']) {
 				unset($data['password']);
+			} else {
+				$data['password'] = $adminModel->_encodePassword($data['password']);
 			}
-			$adminModel = new adminModel();
+
 			if(isset($data['id']) && $data['id'] != '') {
 				$id = $data['id'];
 				unset($data['id']);

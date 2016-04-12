@@ -43,7 +43,7 @@ class adminModel extends \ppphp\model
         }
     }
 
-    private function  _encodePassword($password)
+    public function  _encodePassword($password)
     {
         $password = md5($password);
         $password .= \ppphp\conf::get('PASSWORDKEY','config');
@@ -54,9 +54,9 @@ class adminModel extends \ppphp\model
     public function loginout()
     {
         $session = new \ppphp\session();
-        $session->dropall();
+        $session->clear();
         $cookie = new \ppphp\cookie();
-        $cookie->dropall();
+        $cookie->clear();
     }
 
     public function adminList()
