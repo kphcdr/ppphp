@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
+{% block header%}
+<title>{{ article.name}} - {{ conf.WEBTITLE}}</title>
+<meta name="keywords" content="{{ article.keyword}}">
+<meta name="description" content="{{ article.desc}}">
+{% endblock %}
 {% block content%}
 <div class="am-g am-g-fixed blog-g-fixed am-margin-top-sm">
     <div class="am-u-md-4 blog-sidebar">

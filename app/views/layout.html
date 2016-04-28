@@ -2,9 +2,11 @@
 <html>
 <head lang="cn">
     <meta charset="UTF-8">
-    <title>PPPHP框架</title>
-    <meta name="keywords" content="PPPHP官网,PPPHP框架,PHP框架,ppphp">
-    <meta name="description" content="PPPHP框架介绍说明，是一个灵活易扩展的PHP框架，无论你是PHP的初学者还是PHP大牛，相信PPPHP框架一定能够满足你的要求">
+    {% block header %}
+    <title>{{ conf.WEBTITLE}}</title>
+    <meta name="keywords" content="{{ conf.KEYWORD}}">
+    <meta name="description" content="{{ conf.DESC}}">
+    {% endblock%}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
@@ -13,7 +15,6 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/assign/app/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/assign/app/css/index.css"/>
-
 </head>
 <body>
 <header class="am-topbar am-topbar-fixed-top">

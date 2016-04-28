@@ -47,4 +47,17 @@ class articleModel extends \ppphp\model
         ]);
         return $data['id'];
     }
+
+    public function getOne($id)
+    {
+        $cache = new cache();
+        $data = $cache->get('article_'.$id);
+        if(!$data) {
+            $data = $this->get($this->table,'*',[
+                'id'=>$id
+            ]);
+            $cache->set('article_'.$id,$data);
+        }
+        return $data;
+    }
 }

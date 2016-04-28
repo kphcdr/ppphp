@@ -4,7 +4,6 @@
  */
 namespace app\ctrl;
 
-
 use ppphp\cache;
 
 class indexCtrl extends \ppphp
@@ -13,7 +12,9 @@ class indexCtrl extends \ppphp
 	{
 		$this->route = new \ppphp\route();
 		$this->assign('action',$this->route->action);
-
+		$confModel = new \app\model\confModel();
+		$conf = $confModel->getAll();
+		$this->assign('conf',$conf);
 	}
 
 	public function index()
