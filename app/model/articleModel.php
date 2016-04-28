@@ -48,7 +48,7 @@ class articleModel extends \ppphp\model
         return $data['id'];
     }
 
-    public function getOne($id)
+    public function one($id)
     {
         $cache = new cache();
         $data = $cache->get('article_'.$id);

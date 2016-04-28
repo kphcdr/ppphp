@@ -27,7 +27,7 @@ class indexCtrl extends \ppphp
 		$id = $this->route->urlVar(0,1);
 		$model = new \app\model\articleModel();
 		$articleList = $model->doc();
-		$article = $model->getOne($id);
+		$article = $model->one($id);
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/doc.html');
@@ -42,7 +42,7 @@ class indexCtrl extends \ppphp
 			$id = $model->getLastArticleId();
 		}
 		$articleList = $model->blog();
-		$article = $model->getOne($id);
+		$article = $model->one($id);
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/blog.html');
