@@ -11,6 +11,13 @@ class indexCtrl extends \admin\ctrl\commonCtrl
 {
 	public function index()
 	{
-		redirect('admin');
+		redirect('/admin');
+	}
+
+	public function clear()
+	{
+		$cache = new \ppphp\cache();
+		$cache->clear();
+		redirect('/admin');
 	}
 }
