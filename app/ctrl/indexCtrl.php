@@ -25,13 +25,27 @@ class indexCtrl extends \ppphp
 	{
 		$id = $this->route->urlVar(0,1);
 		$model = new \app\model\articleModel();
-		$articleList = $model->lists();
+		$articleList = $model->doc();
 		$article = $model->getOne($id);
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/doc.html');
 	}
 
+	public function blog()
+	{
+		$model = new \app\model\articleModel();
+		$id = $this->route->urlVar(0);
+		if(empty($id)) {
+			//获取到最新的文章
+			$id = $model->getLastArticleId();
+		}
+		$articleList = $model->blog();
+		$article = $model->getOne($id);
+		$this->assign('article',$article);
+		$this->assign('articleList',$articleList);
+		$this->display('index/blog.html');
+	}
 	public function test()
 	{
 		$cache = new cache();

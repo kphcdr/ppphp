@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="am-g am-g-fixed blog-g-fixed am-margin-top-sm">
+    <div class="am-u-md-4 blog-sidebar">
+        <div class="am-panel-group">
+            <section class="am-panel am-panel-default">
+                <div class="am-panel-hd">博客目录</div>
+                <ul class="am-list blog-list">
+                    {% for a in articleList %}
+                    <li><a href="/blog/{{ a.id}}">{{ a.name}}</a></li>
+                    {% endfor%}
+                </ul>
+            </section>
+        </div>
+    </div>
+    <div class="am-u-md-8">
+        <article class="blog-main">
+            <h3 class="am-article-title blog-title">{{ article.name}}
+            </h3>
+            <h4 class="am-article-meta">发布于 {{ article.createtime|date("Y/m/d")}}  最后修改于 {{ article.updatetime|date("Y/m/d")}} </h4>
+
+            <div class="am-g blog-content">
+                <div class="am-u-lg-12">
+                    {{ article.content|raw}}
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+
+</div>
+
+{% endblock%}
