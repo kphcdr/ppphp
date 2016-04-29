@@ -23,20 +23,22 @@
             <h3 class="am-article-title blog-title">{{ article.name}}
             </h3>
             <h4 class="am-article-meta">发布于 {{ article.createtime|date("Y/m/d")}}  最后修改于 {{ article.updatetime|date("Y/m/d")}} </h4>
-
             <div class="am-g blog-content">
                 <div class="am-u-lg-12">
                     {{ article.content|raw}}
                 </div>
             </div>
         </article>
+        {% if is_comment %}
         <!-- UY BEGIN -->
         <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1506374"></script>
+
         <!-- UY END -->
+        {% endif%}
     </div>
 
 
 
 </div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1506374"></script>
 {% endblock%}

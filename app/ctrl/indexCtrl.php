@@ -40,6 +40,8 @@ class indexCtrl extends \ppphp
 		if(empty($id)) {
 			//获取到最新的文章
 			$id = $model->getLastArticleId();
+		} else {
+			$this->assign('is_comment',1);
 		}
 		$articleList = $model->blog();
 		$article = $model->one($id);
