@@ -8,7 +8,7 @@ if($_SERVER['HTTP_HOST'] == 'ppphpadmin.m.com') {
 } else {
     $MODULE_NAME = 'app';
 }
-define('DEBUG', true);//调试模式
+define('DEBUG', false);//调试模式
 
 define('PPPHP',realpath('./'));	// 根目录
 //系统路径

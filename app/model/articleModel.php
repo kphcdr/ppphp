@@ -43,7 +43,7 @@ class articleModel extends \ppphp\model
     {
         $data = $this->get($this->table,['id'],[
             'AND'=>['is_use' => 0,'category'=>2],
-            'ORDER'=>['id','desc']
+            'ORDER'=>'id DESC'
         ]);
         return $data['id'];
     }
