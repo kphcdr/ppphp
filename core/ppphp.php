@@ -57,6 +57,7 @@ class ppphp {
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$requert->ctrl.'Ctrl';
         $action = $requert->action;
         $ctrlFile = APP.'ctrl/'.$requert->ctrl.'Ctrl.php';
+
         if(is_file($ctrlFile)) {
             include $ctrlFile;
         } else {

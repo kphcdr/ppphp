@@ -16,7 +16,10 @@ class route
         $route = conf::all('route');
         if(isset($_SERVER['REQUEST_URI'])) {
             $pathstr = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
-            $path = explode('/',trim($pathstr,'/'));
+            //丢掉?以及后面的参数
+            $path = explode('?',$pathstr);
+            //去掉多余的分隔符
+            $path = explode('/',trim($path[0],'/'));
             if(isset($path[0]) && $path[0]) {
                 $this->ctrl = $path[0];
             } else {
