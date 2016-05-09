@@ -22,12 +22,15 @@
         <article class="blog-main">
             <h3 class="am-article-title blog-title">{{ article.name}}
             </h3>
-            <h4 class="am-article-meta">发布于 {{ article.createtime|date("Y/m/d")}}  最后修改于 {{ article.updatetime|date("Y/m/d")}} </h4>
+            <h4 class="am-article-meta">发布于 {{ article.createtime|date("Y/m/d")}}  最后修改于 {{ article.updatetime|date("Y/m/d")}} 作者:李虎头</h4>
             <div class="am-g blog-content">
                 <div class="am-u-lg-12">
                     {{ article.content|raw}}
                 </div>
             </div>
+            <p>
+                <small>转载请著名作者,并附带原文链接,否则视为同意按照每千字五百元的价格支付稿费</small>
+            </p>
         </article>
         {% if is_comment %}
         <!-- UY BEGIN -->
