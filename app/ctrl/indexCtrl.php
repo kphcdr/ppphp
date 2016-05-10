@@ -28,6 +28,9 @@ class indexCtrl extends \ppphp
 		$model = new \app\model\articleModel();
 		$articleList = $model->doc();
 		$article = $model->one($id);
+		if(!$article) {
+			show404();
+		}
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/doc.html');
@@ -45,6 +48,9 @@ class indexCtrl extends \ppphp
 		}
 		$articleList = $model->blog();
 		$article = $model->one($id);
+		if(!$article) {
+			show404();
+		}
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/blog.html');
