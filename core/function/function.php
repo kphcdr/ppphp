@@ -104,3 +104,10 @@ function json($array)
     header('Content-Type:application/json; charset=utf-8');
     echo json_encode($array);
 }
+
+function show404()
+{
+    header('HTTP/1.1 404 Not Found');
+    header("status: 404 Not Found");
+    exit();
+}

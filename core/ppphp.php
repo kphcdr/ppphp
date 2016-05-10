@@ -61,7 +61,11 @@ class ppphp {
         if(is_file($ctrlFile)) {
             include $ctrlFile;
         } else {
-            throw new Exception($ctrlClass.'是一个不存在的控制器');
+            if(DEBUG) {
+                throw new Exception($ctrlClass . '是一个不存在的控制器');
+            } else {
+                show404();
+            }
         }
         $ctrl = new $ctrlClass();
         $ctrl->$action();
@@ -91,7 +95,11 @@ class ppphp {
             $template = $twig->loadTemplate($file);
             $template->display($this->assign?$this->assign:[]);
         } else {
-            throw new Exception($file.'是一个不存在的模板文件');
+            if(DEBUG) {
+                throw new Exception($file.'是一个不存在的模板文件');
+            } else {
+                show404();
+            }
         }
 
     }
