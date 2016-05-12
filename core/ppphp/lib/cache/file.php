@@ -36,7 +36,7 @@ class file
             mkdir($this->path,0755,true);
         }
         if($time === false) {
-            $time  = $this->time;
+            $time  = TIME + $this->time;
         } else if($time === 0){
             $time = 0;
         } else {
