@@ -31,6 +31,7 @@ class indexCtrl extends \ppphp
 		if(!$article) {
 			show404();
 		}
+		$this->assign('is_comment',$this->route->urlVar(0));
 		$this->assign('article',$article);
 		$this->assign('articleList',$articleList);
 		$this->display('index/doc.html');
