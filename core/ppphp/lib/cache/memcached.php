@@ -3,35 +3,56 @@ namespace ppphp\lib\cache;
 
 use ppphp\conf;
 
-class memcached extends \memcached
+class memcached
 {
     private $time = 3600;  #存活时间
+    private $mem;
     public function __construct($option)
     {
-        parent::__construct();
-        $this->setOption(\Memcached::OPT_COMPRESSION, false); //关闭压缩功能
-        $this->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
-        $ret = $this->addServers($option['servers']);
-	if(!$ret) {
-	\ppphp\log::error($this->getResultMessage());
-	}
+        $this->mem = new \Memcached();
+
+        $this->mem->setOption(\Memcached::OPT_COMPRESSION, false); //关闭压缩功能
+        $this->mem->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
+        $ret = $this->mem->addServers($option['servers']);
+        if(!$ret) {
+            \ppphp\log::alert($this->getResultMessage());
+        }
     }
-/**
+
+    public function get($name)
+    {
+        return $this->mem->get($name);
+    }
+
     public function set($name,$value,$time = NULL)
     {
         if(!$time) {
             $time = $this->time;
         }
-        return $this->set($name,$value,$time);
+        $ret = $this->mem->set($name,$value,$time);
+        if(!$ret) {
+            \ppphp\log::alert($this->getResultMessage());
+        }
+        return $ret;
+
     }
-*/
+
     public function del($name)
     {
-        return parent::delete($name);
+        $ret = $this->mem->delete($name);
+        if(!$ret) {
+            \ppphp\log::alert($this->getResultMessage());
+        }
+        return $ret;
+
     }
 
     public function clear()
     {
-        return parent::flush();
+        $ret =  $this->mem->flush();
+        if(!$ret) {
+            \ppphp\log::alert($this->getResultMessage());
+        }
+        return $ret;
     }
 }
