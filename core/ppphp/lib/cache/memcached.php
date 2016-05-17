@@ -15,7 +15,7 @@ class memcached
         $this->mem->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
         $ret = $this->mem->addServers($option['servers']);
         if(!$ret) {
-            \ppphp\log::alert($this->getResultMessage());
+            \ppphp\log::alert($this->mem->getResultMessage());
         }
     }
 
@@ -31,7 +31,7 @@ class memcached
         }
         $ret = $this->mem->set($name,$value,$time);
         if(!$ret) {
-            \ppphp\log::alert($this->getResultMessage());
+            \ppphp\log::alert($this->mem->getResultMessage());
         }
         return $ret;
 
@@ -41,7 +41,7 @@ class memcached
     {
         $ret = $this->mem->delete($name);
         if(!$ret) {
-            \ppphp\log::alert($this->getResultMessage());
+            \ppphp\log::alert($this->mem->getResultMessage());
         }
         return $ret;
 
@@ -51,7 +51,7 @@ class memcached
     {
         $ret =  $this->mem->flush();
         if(!$ret) {
-            \ppphp\log::alert($this->getResultMessage());
+            \ppphp\log::alert($this->mem->getResultMessage());
         }
         return $ret;
     }
