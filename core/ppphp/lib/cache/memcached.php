@@ -11,17 +11,20 @@ class memcached extends \memcached
         parent::__construct();
         $this->setOption(\Memcached::OPT_COMPRESSION, false); //关闭压缩功能
         $this->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
-        $this->addServers($option['servers']);
+        $ret = $this->addServers($option['servers']);
+	if(!$ret) {
+	\ppphp\log::error($this->getResultMessage());
+	}
     }
-
-    public function set($name,$value,$time = false)
+/**
+    public function set($name,$value,$time = NULL)
     {
         if(!$time) {
             $time = $this->time;
         }
-        return parent::set($name,$value,$time);
+        return $this->set($name,$value,$time);
     }
-
+*/
     public function del($name)
     {
         return parent::delete($name);
