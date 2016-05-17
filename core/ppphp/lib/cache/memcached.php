@@ -9,8 +9,8 @@ class memcached extends \memcached
     public function __construct($option)
     {
         parent::__construct();
-        $this->setOption(Memcached::OPT_COMPRESSION, false); //关闭压缩功能
-        $this->setOption(Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
+        $this->setOption(\Memcached::OPT_COMPRESSION, false); //关闭压缩功能
+        $this->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
         $this->addServers($option['servers']);
     }
 
