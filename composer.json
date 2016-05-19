@@ -12,7 +12,8 @@
         "filp/whoops": "2.1.2",
         "monolog/monolog": "*",
         "catfan/medoo": "*",
-        "twig/twig":"~1.0"
+        "twig/twig":"~1.0",
+        "overtrue/pinyin": "~3.0"
     },
     "authors": [
         {

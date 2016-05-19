@@ -24,5 +24,13 @@ class commonCtrl extends \admin\ctrl\baseCtrl
         parent::__construct();
     }
 
-
+    /**
+     * 文字转拼音
+     */
+    public function toPinyin($str)
+    {
+        $pinyin = new \Overtrue\Pinyin\Pinyin();
+        $ret = $pinyin->permlink($str,'-');
+        return $ret;
+    }
 }

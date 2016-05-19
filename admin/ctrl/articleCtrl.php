@@ -40,6 +40,9 @@ class articleCtrl extends commonCtrl
 	{
 		if(http_method() == 'POST') {
 			$data = post();
+			if($data['name']) {
+				$data['pinyin'] = $this->toPinyin($data['name']);
+			}
 			$articleModel = new articleModel();
 			if(isset($data['id']) && $data['id'] != '') {
 				$id = $data['id'];
