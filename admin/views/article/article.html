@@ -42,6 +42,7 @@
                                         <th>ID</th>
                                         <th>文章标题</th>
                                         <th>所属分类</th>
+                                        <th>拼音</th>
                                         <th>是否显示</th>
                                         <th>操作</th>
                                     </tr>
@@ -52,6 +53,7 @@
                                         <td>{{ a.id }}</td>
                                         <td>{{ a.name }}</td>
                                         <td>{{ a.cname }}</td>
+                                        <th>{{ a.pinyin }}</th>
                                         <td>{{ a.is_use==0 ? '可用' : '不可用' }}</td>
                                         <td>
                                             <a href="/article/infoarticle/id/{{ a.id}}" class="label label-info" data-original-title="">编辑</a>

@@ -25,7 +25,7 @@ class articleModel extends \ppphp\model
         $return['list'] =  $this->select('article',[
             '[>]category(c)'=>['category'=>'id']
         ],[
-            'c.name(cname)','article.id','article.name','article.is_use'
+            'c.name(cname)','article.id','article.name','article.is_use','article.pinyin'
         ],[
             'LIMIT'=>$limit
         ]);
