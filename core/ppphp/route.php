@@ -13,7 +13,7 @@ class route
     public $route;
     public function __construct()
     {
-        $route = conf::all('route');
+        $route = conf::get('route');
         if(isset($_SERVER['REQUEST_URI'])) {
             $pathstr = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
             //丢掉?以及后面的参数
@@ -56,8 +56,8 @@ class route
             }
         } else {
             
-            $this->ctrl = conf::get('DEFAULT_CTRL','route');
-            $this->action = conf::get('DEFAULT_ACTION','route');
+            $this->ctrl = conf::get('route', 'DEFAULT_CTRL');
+            $this->action = conf::get('route', 'DEFAULT_ACTION');
         }
     }
 
