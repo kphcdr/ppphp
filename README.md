@@ -20,7 +20,11 @@
 PHP中级及以上开发者，你要开发自己的框架吗？不如踩着我的肩膀往上走吧！
 
 #其他
+
 框架主页
 http://ppphp.kphcdr.com
+
+慕课网视频教程
+http://www.imooc.com/learn/696
 
 交流QQ群 293398791
