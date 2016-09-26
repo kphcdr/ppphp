@@ -60,7 +60,7 @@ function post($str=false,$filter = '',$default = false)
     if($str !== false)
     {
         $return = isset($_POST[$str])?$_POST[$str]:false;
-        if($return) {
+        if($return !== false) {
             switch ($filter) {
                 case 'int':
                     if (!is_numeric($return)) {
