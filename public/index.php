@@ -10,13 +10,13 @@ if($_SERVER['HTTP_HOST'] == 'ppphpadmin.m.com' || $_SERVER['HTTP_HOST'] == 'ppph
 }
 define('DEBUG', false);//调试模式
 
-define('PPPHP',realpath('./'));	// 根目录
+define('PPPHP',realpath('./../'));	// 根目录
 //系统路径
 define('CORE',PPPHP.'/core/');
 define('APP', PPPHP.'/'.$MODULE_NAME.'/');
 define('MODULE', $MODULE_NAME);
 //载入composer
-include 'vendor/autoload.php';
+include PPPHP.'/vendor/autoload.php';
 if(DEBUG) {
     //打开PHP的错误显示
     ini_set('display_error','On');
@@ -29,4 +29,3 @@ if(DEBUG) {
 } else {
     ini_set('display_error','Off');
 }
-include CORE.'init.php';

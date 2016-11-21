@@ -15,7 +15,7 @@ class model extends \medoo
 	protected $password;
 
 	protected $table;
-	
+
 	public function __construct()
 	{
 		parent::__construct(conf::all('database'));
@@ -24,11 +24,12 @@ class model extends \medoo
 	/**
 	 * 根据ID查找一条数据
 	 */
-	public function getOne($id,$field = '*')
+	public function getOne($id, $field = '*')
 	{
-		$data = $this->get($this->table,$field,array(
+		$data = $this->get($this->table, $field, [
 			"id" => $id
-		));
+		]);
+
 		return $data;
 	}
 
@@ -43,11 +44,11 @@ class model extends \medoo
 	/**
 	 * 根据ID修改一条数据
 	 */
-	public function setOne($id,$data)
+	public function setOne($id, $data)
 	{
-		return $this->update($this->table,$data,array(
-			'id'=>$id
-		));
+		return $this->update($this->table, $data, [
+			'id' => $id
+		]);
 	}
 
 	/**
@@ -55,8 +56,8 @@ class model extends \medoo
 	 */
 	public function delOne($id)
 	{
-		return $this->delete($this->table,array(
-			'id'=>$id
-		));
+		return $this->delete($this->table, [
+			'id' => $id
+		]);
 	}
 }

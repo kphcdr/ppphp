@@ -1,33 +1,39 @@
 {
-    "name": "kphcdr/ppphp",
-    "type": "framework",
-    "description": "PPPHP Framework",
-    "keywords": [
-        "PHP framework"
-    ],
-    "homepage": "http://ppphp.kphcdr.com",
-    "license": "MIT",
-    "require": {
-        "php": ">=5.3.0",
-        "filp/whoops": "2.1.2",
-        "monolog/monolog": "*",
-        "catfan/medoo": "*",
-        "twig/twig":"~1.0",
-        "overtrue/pinyin": "~3.0"
-    },
-    "authors": [
-        {
-            "name": "Kphcdr",
-            "email": "kphcdr@163.com"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        },
-        {
-            "packagist": false
-        }
+  "name": "kphcdr/ppphp",
+  "type": "framework",
+  "description": "PPPHP Framework",
+  "keywords": [
+    "PHP framework"
+  ],
+  "homepage": "http://ppphp.kphcdr.com",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.3.0",
+    "filp/whoops": "2.1.2",
+    "monolog/monolog": "*",
+    "catfan/medoo": "*",
+    "twig/twig": "~1.0",
+    "overtrue/pinyin": "~3.0"
+  },
+  "autoload": {
+    "files": [
+      "core/init.php",
+      "core/function/function.php"
     ]
+  },
+  "authors": [
+    {
+      "name": "Kphcdr",
+      "email": "kphcdr@163.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    },
+    {
+      "packagist": false
+    }
+  ]
 }
