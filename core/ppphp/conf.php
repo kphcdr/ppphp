@@ -24,7 +24,7 @@ class conf
         if(isset(self::$conf[$file][$name])) {
             return self::$conf[$file][$name];
         } else {
-            $conf = CORE.'config/'.$file.'.php';
+            $conf = PPPHP.'/config/'.$file.'.php';
             if(is_file($conf)) {
                 self::$conf[$file] = include $conf;
                     return isset(self::$conf[$file][$name])?self::$conf[$file][$name]:false;
@@ -46,7 +46,7 @@ class conf
         if(isset(self::$conf[$file])) {
             return self::$conf[$file];
         } else {
-            $conf = CORE.'config/'.$file.'.php';
+            $conf = PPPHP.'/config/'.$file.'.php';
             if(is_file($conf)) {
                 self::$conf[$file] = include $conf;
                 return self::$conf[$file];
