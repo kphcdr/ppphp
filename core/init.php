@@ -16,6 +16,8 @@ if(DEBUG) {
 } else {
     ini_set('display_error',0);
 }
+//加载类库
+include CORE .'function/function.php';
 //加载核心文件
 include CORE . 'ppphp.php';
 //注册自动加载

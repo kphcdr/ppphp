@@ -11,6 +11,8 @@ namespace admin\ctrl;
 
 class baseCtrl extends \ppphp
 {
+    use \ppphp\view;
+
     public function __construct()
     {
         //加载网站基本配置

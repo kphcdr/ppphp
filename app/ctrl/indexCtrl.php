@@ -4,12 +4,10 @@
  */
 namespace app\ctrl;
 
-use ppphp\view;
 use ppphp\cache;
 
 class indexCtrl extends \ppphp
 {
-	use view;
 	public function __construct()
 	{
 		$this->route = new \ppphp\route();

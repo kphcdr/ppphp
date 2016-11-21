@@ -17,9 +17,7 @@
   },
   "autoload": {
     "files": [
-      "core/init.php",
-      "core/function/function.php"
-    ]
+      "core/init.php"]
   },
   "authors": [
     {
