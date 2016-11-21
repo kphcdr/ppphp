@@ -69,4 +69,9 @@ class route
             return $default;
         }
     }
+
+    public function method()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
 }

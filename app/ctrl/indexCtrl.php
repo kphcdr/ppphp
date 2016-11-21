@@ -24,6 +24,11 @@ class indexCtrl extends \ppphp
 		$this->display('index/index.html');
 	}
 
+	public function getIndex()
+	{
+		$this->display('index/index.html');
+	}
+
 	public function doc()
 	{
 		$id = $this->route->urlVar(0,1);

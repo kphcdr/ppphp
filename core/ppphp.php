@@ -44,11 +44,11 @@ class ppphp
      */
     public static function run()
     {
-        $requert = new \ppphp\route();
+        $request = new \ppphp\route();
         \ppphp\log::init();
-        $ctrlClass = '\\' . MODULE . '\ctrl\\' . $requert->ctrl . 'Ctrl';
-        $action = $requert->action;
-        $ctrlFile = APP . 'ctrl/' . $requert->ctrl . 'Ctrl.php';
+        $ctrlClass = '\\' . MODULE . '\ctrl\\' . $request->ctrl . 'Ctrl';
+        $action = $request->action;
+        $ctrlFile = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
 
         if (is_file($ctrlFile)) {
             include $ctrlFile;
@@ -60,6 +60,10 @@ class ppphp
             }
         }
         $ctrl = new $ctrlClass();
+        //如果开启restful,那么加载方法时带上请求类型
+        if(\ppphp\conf::get('OPEN_RESTFUL','system')) {
+            $action = strtolower($request->method()).ucfirst($action);
+        }
         $ctrl->$action();
     }
 
