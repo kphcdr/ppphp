@@ -61,8 +61,8 @@ class ppphp
         }
         $ctrl = new $ctrlClass();
         //如果开启restful,那么加载方法时带上请求类型
-        if(\ppphp\conf::get('OPEN_RESTFUL','system')) {
-            $action = strtolower($request->method()).ucfirst($action);
+        if (\ppphp\conf::get('OPEN_RESTFUL', 'system')) {
+            $action = strtolower($request->method()) . ucfirst($action);
         }
         $ctrl->$action();
     }

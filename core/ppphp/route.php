@@ -15,9 +15,9 @@ class route
     {
         $route = conf::all('route');
         if(isset($_SERVER['REQUEST_URI'])) {
-            $pathstr = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
+            $pathStr = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
             //丢掉?以及后面的参数
-            $path = explode('?',$pathstr);
+            $path = explode('?',$pathStr);
             //去掉多余的分隔符
             $path = explode('/',trim($path[0],'/'));
             if(isset($path[0]) && $path[0]) {
@@ -46,9 +46,9 @@ class route
             }
 
             $this->path = array_merge($path);
-            $pathlenth = count($path);
+            $pathLenth = count($path);
             $i = 0;
-            while($i < $pathlenth) {
+            while($i < $pathLenth) {
                 if(isset($this->path[$i+1])) {
                     $_GET[$this->path[$i]] = $this->path[$i + 1];
                 }
