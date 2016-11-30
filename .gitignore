@@ -7,13 +7,9 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-/assets
-/backup
 /.project
 /.settings
-/ueditor
 /composer.lock
 /.buildpath
 /vendor
 .idea/
-log/
