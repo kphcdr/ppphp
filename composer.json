@@ -12,11 +12,13 @@
     "filp/whoops": "2.1.2",
     "monolog/monolog": "*",
     "catfan/medoo": "*",
-    "twig/twig": "~1.0"
+    "twig/twig": "~1.0",
+    "symfony/var-dumper": "^3.2"
   },
   "autoload": {
     "files": [
-      "core/init.php"]
+      "core/init.php"],
+    "classmap": ["common/"]
   },
   "authors": [
     {

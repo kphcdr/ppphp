@@ -22,5 +22,10 @@ include CORE .'function/function.php';
 include CORE . 'ppphp.php';
 //注册自动加载
 spl_autoload_register('\ppphp::load');
-//开始跑框架
-\ppphp::run();
+
+if(PHP_SAPI == 'cli') {
+    \ppphp_cli::run();
+} else {
+    //开始跑框架
+    \ppphp::run();
+}
