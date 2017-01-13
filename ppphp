@@ -1,0 +1,9 @@
+<?php
+
+define('DEBUG', true);//调试模式
+
+define('PPPHP', realpath('.'));    // 根目录
+//系统路径
+define('CORE', PPPHP . '/core/');
+//载入composer
+include PPPHP . '/vendor/autoload.php';
