@@ -16,11 +16,24 @@ function p($var)
     }
 }
 
+function debug(...$var)
+{
+    if(!function_exists('dump')) {
+        array_walk($var, function ($v) {
+            dump($v);
+        });
+    } else {
+        array_walk($var, function ($v) {
+            print_r($v);
+        });
+    }
+    exit();
+}
 /**
  * 获取get数据
- * @param $str 变量名
- * @param $filter 过滤方式 int为只支持int类型
- * @param $default 默认值 当获取不到值时,所返回的默认值
+ * @param string $str 变量名
+ * @param string $filter 过滤方式 int为只支持int类型
+ * @param string $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
 function get($str='false',$filter = '',$default = false)
@@ -92,11 +105,6 @@ function http_method()
     } else {
         return 'GET';
     }
-}
-
-function error($str)
-{
-    echo $str;
 }
 
 function json($array)
