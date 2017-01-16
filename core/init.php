@@ -4,7 +4,8 @@ session_start();
  * 框架加载文件，用于引导框架启动
  * ======================================================================== */
 define('TIME', $_SERVER['REQUEST_TIME']);
-if(DEBUG) {
+define('PPPHP_VERSION','2.1.1');
+if(DEBUG && PHP_SAPI != 'cli') {
     //打开PHP的错误显示
     ini_set('display_error',1);
     //载入友好的错误显示类

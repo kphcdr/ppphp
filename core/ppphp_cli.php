@@ -16,14 +16,12 @@ class ppphp_cli extends ppphp
         //加载日志模块
         \ppphp\log::init();
         $argv = $_SERVER['argv'];
-        echo 1;
         unset($argv[0]);
         $shellName = array_shift($argv);
+        $shellName = empty($shellName) ? 'help' : $shellName;
         //加载脚本
-
-        $shellFile = "common\\{$shellName}";
+        $shellFile = "common\\shell\\{$shellName}";
         $shell = new $shellFile($argv);
         $shell->start();
     }
-
 }
