@@ -1,0 +1,34 @@
+<?php
+namespace common\shell;
+
+use common\baseCommon;
+use ppphp\cliHelp;
+
+class newctrl extends baseCommon
+{
+    public $param;
+
+    public function __construct($param)
+    {
+        $this->param = $param;
+        parent::__construct();
+    }
+
+    public function start()
+    {
+        if(isset($this->param[0])) {
+            $fileName = $this->param[0];
+            $filePath = PPPHP.'/'.MODULE.'/ctrl/'.$fileName .'.php';
+            if(file_exists($filePath)) {
+                throw New \Exception('已存在的控制器'.$fileName);
+            } else {
+                $cliHelp = new cliHelp();
+                file_put_contents($filePath,$cliHelp->newCtrl($fileName));
+            }
+            p($filePath);
+        } else {
+            throw New \Exception('缺少参数');
+        }
+        $this->goodbye();
+    }
+}

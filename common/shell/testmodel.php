@@ -2,8 +2,9 @@
 namespace common\shell;
 
 use common\baseCommon;
+use ppphp\model;
 
-class test extends baseCommon
+class testmodel extends baseCommon
 {
     public $param;
 
@@ -15,6 +16,10 @@ class test extends baseCommon
 
     public function start()
     {
-        sleep(2);
+        $model = new model();
+
+        dump($model->info());
+
+        $this->goodbye();
     }
 }

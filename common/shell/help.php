@@ -15,11 +15,7 @@ class help extends baseCommon
 
     public function start()
     {
-        $this->welcome();
         $this->showCommon();
-        sleep(1);
         $this->goodbye();
-
-
     }
 }
