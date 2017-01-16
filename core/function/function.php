@@ -18,7 +18,7 @@ function p($var)
 
 function debug(...$var)
 {
-    if(!function_exists('dump')) {
+    if(function_exists('dump')) {
         array_walk($var, function ($v) {
             dump($v);
         });
