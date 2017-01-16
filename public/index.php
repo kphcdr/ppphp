@@ -14,7 +14,5 @@ define('PPPHP', realpath('./../'));    // 根目录
 define('CORE', PPPHP . '/core/');
 define('APP', PPPHP . '/' . $MODULE_NAME . '/');
 define('MODULE', $MODULE_NAME);
-date_default_timezone_set('Asia/Shanghai');
-ini_set('date.timezone','Asia/Shanghai');
 //载入composer
 include PPPHP . '/vendor/autoload.php';

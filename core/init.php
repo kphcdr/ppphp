@@ -20,7 +20,10 @@ if(DEBUG) {
 include CORE .'function/function.php';
 //加载核心文件
 include CORE . 'ppphp.php';
+
 //注册自动加载
 spl_autoload_register('\ppphp::load');
+//设置默认市区
+date_default_timezone_set(\ppphp\conf::get('timezone'));
 //开始跑框架
 \ppphp::run();
