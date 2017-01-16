@@ -17,7 +17,8 @@
   },
   "autoload": {
     "files": [
-      "core/init.php"]
+      "core/init.php"],
+    "classmap": ["common/"]
   },
   "authors": [
     {

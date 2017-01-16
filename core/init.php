@@ -4,7 +4,8 @@ session_start();
  * 框架加载文件，用于引导框架启动
  * ======================================================================== */
 define('TIME', $_SERVER['REQUEST_TIME']);
-if(DEBUG) {
+define('PPPHP_VERSION','2.1.2');
+if(DEBUG && PHP_SAPI != 'cli') {
     //打开PHP的错误显示
     ini_set('display_errors',true);
     //载入友好的错误显示类
@@ -25,5 +26,10 @@ include CORE . 'ppphp.php';
 spl_autoload_register('\ppphp::load');
 //设置默认市区
 date_default_timezone_set(\ppphp\conf::get('TIMEZONE','system'));
-//开始跑框架
-\ppphp::run();
+
+if(PHP_SAPI == 'cli') {
+    \ppphp_cli::run();
+} else {
+    //开始跑框架
+    \ppphp::run();
+}
