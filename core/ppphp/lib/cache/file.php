@@ -8,9 +8,9 @@ class file
 
     public function __construct($option)
     {
-        foreach ($option as $key => $a) {
-            $this->$key = $a;
-        }
+        array_walk($option,function($value,$key){
+            $this->$key = $value;
+        });
     }
 
     public function get($name)
