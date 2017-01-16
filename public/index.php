@@ -9,7 +9,7 @@ if ($_SERVER['SERVER_NAME'] == 'ppphpadmin.m.com' || $_SERVER['SERVER_NAME'] == 
     $MODULE_NAME = 'app';
 }
 define('DEBUG', true);//调试模式
-define('PPPHP', realpath('./../'));    // 根目录
+define('PPPHP', realpath(__DIR__.'/../'));    // 根目录
 //系统路径
 define('CORE', PPPHP . '/core/');
 define('APP', PPPHP . '/' . $MODULE_NAME . '/');

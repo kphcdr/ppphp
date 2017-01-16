@@ -6,7 +6,7 @@ session_start();
 define('TIME', $_SERVER['REQUEST_TIME']);
 if(DEBUG) {
     //打开PHP的错误显示
-    ini_set('display_error',1);
+    ini_set('display_errors',true);
     //载入友好的错误显示类
     $whoops = new \Whoops\Run;
     $errorPage = new \Whoops\Handler\PrettyPageHandler;
@@ -14,7 +14,7 @@ if(DEBUG) {
     $whoops->pushHandler($errorPage);
     $whoops->register();
 } else {
-    ini_set('display_error',0);
+    ini_set('display_errors',false);
 }
 //加载类库
 include CORE .'function/function.php';
@@ -24,6 +24,6 @@ include CORE . 'ppphp.php';
 //注册自动加载
 spl_autoload_register('\ppphp::load');
 //设置默认市区
-date_default_timezone_set(\ppphp\conf::get('timezone'));
+date_default_timezone_set(\ppphp\conf::get('TIMEZONE','system'));
 //开始跑框架
 \ppphp::run();
