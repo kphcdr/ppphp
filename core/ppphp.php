@@ -23,7 +23,7 @@ class ppphp
 
     /**
      * 自动加载类
-     * @param $class 需要加载的类,需要带上命名空间
+     * @param string $class 需要加载的类,需要带上命名空间
      */
     public static function load($class)
     {
