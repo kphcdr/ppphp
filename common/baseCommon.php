@@ -24,6 +24,11 @@ class baseCommon
             'name' => 'testmodel',
             'desc' => '测试数据库脚本',
             'param'=> '无'
+        ],
+        [
+            'name' => 'queue',
+            'desc' => '模拟队列处理示例',
+            'param'=> '无'
         ]
     ];
 
