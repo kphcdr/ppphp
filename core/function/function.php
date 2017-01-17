@@ -7,11 +7,14 @@
  */
 function p($var)
 {
-    if(is_cli()) {
-        echo PHP_EOL;
-        echo "\e[31m".$var."\e[37m".PHP_EOL;
-        echo PHP_EOL;
-
+    if (is_cli()) {
+        if (is_array($var) || is_object($var)) {
+            dump($var);
+        } else {
+            echo PHP_EOL;
+            echo "\e[31m" . $var . "\e[37m" . PHP_EOL;
+            echo PHP_EOL;
+        }
     } else {
         if (is_bool($var)) {
             var_dump($var);
@@ -25,7 +28,7 @@ function p($var)
 
 function debug(...$var)
 {
-    if(function_exists('dump')) {
+    if (function_exists('dump')) {
         array_walk($var, function ($v) {
             dump($v);
         });
@@ -36,10 +39,12 @@ function debug(...$var)
     }
     exit();
 }
+
 function is_cli()
 {
     return PHP_SAPI == 'cli';
 }
+
 /**
  * 获取get数据
  * @param string $str 变量名
@@ -47,12 +52,11 @@ function is_cli()
  * @param string $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
-function get($str='false',$filter = '',$default = false)
+function get($str = 'false', $filter = '', $default = false)
 {
-    if($str !== false)
-    {
-        $return = isset($_GET[$str])?$_GET[$str]:false;
-        if($return) {
+    if ($str !== false) {
+        $return = isset($_GET[$str]) ? $_GET[$str] : false;
+        if ($return) {
             switch ($filter) {
                 case 'int':
                     if (!is_numeric($return)) {
@@ -79,12 +83,11 @@ function get($str='false',$filter = '',$default = false)
  * @param $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
-function post($str=false,$filter = '',$default = false)
+function post($str = false, $filter = '', $default = false)
 {
-    if($str !== false)
-    {
-        $return = isset($_POST[$str])?$_POST[$str]:false;
-        if($return !== false) {
+    if ($str !== false) {
+        $return = isset($_POST[$str]) ? $_POST[$str] : false;
+        if ($return !== false) {
             switch ($filter) {
                 case 'int':
                     if (!is_numeric($return)) {
@@ -106,12 +109,12 @@ function post($str=false,$filter = '',$default = false)
 
 function redirect($str)
 {
-    header('Location:'.$str);
+    header('Location:' . $str);
 }
 
 function http_method()
 {
-    if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         return 'POST';
     } else {
         return 'GET';

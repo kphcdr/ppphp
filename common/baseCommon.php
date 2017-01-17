@@ -7,7 +7,12 @@ class baseCommon
         [
             'name' => 'help',
             'desc' => '展示所有可有的脚本',
-            'param'=> ''
+            'param'=> '无'
+        ],
+        [
+            'name' => 'clearlog',
+            'desc' => '清除所有log和cache',
+            'param'=> '无'
         ],
         [
             'name' => 'newctrl $ctrlname',
@@ -17,7 +22,7 @@ class baseCommon
         [
             'name' => 'testmodel',
             'desc' => '测试数据库脚本',
-            'param'=> ''
+            'param'=> '无'
         ]
     ];
     private $startTime;
