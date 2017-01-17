@@ -3,6 +3,7 @@ namespace common;
 
 class baseCommon
 {
+    //所有的脚本可以在这里定义一份,方便翻阅
     public $commonList = [
         [
             'name' => 'help',
@@ -25,6 +26,7 @@ class baseCommon
             'param'=> '无'
         ]
     ];
+
     private $startTime;
     private $endTime;
 
@@ -44,17 +46,21 @@ class baseCommon
         $this->endTime = microtime(true);
     }
 
+    //获取脚本运行时间
     public function getUseTime()
     {
         return round($this->endTime - $this->startTime, 4);
     }
 
+    /**
+     * 展示所有可用的操作
+     */
     public function showCommon()
     {
 
         array_walk($this->commonList, function ($a) {
             echo PHP_EOL;
-            echo "\033[37m命令: \e[31mphp ppphp " . $a['name'] . " \e[37m" . 'Desc:' . $a['desc'] ." Param: ".$a['param'] .PHP_EOL;
+            echo "\033[37mcommon: \e[31mphp ppphp " . $a['name'] . " \e[37m" . 'Desc:' . $a['desc'] ." Param: ".$a['param'] .PHP_EOL;
         });
     }
 
@@ -71,6 +77,9 @@ class baseCommon
         echo $str ;
     }
 
+    /**
+     * 友好的结束语句
+     */
     public function goodbye()
     {
         $this->setEndTime();
