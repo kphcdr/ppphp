@@ -13,7 +13,8 @@
     "monolog/monolog": "*",
     "catfan/medoo": "*",
     "twig/twig": "~1.0",
-    "symfony/var-dumper": "^3.2"
+    "symfony/var-dumper": "^3.2",
+    "kphcdr/crypt": "^1.0"
   },
   "autoload": {
     "files": [
