@@ -77,7 +77,7 @@ class baseCommon
         $str = "\e[36m====================================================" . "\e[36m" . PHP_EOL
             . "=                    PPPHP框架                     =" . PHP_EOL
             . "=                                                  =" . PHP_EOL
-            . "=       PHP版本:" . PHP_VERSION . "   框架版本:" . PPPHP_VERSION . "            =" . PHP_EOL
+            . "=       PHP版本:" . PHP_VERSION . "   框架版本:" . PPPHP_VERSION . "             =" . PHP_EOL
             . "====================================================" . PHP_EOL;
         echo $str ;
     }

@@ -26,8 +26,8 @@ include CORE . 'ppphp.php';
 spl_autoload_register('\ppphp::load');
 //设置默认市区
 date_default_timezone_set(\ppphp\conf::get('TIMEZONE','system'));
-
 if(PHP_SAPI == 'cli') {
+
     \ppphp_cli::run();
 } else {
     //开始跑框架
