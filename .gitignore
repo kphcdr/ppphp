@@ -13,3 +13,4 @@ $RECYCLE.BIN/
 /.buildpath
 /vendor
 .idea/
+.env
