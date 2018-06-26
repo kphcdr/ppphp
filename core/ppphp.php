@@ -44,8 +44,9 @@ class ppphp
      */
     public static function run()
     {
+        self::init();
         $request = new \ppphp\route();
-        \ppphp\log::init();
+
         $ctrlClass = '\\' . MODULE . '\ctrl\\' . $request->ctrl . 'Ctrl';
         $action = $request->action;
         $ctrlFile = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
@@ -65,6 +66,17 @@ class ppphp
             $action = strtolower($request->method()) . ucfirst($action);
         }
         $ctrl->$action();
+    }
+
+    protected static function init()
+    {
+        //环境配置
+        \ppphp\env::init();
+
+        //日志
+        \ppphp\log::init();
+
+        \ppphp\model::init();
     }
 
 }

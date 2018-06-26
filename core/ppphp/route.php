@@ -7,7 +7,13 @@ namespace ppphp;
 
 class route
 {
+    /**
+     * @var string $ctrl
+     */
     public $ctrl;
+    /**
+     * @var string $action
+     */
     public $action;
     public $path;
     public $route;

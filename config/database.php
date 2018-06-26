@@ -1,16 +1,22 @@
 <?php
 //数据库相关配置
-return array(
-	//mysql示例配置
-	'database_type' => 'mysql',
-	'database_name' => 'ppphp',
-	'server' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'root',
-	'charset' => 'utf8',
-	//medoo 对表前缀的支持有BUG,所以暂时不推荐设置表前缀
-	'prefix' => '',
-	//sqlite示例配置
-//    'database_type' => 'sqlite',
-//    'database_file' => 'db/ppphp.rdb'
-);
+return [
+    // 数据库类型
+    'type'        => 'Mysql',
+    // 服务器地址
+    'hostname'    => getenv("DB_HOST"),
+    // 数据库名
+    'database'    => getenv("DB_NAME"),
+    // 数据库用户名
+    'username'    => getenv("DB_USERNAME"),
+    // 数据库密码
+    'password'    => getenv("DB_PASSWORD"),
+    // 数据库连接端口
+    'hostport'    => getenv("DB_PORT"),
+    // 数据库连接参数
+    'params'      => [],
+    // 数据库编码默认采用utf8
+    'charset'     => 'utf8',
+    // 数据库表前缀
+    'prefix'      => '',
+];
