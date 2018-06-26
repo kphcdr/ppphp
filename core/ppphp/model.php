@@ -5,59 +5,19 @@
  * ======================================================================== */
 namespace ppphp;
 
-class model extends \medoo
+use think\Db;
+
+/**
+ * Class model
+ *
+ * @package ppphp
+ */
+class model extends Db
 {
-	protected $m;
-	protected $database_type;
-	protected $database_name;
-	protected $server;
-	protected $username;
-	protected $password;
+    protected $db;
 
-	protected $table;
-
-	public function __construct()
+	public static function init()
 	{
-		parent::__construct(conf::all('database'));
-	}
-
-	/**
-	 * 根据ID查找一条数据
-	 */
-	public function getOne($id, $field = '*')
-	{
-		$data = $this->get($this->table, $field, [
-			"id" => $id
-		]);
-
-		return $data;
-	}
-
-	/**
-	 * 新增一条数据
-	 */
-	public function addOne($data)
-	{
-		return $this->insert($this->table, $data);
-	}
-
-	/**
-	 * 根据ID修改一条数据
-	 */
-	public function setOne($id, $data)
-	{
-		return $this->update($this->table, $data, [
-			'id' => $id
-		]);
-	}
-
-	/**
-	 * 根据ID删除一条数据
-	 */
-	public function delOne($id)
-	{
-		return $this->delete($this->table, [
-			'id' => $id
-		]);
+        Db::setConfig(conf::all("database"));
 	}
 }

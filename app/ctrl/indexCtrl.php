@@ -5,7 +5,9 @@
 namespace app\ctrl;
 
 
+use ppphp\model;
 use ppphp\view;
+use think\Db;
 
 class indexCtrl extends \ppphp
 {
@@ -17,6 +19,6 @@ class indexCtrl extends \ppphp
 
     public function test()
     {
-        dump(getenv('APP_NAME',12));
+
     }
 }

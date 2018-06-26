@@ -11,5 +11,6 @@ $RECYCLE.BIN/
 /.settings
 /composer.lock
 /.buildpath
-/vendor
 .idea/
+.env
+vendor

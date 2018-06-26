@@ -9,7 +9,7 @@ class ppphp_cli extends ppphp
     public static function run()
     {
         //加载日志模块
-        \ppphp\log::init();
+        self::init();
         $argv = $_SERVER['argv'];
         unset($argv[0]);
         $shellName = array_shift($argv);

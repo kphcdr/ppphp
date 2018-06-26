@@ -68,10 +68,15 @@ class ppphp
         $ctrl->$action();
     }
 
-    private static function init()
+    protected static function init()
     {
-        \ppphp\log::init();
+        //环境配置
         \ppphp\env::init();
+
+        //日志
+        \ppphp\log::init();
+
+        \ppphp\model::init();
     }
 
 }
