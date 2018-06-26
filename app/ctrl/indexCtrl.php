@@ -14,4 +14,9 @@ class indexCtrl extends \ppphp
     {
         $this->display('index/index.html');
     }
+
+    public function test()
+    {
+        dump(getenv('APP_NAME',12));
+    }
 }
