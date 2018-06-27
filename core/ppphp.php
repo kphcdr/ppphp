@@ -65,7 +65,17 @@ class ppphp
         if (\ppphp\conf::get('OPEN_RESTFUL', 'system')) {
             $action = strtolower($request->method()) . ucfirst($action);
         }
-        $ctrl->$action();
+
+        if(method_exists($ctrl,$action)) {
+            $ctrl->$action();
+        } else {
+            if (DEBUG) {
+                throw new Exception($ctrlClass . '是一个不存在的方法');
+            } else {
+                show404();
+            }
+        }
+
     }
 
     protected static function init()

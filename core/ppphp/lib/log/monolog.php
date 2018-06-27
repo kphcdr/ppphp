@@ -14,11 +14,11 @@ class monolog
     
     public function __call($name,$args )
     {
-        $this->class->$name($args[1]);
+        $this->class->$name($args[1],$args[2]);
     }
     
-    public function addlog($level,$message)
+    public function addlog($level,$message,$content=[])
     {
-        $this->class->log($level,json_encode($message));
+        $this->class->log($level,$message,$content);
     }
 }

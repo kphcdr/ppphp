@@ -21,46 +21,47 @@ class log
 
             $class = '\\ppphp\\lib\\log\\' . $type;
             self::$class = new $class();
+
         }
     }
 
-    static public function debug($message)
+    static public function debug($message,$array=[])
     {
-        self::$class->debug('DEBUG', $message);
+        self::$class->debug('DEBUG', $message,$array);
     }
 
-    static public function info($message)
+    static public function info($message,$array=[])
     {
-        self::$class->info('INFO', $message);
+        self::$class->info('INFO', $message,$array);
     }
 
-    static public function notice($message)
+    static public function notice($message,$array=[])
     {
-        self::$class->notice('NOTICE', $message);
+        self::$class->notice('NOTICE', $message,$array);
     }
 
-    static public function warning($message)
+    static public function warning($message,$array=[])
     {
-        self::$class->warning('WARNING', $message);
+        self::$class->warning('WARNING', $message,$array);
     }
 
-    static public function error($message)
+    static public function error($message,$array=[])
     {
-        self::$class->error('ERROR', $message);
+        self::$class->error('ERROR', $message,$array);
     }
 
-    static public function critical($message)
+    static public function critical($message,$array=[])
     {
-        self::$class->critical('CRITICAL', $message);
+        self::$class->critical('CRITICAL', $message,$array);
     }
 
-    static public function alert($message)
+    static public function alert($message,$array=[])
     {
-        self::$class->alert('ALETR', $message);
+        self::$class->alert('ALETR', $message,$array);
     }
 
-    static public function addlog($level, $message)
+    static public function addlog($level, $message,$array=[])
     {
-        self::$class->log($level, $message);
+        self::$class->log($level, $message,$array);
     }
 }

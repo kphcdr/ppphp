@@ -5,6 +5,8 @@
 namespace app\ctrl;
 
 
+use ppphp\conf;
+use ppphp\log;
 use ppphp\view;
 use think\Db;
 
@@ -17,9 +19,15 @@ class indexCtrl extends \ppphp
         $this->display('index/index.html');
     }
 
-    public function test()
+    public function log()
     {
-        $ret = Db::query("show tables");
+        $log = conf::all('route');
+        log::error("error",$log);
+    }
+
+    public function getDb()
+    {
+        $ret = Db::query("show databases");
 
         dump($ret);
     }
