@@ -1,5 +1,5 @@
 <?php
-namespace common;
+namespace app\common;
 
 class baseCommon
 {

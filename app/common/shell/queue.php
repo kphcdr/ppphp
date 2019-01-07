@@ -1,7 +1,7 @@
 <?php
-namespace common\shell;
+namespace app\common\shell;
 
-use common\baseCommon;
+use app\common\baseCommon;
 use ppphp\model;
 
 class queue extends baseCommon

@@ -1,10 +1,9 @@
 <?php
-namespace common\shell;
+namespace app\common\shell;
 
-use common\baseCommon;
-use ppphp\model;
+use app\common\baseCommon;
 
-class testmodel extends baseCommon
+class time extends baseCommon
 {
     public $param;
 
@@ -16,10 +15,7 @@ class testmodel extends baseCommon
 
     public function start()
     {
-        $model = new model();
-
-        dump($model->info());
-
+        p(time());
         $this->goodbye();
     }
 }

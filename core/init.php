@@ -1,10 +1,28 @@
 <?php
+
 session_start();
 /* ========================================================================
  * 框架加载文件，用于引导框架启动
  * ======================================================================== */
 define('TIME', $_SERVER['REQUEST_TIME']);
 define('PPPHP_VERSION','2.1.2');
+define('PPPHP', realpath(__DIR__.'/../'));    // 根目录
+
+//环境配置加载
+\ppphp\ppphp::development();
+
+//如果是多模块,可以通过动态设置module的形式,动态条用不同模块
+$MODULE_NAME = 'app';
+define('DEBUG', getenv("APP_DEBUG"));//调试模式
+//系统路径
+define('CORE', PPPHP . '/core/');
+define('APP', PPPHP . '/' . $MODULE_NAME . '/');
+define('MODULE', $MODULE_NAME);
+
+
+\ppphp\ppphp::init();
+
+
 if(DEBUG && PHP_SAPI != 'cli') {
     //打开PHP的错误显示
     ini_set('display_errors',true);
@@ -19,17 +37,16 @@ if(DEBUG && PHP_SAPI != 'cli') {
 }
 //加载类库
 include CORE .'function/function.php';
-//加载核心文件
-include CORE . 'ppphp.php';
 
-//注册自动加载
-spl_autoload_register('\ppphp::load');
 //设置默认市区
 date_default_timezone_set(\ppphp\conf::get('TIMEZONE','system'));
+
+
 if(PHP_SAPI == 'cli') {
 
-    \ppphp_cli::run();
+    \ppphp\ppphpCli::run();
 } else {
     //开始跑框架
-    \ppphp::run();
+
+    \ppphp\ppphp::run();
 }

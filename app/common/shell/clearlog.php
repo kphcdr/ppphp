@@ -1,7 +1,7 @@
 <?php
-namespace common\shell;
+namespace app\common\shell;
 
-use common\baseCommon;
+use app\common\baseCommon;
 
 class clearlog extends baseCommon
 {

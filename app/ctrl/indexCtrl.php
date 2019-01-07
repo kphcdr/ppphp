@@ -7,10 +7,11 @@ namespace app\ctrl;
 
 use ppphp\conf;
 use ppphp\log;
+use ppphp\ppphp;
 use ppphp\view;
 use think\Db;
 
-class indexCtrl extends \ppphp
+class indexCtrl extends ppphp
 {
     use view;
 
@@ -28,7 +29,6 @@ class indexCtrl extends \ppphp
     public function getDb()
     {
         $ret = Db::query("show databases");
-
         dump($ret);
     }
 }

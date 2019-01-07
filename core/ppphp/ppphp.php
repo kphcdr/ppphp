@@ -1,4 +1,5 @@
 <?php
+namespace ppphp;
 
 /* ========================================================================
  * ppphp核心类
@@ -8,6 +9,8 @@
  * 引入模型
  * 引入视图
  * ======================================================================== */
+
+use ppphp\exception\ppphpException;
 
 class ppphp
 {
@@ -20,23 +23,6 @@ class ppphp
      */
     public $assign;
 
-
-    /**
-     * 自动加载类
-     * @param string $class 需要加载的类,需要带上命名空间
-     */
-    public static function load($class)
-    {
-        $class = str_replace('\\', '/', trim($class, '\\'));
-        if (is_file(CORE . $class . '.php')) {
-            include_once CORE . $class . '.php';
-        } else {
-            if (is_file(PPPHP . '/' . $class . '.php')) {
-                include_once PPPHP . '/' . $class . '.php';
-            }
-        }
-    }
-
     /**
      * 框架启动方法,完成了两件事情
      * 1.加载route解析当前URL
@@ -44,33 +30,31 @@ class ppphp
      */
     public static function run()
     {
-        self::init();
-        $request = new \ppphp\route();
+        $request = new route();
 
         $ctrlClass = '\\' . MODULE . '\ctrl\\' . $request->ctrl . 'Ctrl';
         $action = $request->action;
         $ctrlFile = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
-
         if (is_file($ctrlFile)) {
             include $ctrlFile;
         } else {
             if (DEBUG) {
-                throw new Exception($ctrlClass . '是一个不存在的控制器');
+                throw new ppphpException($ctrlClass . '是一个不存在的控制器');
             } else {
                 show404();
             }
         }
         $ctrl = new $ctrlClass();
         //如果开启restful,那么加载方法时带上请求类型
-        if (\ppphp\conf::get('OPEN_RESTFUL', 'system')) {
+        if (conf::get('OPEN_RESTFUL', 'system')) {
             $action = strtolower($request->method()) . ucfirst($action);
         }
 
         if(method_exists($ctrl,$action)) {
-            $ctrl->$action();
+            call_user_func([$ctrl,$action]);
         } else {
             if (DEBUG) {
-                throw new Exception($ctrlClass . '是一个不存在的方法');
+                throw new ppphpException($ctrlClass . '是一个不存在的方法');
             } else {
                 show404();
             }
@@ -78,15 +62,21 @@ class ppphp
 
     }
 
-    protected static function init()
+    /**
+     *  初始化环境
+     */
+    public static function development()
     {
-        //环境配置
-        \ppphp\env::init();
+        env::init();
+    }
 
+    public static function init()
+    {
         //日志
-        \ppphp\log::init();
+        log::init();
 
-        \ppphp\model::init();
+        //数据库
+        model::init();
     }
 
 }

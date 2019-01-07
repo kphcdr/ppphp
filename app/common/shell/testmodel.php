@@ -1,9 +1,11 @@
 <?php
-namespace common\shell;
+namespace app\common\shell;
 
-use common\baseCommon;
+use app\common\baseCommon;
+use ppphp\model;
+use think\Db;
 
-class time extends baseCommon
+class testmodel extends baseCommon
 {
     public $param;
 
@@ -15,7 +17,10 @@ class time extends baseCommon
 
     public function start()
     {
-        p(time());
+        $ret = Db::query("show databases;");
+
+        dump($ret);
+
         $this->goodbye();
     }
 }

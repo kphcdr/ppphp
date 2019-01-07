@@ -20,7 +20,10 @@
   "autoload": {
     "files": [
       "core/init.php"],
-    "classmap": ["common/"]
+    "psr-4": {
+      "ppphp\\": "core/ppphp",
+      "app\\": "app"
+    }
   },
   "authors": [
     {
