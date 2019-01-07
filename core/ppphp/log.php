@@ -8,8 +8,13 @@
 namespace ppphp;
 
 
+use Monolog\Logger;
+
 class log
 {
+    /**
+     * @var Logger
+     */
     static public $class;
     static public $logMessage;
 
@@ -60,7 +65,7 @@ class log
         self::$class->alert('ALETR', $message, $array);
     }
 
-    static public function addlog($level, $message, $array = [])
+    static public function addLog($level, $message, $array = [])
     {
         self::$class->log($level, $message, $array);
     }

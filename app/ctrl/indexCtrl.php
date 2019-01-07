@@ -19,13 +19,17 @@ class indexCtrl extends ppphp
 
     public function index()
     {
+        $this->assign("data",[
+            "title"=>"PPPHP"
+        ]);
         $this->display("index/index.html");
     }
 
     public function log()
     {
-        $log = conf::all('route');
-        log::error("error",$log);
+
+        log::debug("it is debug");
+        log::error("it is error");
     }
 
     public function getDb()
