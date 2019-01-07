@@ -1,28 +1,15 @@
 <?php
 namespace ppphp;
-
-/* ========================================================================
- * ppphp核心类
- * 实现以下几个功能
- * 类自动加载
- * 启动框架
- * 引入模型
- * 引入视图
- * ======================================================================== */
-
 use ppphp\exception\ppphpException;
 
+/**
+ * ppphp核心类
+ *
+ * @package ppphp
+ *
+ */
 class ppphp
 {
-    /**
-     * model用于存放已经加载的model模型,下次加载时直接返回
-     */
-    public $model;
-    /**
-     * 视图赋值
-     */
-    public $assign;
-
     /**
      * 框架启动方法,完成了两件事情
      * 1.加载route解析当前URL
@@ -67,15 +54,19 @@ class ppphp
     }
 
     /**
-     *  初始化环境
+     *  初始化env环境
      */
     public static function development()
     {
         env::init();
     }
 
+    /**
+     *  初始化组件
+     */
     public static function init()
     {
+        session_start();
         //错误处理
         exceptionHandle::init();
         //日志

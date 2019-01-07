@@ -9,8 +9,16 @@ use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 use Symfony\Component\VarDumper\Dumper\ServerDumper;
 use Symfony\Component\VarDumper\VarDumper;
 
+/**
+ * 错误处理
+ *
+ * @package ppphp
+ */
 class exceptionHandle
 {
+    /**
+     * 如果是开发模式，加载Whoops 和dump_server
+     */
     public static function init()
     {
         if (DEBUG) {

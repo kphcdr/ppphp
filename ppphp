@@ -1,2 +1,5 @@
 <?php
+/**
+ * PPPHP CLI入口文件
+ */
 include 'vendor/autoload.php';

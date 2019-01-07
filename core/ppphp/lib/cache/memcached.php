@@ -12,10 +12,7 @@ class memcached
 
         $this->mem->setOption(\Memcached::OPT_COMPRESSION, false); //关闭压缩功能
         $this->mem->setOption(\Memcached::OPT_BINARY_PROTOCOL, true);//使用binary二进制协议
-        $ret = $this->mem->addServers($option['servers']);
-        if (! $ret) {
-            \ppphp\log::alert($this->mem->getResultMessage());
-        }
+        $this->mem->addServers($option['servers']);
     }
 
     public function get($name)
@@ -28,33 +25,17 @@ class memcached
         if (! $time) {
             $time = $this->time;
         }
-        $ret = $this->mem->set($name, $value, $time);
-        if (! $ret) {
-            \ppphp\log::alert($this->mem->getResultMessage());
-        }
 
-        return $ret;
-
+        return $this->mem->set($name, $value, $time);
     }
 
     public function del($name)
     {
-        $ret = $this->mem->delete($name);
-        if (! $ret) {
-            \ppphp\log::alert($this->mem->getResultMessage());
-        }
-
-        return $ret;
-
+        return $this->mem->delete($name);
     }
 
     public function clear()
     {
-        $ret = $this->mem->flush();
-        if (! $ret) {
-            \ppphp\log::alert($this->mem->getResultMessage());
-        }
-
-        return $ret;
+        return $this->mem->flush();
     }
 }

@@ -11,49 +11,58 @@ class conf
      *
      * @var array
      */
-    static public $conf = array();
-    
+    static public $conf = [];
+
     /**
      * 加载系统配置,如果之前已经加载过,那么就直接返回
+     *
      * @param string $name 配置名
      * @param string $file 文件名
+     *
      * @return string|array
      */
-    static public function get($name,$file='conf')
+    static public function get($name, $file = 'conf')
     {
-        if(isset(self::$conf[$file][$name])) {
+        if (isset(self::$conf[$file][$name])) {
             return self::$conf[$file][$name];
-        } else {
-            $conf = PPPHP.'/config/'.$file.'.php';
-            if(is_file($conf)) {
+        }
+        else {
+            $conf = PPPHP . '/config/' . $file . '.php';
+            if (is_file($conf)) {
                 self::$conf[$file] = include $conf;
-                    return isset(self::$conf[$file][$name])?self::$conf[$file][$name]:false;
-            } else {
+
+                return isset(self::$conf[$file][$name]) ? self::$conf[$file][$name] : false;
+            }
+            else {
                 return null;
             }
         }
-        
+
     }
-    
+
     /**
      * 加载系统配置文件(直接加载整个配置文件),如果之前已经加载过,那么就直接返回
-     * @param string $name 配置名
+     *
      * @param string $file 文件名
+     *
      * @return string|array
      */
     static public function all($file)
     {
-        if(isset(self::$conf[$file])) {
+        if (isset(self::$conf[$file])) {
             return self::$conf[$file];
-        } else {
-            $conf = PPPHP.'/config/'.$file.'.php';
-            if(is_file($conf)) {
+        }
+        else {
+            $conf = PPPHP . '/config/' . $file . '.php';
+            if (is_file($conf)) {
                 self::$conf[$file] = include $conf;
+
                 return self::$conf[$file];
-            } else {
+            }
+            else {
                 return null;
             }
         }
-        
+
     }
 }

@@ -4,7 +4,11 @@ namespace ppphp;
 
 trait view
 {
-
+    /**
+     * 视图赋值
+     * @var array
+     */
+    public $assign;
     /**
      * 为模板对象赋值
      */

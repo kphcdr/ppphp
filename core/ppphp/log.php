@@ -18,6 +18,9 @@ class log
     static public $class;
     static public $logMessage;
 
+    /**
+     * 初始化
+     */
     static public function init()
     {
         if (! self::$class) {
@@ -30,41 +33,90 @@ class log
         }
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function debug($message, $array = [])
     {
-        self::$class->debug('DEBUG', $message, $array);
+        return self::$class->debug('DEBUG', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function info($message, $array = [])
     {
-        self::$class->info('INFO', $message, $array);
+        return self::$class->info('INFO', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function notice($message, $array = [])
     {
         self::$class->notice('NOTICE', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function warning($message, $array = [])
     {
         self::$class->warning('WARNING', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function error($message, $array = [])
     {
         self::$class->error('ERROR', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function critical($message, $array = [])
     {
         self::$class->critical('CRITICAL', $message, $array);
     }
 
+    /**
+     * @param       $message
+     * @param array $array
+     *
+     * @return bool
+     */
     static public function alert($message, $array = [])
     {
         self::$class->alert('ALETR', $message, $array);
     }
 
+    /**
+     * 普通的写日志
+     *
+     * @param       $level
+     * @param       $message
+     * @param array $array
+     */
     static public function addLog($level, $message, $array = [])
     {
         self::$class->log($level, $message, $array);
