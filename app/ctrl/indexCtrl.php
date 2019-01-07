@@ -29,6 +29,10 @@ class indexCtrl extends ppphp
     public function getDb()
     {
         $ret = Db::query("show databases");
+
+        echo 1/0;
+
         dump($ret);
+
     }
 }

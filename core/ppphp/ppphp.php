@@ -72,6 +72,8 @@ class ppphp
 
     public static function init()
     {
+        //错误处理
+        exceptionHandle::init();
         //日志
         log::init();
 
