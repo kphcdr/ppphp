@@ -10,8 +10,7 @@ define('PPPHP', realpath(__DIR__ . '/../'));    // 根目录
 
 //环境配置加载
 \ppphp\ppphp::development();
-//加载函数库
-include CORE . 'function/function.php';
+
 
 //如果是多模块,可以通过动态设置module的形式,动态条用不同模块
 $MODULE_NAME = 'app';
@@ -21,6 +20,8 @@ define('CORE', PPPHP . '/core/');
 define('MODULE', $MODULE_NAME);
 define('APP', PPPHP . '/' . MODULE . '/');
 
+//加载函数库
+include CORE . 'function/function.php';
 \ppphp\ppphp::init();
 
 

@@ -5,6 +5,8 @@
 namespace app\ctrl;
 
 
+use app\common\shell\dumpServer;
+use ppphp\cache;
 use ppphp\conf;
 use ppphp\log;
 use ppphp\ppphp;
@@ -17,7 +19,7 @@ class indexCtrl extends ppphp
 
     public function index()
     {
-        $this->display('index/index.html');
+        $this->display("index/index.html");
     }
 
     public function log()
@@ -30,7 +32,6 @@ class indexCtrl extends ppphp
     {
         $ret = Db::query("show databases");
 
-        echo 1/0;
 
         dump($ret);
 
