@@ -4,10 +4,6 @@
  */
 namespace app\ctrl;
 
-
-use app\common\shell\dumpServer;
-use ppphp\cache;
-use ppphp\conf;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -15,13 +11,16 @@ use think\Db;
 
 class indexCtrl extends ppphp
 {
+    /**
+     * 如果需要使用模板引擎，那么需要动态加载
+     *
+     * @var view
+     */
     use view;
 
     public function index()
     {
-        $this->assign("data",[
-            "title"=>"PPPHP"
-        ]);
+        $this->assign("title","PPPHP");
         $this->display("index/index.html");
     }
 

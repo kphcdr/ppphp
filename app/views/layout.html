@@ -2,11 +2,7 @@
 <html>
 <head lang="cn">
     <meta charset="UTF-8">
-    {% block header %}
-    <title>{{ conf.WEBTITLE}}</title>
-    <meta name="keywords" content="{{ conf.KEYWORD}}">
-    <meta name="description" content="{{ conf.DESC}}">
-    {% endblock%}
+    <title>{{ data.title }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
@@ -20,7 +16,7 @@
 <header class="am-topbar am-topbar-fixed-top">
     <div class="am-container">
         <h1 class="am-topbar-brand">
-            <a href="/">{{ title }} title</a>
+            <a href="/">{{ title }}</a>
         </h1>
 
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"

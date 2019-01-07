@@ -31,7 +31,7 @@ trait view
             ]);
 
             $template = $twig->loadTemplate($file);
-            $template->display($this->assign ? $this->assign : []);
+            $template->display($this->assign ?? []);
         }
         else {
             if (DEBUG) {
