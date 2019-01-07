@@ -8,12 +8,13 @@ namespace ppphp;
 class cache
 {
     private $class;
+
     public function __construct()
     {
-            $type = \ppphp\conf::get('CACHE_TYPE','cache');
-            $option = \ppphp\conf::get('OPTION','cache');
-            $class = '\\ppphp\\lib\\cache\\'.$type;
-            $this->class = new $class($option);
+        $type        = conf::get('CACHE_TYPE', 'cache');
+        $option      = conf::get('OPTION', 'cache');
+        $class       = '\\ppphp\\lib\\cache\\' . $type;
+        $this->class = new $class($option);
     }
 
     public function get($name)
@@ -23,7 +24,7 @@ class cache
 
     public function set($name, $value, $time = false)
     {
-        return $this->class->set($name,$value,$time);
+        return $this->class->set($name, $value, $time);
     }
 
     public function del($name)

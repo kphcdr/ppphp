@@ -25,7 +25,6 @@ include CORE . 'function/function.php';
 \ppphp\ppphp::init();
 
 
-
 //设置默认市区
 date_default_timezone_set(\ppphp\conf::get('TIMEZONE', 'system'));
 

@@ -6,9 +6,9 @@ class cliHelp
     public function newCtrl($file)
     {
         return "<?php
-namespace ".MODULE."\\ctrl;
+namespace " . MODULE . "\\ctrl;
 
-class ".$file." extends \\ppphp
+class " . $file . " extends \\ppphp
 {
     public function index()
     {

@@ -17,10 +17,11 @@ class ppphpCli extends ppphp
         //加载脚本
         $shellFile = "app\\common\\shell\\{$shellName}";
         try {
-            if(file_exists(str_replace('\\', '/', trim(PPPHP.'/'.$shellFile.'.php', '\\')))) {
+            if (file_exists(str_replace('\\', '/', trim(PPPHP . '/' . $shellFile . '.php', '\\')))) {
                 $shell = new $shellFile($argv);
                 $shell->start();
-            } else {
+            }
+            else {
                 throw New \Exception('不存在的脚本');
             }
         } catch (\Exception $e) {

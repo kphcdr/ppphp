@@ -9,7 +9,8 @@ use Dotenv\Dotenv;
 
 class env
 {
-    public static function init() {
+    public static function init()
+    {
         $dotenv = new Dotenv(PPPHP);
         $dotenv->load();
     }

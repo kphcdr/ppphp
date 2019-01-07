@@ -33,14 +33,16 @@ class ppphp
         $request = new route();
 
         $ctrlClass = '\\' . MODULE . '\ctrl\\' . $request->ctrl . 'Ctrl';
-        $action = $request->action;
-        $ctrlFile = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
+        $action    = $request->action;
+        $ctrlFile  = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
         if (is_file($ctrlFile)) {
             include $ctrlFile;
-        } else {
+        }
+        else {
             if (DEBUG) {
                 throw new ppphpException($ctrlClass . '是一个不存在的控制器');
-            } else {
+            }
+            else {
                 show404();
             }
         }
@@ -50,12 +52,14 @@ class ppphp
             $action = strtolower($request->method()) . ucfirst($action);
         }
 
-        if(method_exists($ctrl,$action)) {
-            call_user_func([$ctrl,$action]);
-        } else {
+        if (method_exists($ctrl, $action)) {
+            call_user_func([$ctrl, $action]);
+        }
+        else {
             if (DEBUG) {
                 throw new ppphpException($ctrlClass . '是一个不存在的方法');
-            } else {
+            }
+            else {
                 show404();
             }
         }

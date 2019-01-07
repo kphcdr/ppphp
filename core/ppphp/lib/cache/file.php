@@ -8,7 +8,7 @@ class file
 
     public function __construct($option)
     {
-        array_walk($option,function($value,$key){
+        array_walk($option, function ($value, $key) {
             $this->$key = $value;
         });
     }
@@ -19,10 +19,12 @@ class file
             $ret = json_decode(file_get_contents($this->path . '/' . $name . '.ppcache'), true);
             if ($ret['time'] == 0 || $ret['time'] >= TIME) {
                 return $ret['data'];
-            } else {
+            }
+            else {
                 return false;
             }
-        } else {
+        }
+        else {
             return false;
         }
 
@@ -30,19 +32,22 @@ class file
 
     public function set($name, $value, $time = false)
     {
-        if (!is_dir($this->path)) {
+        if (! is_dir($this->path)) {
             mkdir($this->path, 0755, true);
         }
         if ($time === false) {
             $time = TIME + $this->time;
-        } else if ($time === 0) {
+        }
+        else if ($time === 0) {
             $time = 0;
-        } else {
+        }
+        else {
             $time += TIME;
         }
-        $file = $this->path . '/' . $name . '.ppcache';
+        $file         = $this->path . '/' . $name . '.ppcache';
         $data['data'] = $value;
         $data['time'] = $time;
+
         return file_put_contents($file, json_encode($data));
     }
 
@@ -51,7 +56,8 @@ class file
         $file = $this->path . '/' . $name . '.ppcache';
         if (is_file($file)) {
             return unlink($file);
-        } else {
+        }
+        else {
             return false;
         }
     }
@@ -62,9 +68,10 @@ class file
         while ($file = readdir($dh)) {
             if ($file != "." && $file != "..") {
                 $fullPath = $this->path . "/" . $file;
-                if (!is_dir($fullPath)) {
+                if (! is_dir($fullPath)) {
                     unlink($fullPath);
-                } else {
+                }
+                else {
                     deldir($fullPath);
                 }
             }

@@ -29,41 +29,46 @@ class route
             $path = explode('/', trim($path[0], '/'));
             if (isset($path[0]) && $path[0]) {
                 $this->ctrl = $path[0];
-            } else {
+            }
+            else {
                 $this->ctrl = $route['DEFAULT_CTRL'];
             }
             unset($path[0]);
             //检测是否包含路由缩写
             if (isset($route['ROUTE'][$this->ctrl])) {
                 $this->action = $route['ROUTE'][$this->ctrl][1];
-                $this->ctrl = $route['ROUTE'][$this->ctrl][0];
-            } else {
+                $this->ctrl   = $route['ROUTE'][$this->ctrl][0];
+            }
+            else {
                 if (isset($path[1]) && $path[1]) {
                     $have = strstr($path[1], '?', true);
                     if ($have) {
                         $this->action = $have;
-                    } else {
+                    }
+                    else {
                         $this->action = $path[1];
                     }
 
-                } else {
+                }
+                else {
                     $this->action = $route['DEFAULT_ACTION'];
                 }
                 unset($path[1]);
             }
 
             $this->path = array_merge($path);
-            $pathLenth = count($path);
-            $i = 0;
+            $pathLenth  = count($path);
+            $i          = 0;
             while ($i < $pathLenth) {
                 if (isset($this->path[$i + 1])) {
                     $_GET[$this->path[$i]] = $this->path[$i + 1];
                 }
                 $i = $i + 2;
             }
-        } else {
+        }
+        else {
 
-            $this->ctrl = conf::get('DEFAULT_CTRL', 'route');
+            $this->ctrl   = conf::get('DEFAULT_CTRL', 'route');
             $this->action = conf::get('DEFAULT_ACTION', 'route');
         }
     }
@@ -72,7 +77,8 @@ class route
     {
         if (isset($this->path[$num])) {
             return $this->path[$num];
-        } else {
+        }
+        else {
             return $default;
         }
     }

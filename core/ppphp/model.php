@@ -16,8 +16,8 @@ class model extends Db
 {
     protected $db;
 
-	public static function init()
-	{
+    public static function init()
+    {
         Db::setConfig(conf::all("database"));
-	}
+    }
 }

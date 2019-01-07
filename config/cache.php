@@ -1,7 +1,6 @@
 <?php
 //日志相关配置
-return array(
-
+return [
    /**
      * file 存储
      */
@@ -19,4 +18,4 @@ return array(
 //','11211']
 //        ]
 //    ]
-);
+];

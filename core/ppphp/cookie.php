@@ -13,7 +13,8 @@ class cookie
     {
         if ($name != '') {
             return empty($_COOKIE[$name]) ? '' : self::decrypt($_COOKIE[$name]);
-        } else {
+        }
+        else {
             return '';
         }
     }
@@ -23,14 +24,15 @@ class cookie
      */
     private static function decrypt($string)
     {
-        $code = '';
-        $key = substr(md5(self::SECRETKEY), 8, 18);
+        $code   = '';
+        $key    = substr(md5(self::SECRETKEY), 8, 18);
         $strLen = strlen($string);
         $keyLen = strlen($key);
         for ($i = 0; $i < $strLen; $i++) {
             $k = $i % $keyLen;
             $code .= $string[$i] ^ $key[$k];
         }
+
         return base64_decode($code);
     }
 
@@ -41,7 +43,8 @@ class cookie
     {
         if ($name == '' || empty($_COOKIE[$name])) {
             return true;
-        } else {
+        }
+        else {
             return self::set($name, '', '-10');
         }
     }
@@ -58,10 +61,12 @@ class cookie
     public static function set($name, $value = null, $expire = 3600, $path = '/', $domain = '', $secure = 0)
     {
         if ($name != '' && $value != '') {
-            $value = self::encryption($value);
+            $value  = self::encryption($value);
             $expire = time() + $expire;
+
             return setcookie($name, $value, $expire, $path, $domain, $secure);
-        } else {
+        }
+        else {
             return false;
         }
     }
@@ -72,14 +77,15 @@ class cookie
     private static function encryption($string)
     {
         $string = base64_encode($string);
-        $code = '';
-        $key = substr(md5(self::SECRETKEY), 8, 18);
+        $code   = '';
+        $key    = substr(md5(self::SECRETKEY), 8, 18);
         $strLen = strlen($string);
         $keyLen = strlen($key);
         for ($i = 0; $i < $strLen; $i++) {
             $k = $i % $keyLen;
             $code .= $string[$i] ^ $key[$k];
         }
+
         return $code;
     }
 }

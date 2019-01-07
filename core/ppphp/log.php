@@ -15,53 +15,53 @@ class log
 
     static public function init()
     {
-        if (!self::$class) {
+        if (! self::$class) {
 
             $type = conf::get('LOG_TYPE', 'log');
 
-            $class = '\\ppphp\\lib\\log\\' . $type;
+            $class       = '\\ppphp\\lib\\log\\' . $type;
             self::$class = new $class();
 
         }
     }
 
-    static public function debug($message,$array=[])
+    static public function debug($message, $array = [])
     {
-        self::$class->debug('DEBUG', $message,$array);
+        self::$class->debug('DEBUG', $message, $array);
     }
 
-    static public function info($message,$array=[])
+    static public function info($message, $array = [])
     {
-        self::$class->info('INFO', $message,$array);
+        self::$class->info('INFO', $message, $array);
     }
 
-    static public function notice($message,$array=[])
+    static public function notice($message, $array = [])
     {
-        self::$class->notice('NOTICE', $message,$array);
+        self::$class->notice('NOTICE', $message, $array);
     }
 
-    static public function warning($message,$array=[])
+    static public function warning($message, $array = [])
     {
-        self::$class->warning('WARNING', $message,$array);
+        self::$class->warning('WARNING', $message, $array);
     }
 
-    static public function error($message,$array=[])
+    static public function error($message, $array = [])
     {
-        self::$class->error('ERROR', $message,$array);
+        self::$class->error('ERROR', $message, $array);
     }
 
-    static public function critical($message,$array=[])
+    static public function critical($message, $array = [])
     {
-        self::$class->critical('CRITICAL', $message,$array);
+        self::$class->critical('CRITICAL', $message, $array);
     }
 
-    static public function alert($message,$array=[])
+    static public function alert($message, $array = [])
     {
-        self::$class->alert('ALETR', $message,$array);
+        self::$class->alert('ALETR', $message, $array);
     }
 
-    static public function addlog($level, $message,$array=[])
+    static public function addlog($level, $message, $array = [])
     {
-        self::$class->log($level, $message,$array);
+        self::$class->log($level, $message, $array);
     }
 }
