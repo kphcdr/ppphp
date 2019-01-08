@@ -43,7 +43,12 @@ class indexCtrl extends ppphp
 
     public function event()
     {
-        $event = new testEvent();
+        $id = mt_rand(1,100);
+        $data = [
+          "name"=>"data",
+            "server"=>$_SERVER
+        ];
+        $event = new testEvent($id,$data);
         $event->fire();
     }
 }

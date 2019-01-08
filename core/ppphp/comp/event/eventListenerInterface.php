@@ -8,6 +8,6 @@ namespace ppphp\comp\event;
  */
 interface eventListenerInterface
 {
-    //处理逻辑
+    //处理事件逻辑
     public function handle(eventInterface $event);
 }
