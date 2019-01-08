@@ -4,10 +4,8 @@
  */
 namespace app\event;
 
-use ppphp\comp\event\eventAbstract;
 use ppphp\comp\event\eventInterface;
 use ppphp\comp\event\eventListenerAbstract;
-use ppphp\comp\event\eventListenerInterface;
 
 class testEventListener extends eventListenerAbstract
 {
