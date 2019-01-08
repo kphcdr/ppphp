@@ -4,6 +4,7 @@
  */
 namespace app\ctrl;
 
+use app\event\testEvent;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -38,5 +39,11 @@ class indexCtrl extends ppphp
 
         dump($ret);
 
+    }
+
+    public function event()
+    {
+        $event = new testEvent();
+        $event->fire();
     }
 }
