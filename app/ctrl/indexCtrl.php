@@ -5,6 +5,8 @@
 namespace app\ctrl;
 
 use app\event\testEvent;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -21,6 +23,7 @@ class indexCtrl extends ppphp
 
     public function index()
     {
+        Arr::exists();
         $this->assign("title","PPPHP");
         $this->display("index/index.html");
     }
