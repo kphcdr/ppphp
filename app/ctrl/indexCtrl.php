@@ -5,8 +5,6 @@
 namespace app\ctrl;
 
 use app\event\testEvent;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -21,14 +19,18 @@ class indexCtrl extends ppphp
      */
     use view;
 
-    public function index()
+
+    public function getIndex()
     {
-        Arr::exists();
-        $this->assign("title","PPPHP");
+        $this->assign("title", "PPPHP");
         $this->display("index/index.html");
     }
 
-    public function log()
+    public function postIndex()
+    {
+        echo __FUNCTION__;
+    }
+    public function getLog()
     {
 
         log::debug("it is debug");
@@ -46,12 +48,12 @@ class indexCtrl extends ppphp
 
     public function event()
     {
-        $id = mt_rand(1,100);
-        $data = [
-          "name"=>"data",
-            "server"=>$_SERVER
+        $id    = mt_rand(1, 100);
+        $data  = [
+            "name"   => "data",
+            "server" => $_SERVER,
         ];
-        $event = new testEvent($id,$data);
+        $event = new testEvent($id, $data);
         $event->fire();
     }
 }

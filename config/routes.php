@@ -1,10 +1,11 @@
 <?php
 return [
-    "/"=>\app\ctrl\homeCtrl::class,
-    "admin" => [
-        "/"=>\app\ctrl\adminCtrl::class,
-        "role" => \app\ctrl\roleCtrl::class,
-    ],
-    "index"=>index::class
+    "/"      => \app\ctrl\indexCtrl::class,
+    "index"  => \app\ctrl\indexCtrl::class,
+    "indexs" => [
+        "db" => [
+            "db" => \app\ctrl\indexCtrl::class,
 
+        ]
+    ]
 ];

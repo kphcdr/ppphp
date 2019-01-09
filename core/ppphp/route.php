@@ -17,7 +17,7 @@ class route
     public $action;
     public $path;
     public $route;
-
+    private $pathLevel = 0;
     public function __construct()
     {
         $routeMap = conf::all("routes");
@@ -31,52 +31,16 @@ class route
             $path = explode('/', trim($path[0], '/'));
             $ret     = $this->catchCtrl($path, $routeMap);
 
-            dd($this->ctrl, $ret);
-            //
-            //            if (isset($path[0]) && $path[0]) {
-            //                $this->ctrl = $path[0];
-            //            }
-            //            else {
-            //                $this->ctrl = $route['DEFAULT_CTRL'];
-            //            }
-            //            unset($path[0]);
-            //            //检测是否包含路由缩写
-            //            if (isset($route['ROUTE'][$this->ctrl])) {
-            //                $this->action = $route['ROUTE'][$this->ctrl][1];
-            //                $this->ctrl   = $route['ROUTE'][$this->ctrl][0];
-            //            }
-            //            else {
-            //                if (isset($path[1]) && $path[1]) {
-            //                    $have = strstr($path[1], '?', true);
-            //                    if ($have) {
-            //                        $this->action = $have;
-            //                    }
-            //                    else {
-            //                        $this->action = $path[1];
-            //                    }
-            //
-            //                }
-            //                else {
-            //                    $this->action = $route['DEFAULT_ACTION'];
-            //                }
-            //                unset($path[1]);
-            //            }
+            if($ret) {
+                $this->path =  array_slice($path,$this->pathLevel);
+                $this->action = array_shift($this->path);
+            }
 
-            $this->path = array_merge($path);
-            $pathLenth  = count($path);
-            $i          = 0;
-            while ($i < $pathLenth) {
-                if (isset($this->path[$i + 1])) {
-                    $_GET[$this->path[$i]] = $this->path[$i + 1];
-                }
-                $i = $i + 2;
+            if(is_null($this->action)) {
+                $this->action = "index";
             }
         }
-        else {
 
-            $this->ctrl   = conf::get('DEFAULT_CTRL', 'route');
-            $this->action = conf::get('DEFAULT_ACTION', 'route');
-        }
     }
 
     public function urlVar($num, $default = false)
@@ -103,6 +67,7 @@ class route
      */
     protected function catchCtrl($path, $routeMap)
     {
+        $this->pathLevel++;
         if (is_array($routeMap)) {
             $index = 0;
             $count = count($path);

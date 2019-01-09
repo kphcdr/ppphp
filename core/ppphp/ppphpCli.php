@@ -25,7 +25,7 @@ class ppphpCli extends ppphp
                 throw New \Exception('不存在的脚本');
             }
         } catch (\Exception $e) {
-            p($e->getMessage());
+
         }
     }
 }
