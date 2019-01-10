@@ -5,6 +5,7 @@
 namespace app\ctrl;
 
 use app\event\testEvent;
+use app\validator\loginValidator;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -22,8 +23,17 @@ class indexCtrl extends ppphp
 
     public function getIndex()
     {
-        $this->assign("title", "PPPHP");
-        $this->display("index/index.html");
+
+        $valid = new loginValidator([
+            "id"=>12,
+            "name"=>"name"
+        ]);
+
+        if($valid->valid()) {
+            echo $valid->getMessage();
+        }
+
+
     }
 
     public function postIndex()
