@@ -1,6 +1,7 @@
 <?php
 namespace ppphp;
 use ppphp\exception\ppphpException;
+use Whoops\Exception\ErrorException;
 
 /**
  * ppphp核心类
@@ -19,32 +20,33 @@ class ppphp
     {
         $request = new route();
 
-        $ctrlClass = '\\' . MODULE . '\ctrl\\' . $request->ctrl . 'Ctrl';
-        $action    = $request->action;
-        $ctrlFile  = APP . 'ctrl/' . $request->ctrl . 'Ctrl.php';
-        if (is_file($ctrlFile)) {
-            include $ctrlFile;
+        if(is_null($request->ctrl)) {
+            show404();
         }
-        else {
-            if (DEBUG) {
-                throw new ppphpException($ctrlClass . '是一个不存在的控制器');
-            }
-            else {
+        $ctrlClass = $request->ctrl;
+        $action    = $request->action;
+        try {
+
+            $ctrl = new $ctrlClass();
+
+        } catch (\Exception $e) {
+
+            if(DEBUG) {
+                throw new ppphpException($ctrlClass . '是一个不存在的类');
+            } else {
                 show404();
             }
+
+            return false;
         }
-        $ctrl = new $ctrlClass();
-        //如果开启restful,那么加载方法时带上请求类型
-        if (conf::get('OPEN_RESTFUL', 'system')) {
-            $action = strtolower($request->method()) . ucfirst($action);
-        }
+        $action = strtolower($request->method()) . ucfirst($action);
 
         if (method_exists($ctrl, $action)) {
             call_user_func([$ctrl, $action]);
         }
         else {
             if (DEBUG) {
-                throw new ppphpException($ctrlClass . '是一个不存在的方法');
+                throw new ppphpException($action . '是一个不存在的方法');
             }
             else {
                 show404();

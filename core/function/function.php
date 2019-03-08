@@ -23,7 +23,7 @@ function debug(...$var)
  * @param string $default 默认值 当获取不到值时,所返回的默认值
  * @return mix
  */
-function get($str = 'false', $filter = '', $default = false)
+function get($str = false, $filter = '', $default = false)
 {
     if ($str !== false) {
         $return = isset($_GET[$str]) ? $_GET[$str] : false;

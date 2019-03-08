@@ -4,6 +4,8 @@
  */
 namespace app\ctrl;
 
+use app\event\testEvent;
+use app\validator\loginValidator;
 use ppphp\log;
 use ppphp\ppphp;
 use ppphp\view;
@@ -18,13 +20,27 @@ class indexCtrl extends ppphp
      */
     use view;
 
-    public function index()
+
+    public function getIndex()
     {
-        $this->assign("title","PPPHP");
-        $this->display("index/index.html");
+
+        $valid = new loginValidator([
+            "id"=>12,
+            "name"=>"name"
+        ]);
+
+        if($valid->valid()) {
+            echo $valid->getMessage();
+        }
+
+
     }
 
-    public function log()
+    public function postIndex()
+    {
+        echo __FUNCTION__;
+    }
+    public function getLog()
     {
 
         log::debug("it is debug");
@@ -38,5 +54,16 @@ class indexCtrl extends ppphp
 
         dump($ret);
 
+    }
+
+    public function event()
+    {
+        $id    = mt_rand(1, 100);
+        $data  = [
+            "name"   => "data",
+            "server" => $_SERVER,
+        ];
+        $event = new testEvent($id, $data);
+        $event->fire();
     }
 }

@@ -15,7 +15,8 @@
     "vlucas/phpdotenv": "^2.4",
     "topthink/think-orm": "^1.2",
     "filp/whoops": "^2.3",
-    "symfony/var-dumper": "^4.2"
+    "symfony/var-dumper": "^4.2",
+    "guzzlehttp/guzzle": "^6.3"
   },
   "autoload": {
     "files": [
