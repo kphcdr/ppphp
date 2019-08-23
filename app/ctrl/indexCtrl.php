@@ -20,8 +20,11 @@ class indexCtrl extends ppphp
      */
     use view;
 
-
-    public function getIndex()
+    public function index()
+    {
+        echo "Hello World";
+    }
+    public function getVaild()
     {
 
         $valid = new loginValidator([
