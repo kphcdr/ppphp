@@ -26,5 +26,3 @@ http://ppphp.kphcdr.com
 
 慕课网视频教程
 http://www.imooc.com/learn/696
-
-交流QQ群 293398791
